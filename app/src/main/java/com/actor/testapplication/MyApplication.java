@@ -1,6 +1,11 @@
 package com.actor.testapplication;
 
-import android.app.Application;
+import android.support.annotation.Nullable;
+
+import com.actor.myandroidframework.application.ActorApplication;
+import com.actor.testapplication.utils.Global;
+
+import okhttp3.OkHttpClient;
 
 /**
  * Description: 类的描述
@@ -10,6 +15,21 @@ import android.app.Application;
  *
  * @version 1.0
  */
-public class MyApplication extends Application {
+public class MyApplication extends ActorApplication {
 
+    @Nullable
+    @Override
+    protected OkHttpClient.Builder getOkHttpClientBuilder(OkHttpClient.Builder builder) {
+        return builder;
+    }
+
+    @Override
+    protected String getBaseUrl() {
+        return Global.BASE_URL;
+    }
+
+    @Override
+    protected void onUncaughtException(Thread thread, Throwable e) {
+        System.exit(-1);
+    }
 }

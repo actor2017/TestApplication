@@ -4,21 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TestFragment">
-
-    <me.zhanghai.android.materialratingbar.MaterialRatingBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:rating="3"
-        app:mrb_fillBackgroundStars="true"
-        app:mrb_indeterminateTint="@color/colorAccent"
-        app:mrb_indeterminateTintMode="add"
-        app:mrb_progressBackgroundTint="@color/colorPrimary"
-        app:mrb_progressBackgroundTintMode="add"
-        app:mrb_progressTint="@color/colorPrimaryDark"
-        app:mrb_progressTintMode="add"
-        app:mrb_secondaryProgressTint="@color/cardview_shadow_start_color"
-        app:mrb_secondaryProgressTintMode="add" />
+    tools:context=".fragment.TestFragment">
 
     <Button
         android:id="@+id/btn_1"

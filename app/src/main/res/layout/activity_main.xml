@@ -5,17 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
-    <fragment
-        android:id="@+id/fragment1"
-        android:name="com.actor.testapplication.TestFragment"
+    <me.zhanghai.android.materialratingbar.MaterialRatingBar
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?android:actionBarSize" />
+        android:layout_height="wrap_content"
+        android:rating="3"
+        app:mrb_fillBackgroundStars="true"
+        app:mrb_indeterminateTint="@color/colorAccent"
+        app:mrb_indeterminateTintMode="add"
+        app:mrb_progressBackgroundTint="@color/colorPrimary"
+        app:mrb_progressBackgroundTintMode="add"
+        app:mrb_progressTint="@color/colorPrimaryDark"
+        app:mrb_progressTintMode="add"
+        app:mrb_secondaryProgressTint="@color/cardview_shadow_start_color"
+        app:mrb_secondaryProgressTintMode="add" />
 
     <Button
         android:id="@+id/btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="all"
+        android:text="View on Github:\n
+    https://github.com/actor20170211030627/TestApplication" />
 </LinearLayout>

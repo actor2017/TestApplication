@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.actor.testapplication"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -24,8 +24,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
-    //Lambda表达式, 在android节点内添加
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -43,9 +41,13 @@ dependencies {
 
     implementation 'com.android.support:design:28.0.0'
 
+    //https://github.com/actor20170211030627/MyAndroidFrameWork
+    implementation 'com.github.actor20170211030627:MyAndroidFrameWork:1.2.5'
+
     //https://github.com/JakeWharton/butterknife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
 
     //https://github.com/DreaminginCodeZH/MaterialRatingBar
     implementation 'me.zhanghai.android.materialratingbar:library:1.3.2'
