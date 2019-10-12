@@ -27,7 +27,6 @@ public class MyApplication extends ActorApplication {
     protected String getBaseUrl() {
         return Global.BASE_URL;
     }
-
     @Override
     protected void onUncaughtException(Thread thread, Throwable e) {
         System.exit(-1);

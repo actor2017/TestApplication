@@ -6,4 +6,6 @@
 
     <color name="black">#000</color>
     <color name="white">#FFF</color>
+
+    <color name="red_trans_CC99">#CC99</color>
 </resources>
