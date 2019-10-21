@@ -1,7 +1,7 @@
 package com.actor.testapplication.utils;
 
 /**
- * Description: 类的描述
+ * Description: 全局变量
  * Company    : 重庆市了赢科技有限公司 http://www.liaoin.com/
  * Author     : 李大发
  * Date       : 2019-9-17 on 15:08
@@ -9,5 +9,14 @@ package com.actor.testapplication.utils;
  * @version 1.0
  */
 public class Global {
-    public static final String BASE_URL = "https://www.baidu.com";
+
+    public static final String CHECK_UPDATE = "https://github.com/actor20170211030627/" +
+            "TestApplication" +
+            "/raw/master/app/build/outputs/apk/debug/output.json";
+
+    public static final String DOWNLOAD_URL = "https://github.com/actor20170211030627/" +
+            "TestApplication" +
+            "/raw/master/app/build/outputs/apk/debug/" +
+            "app-debug" +
+            ".apk";
 }

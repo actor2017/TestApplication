@@ -3,7 +3,6 @@ package com.actor.testapplication;
 import android.support.annotation.Nullable;
 
 import com.actor.myandroidframework.application.ActorApplication;
-import com.actor.testapplication.utils.Global;
 
 import okhttp3.OkHttpClient;
 
@@ -25,7 +24,7 @@ public class MyApplication extends ActorApplication {
 
     @Override
     protected String getBaseUrl() {
-        return Global.BASE_URL;
+        return null;
     }
     @Override
     protected void onUncaughtException(Thread thread, Throwable e) {

@@ -58,5 +58,12 @@
             android:autoLink="all"
             android:text="View on Github:\n
     https://github.com/actor20170211030627/TestApplication" />
+
+        <TextView
+            android:id="@+id/tv_version"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar_size"
+            android:gravity="center"
+            tools:text="VersionName: 1.0.0(VersionCode: 1)" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

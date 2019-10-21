@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-25:12
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\bb3e44ba1228d0d73a7379023ab0d81c\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.6] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\d7ea4bf85d17ee9f4bc4c3f427ecad05\AndroidManifest.xml:2:1-42:12
 MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\5b261118a004bb74808eb795b948764c\AndroidManifest.xml:17:1-73:12
@@ -57,25 +57,29 @@ MERGED from [com.youth.banner:banner:1.4.10] C:\Users\actor\.gradle\caches\trans
 MERGED from [com.blankj:utilcode:1.24.7] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\983eb250de912cdf938b47a770259e6c\AndroidManifest.xml:2:1-35:12
 MERGED from [com.flyco.dialog:FlycoDialog_Lib:1.3.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\39cd8dddc0e51cd4eff5ab262321100d\AndroidManifest.xml:2:1-11:12
 MERGED from [com.yanzhenjie:mediascanner:1.0.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\c4c0351a2211c03dfc0c4fc000c19991\AndroidManifest.xml:17:1-25:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-25:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-25:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
 	package
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:3:5-40
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-25:12
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-25:12
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:5:5-78
+	android:name
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:5:22-75
 application
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:6:5-23:19
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:8:5-26:19
 MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.6] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\d7ea4bf85d17ee9f4bc4c3f427ecad05\AndroidManifest.xml:30:5-40:19
 MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.6] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\d7ea4bf85d17ee9f4bc4c3f427ecad05\AndroidManifest.xml:30:5-40:19
 MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\5b261118a004bb74808eb795b948764c\AndroidManifest.xml:29:5-71:19
@@ -103,37 +107,41 @@ MERGED from [com.blankj:utilcode:1.24.7] C:\Users\actor\.gradle\caches\transform
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\9b5ffe8ac9e7063da39965cb8299f43f\AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:12:9-35
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:10:9-41
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:12:9-41
 	android:roundIcon
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:11:9-43
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:13:9-43
 	android:icon
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:9:9-38
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:11:9-38
 	android:allowBackup
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:8:9-35
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:10:9-35
 	android:networkSecurityConfig
 		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.6] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\d7ea4bf85d17ee9f4bc4c3f427ecad05\AndroidManifest.xml:31:9-69
 	android:theme
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:13:9-40
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:15:9-40
 	android:usesCleartextTraffic
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:14:9-44
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:16:9-44
 	android:name
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:7:9-38
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:9:9-38
 activity#com.actor.testapplication.activity.MainActivity
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:16:9-22:20
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:18:9-24:20
 	android:name
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:16:19-56
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:18:19-56
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:17:13-21:29
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:19:13-23:29
 action#android.intent.action.MAIN
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:18:17-69
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:20:17-69
 	android:name
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:18:25-66
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:20:25-66
 category#android.intent.category.LAUNCHER
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:20:17-77
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:22:17-77
 	android:name
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:20:27-74
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:22:27-74
+service#com.actor.testapplication.service.CheckUpdateService
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:25:9-63
+	android:name
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:25:18-60
 uses-sdk
 INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
