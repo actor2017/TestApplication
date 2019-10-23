@@ -4,6 +4,8 @@ import android.support.annotation.Nullable;
 
 import com.actor.myandroidframework.application.ActorApplication;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.OkHttpClient;
 
 /**
@@ -19,7 +21,9 @@ public class MyApplication extends ActorApplication {
     @Nullable
     @Override
     protected OkHttpClient.Builder getOkHttpClientBuilder(OkHttpClient.Builder builder) {
-        return builder;
+        return builder.connectTimeout(30_000L, TimeUnit.MILLISECONDS)//默认10s, 可不设置
+                .readTimeout(30_000L, TimeUnit.MILLISECONDS)//默认10s, 可不设置
+                .writeTimeout(30_000L, TimeUnit.MILLISECONDS);//默认10s, 可不设置
     }
 
     @Override

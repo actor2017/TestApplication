@@ -1,15 +1,16 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-31:12
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\bb3e44ba1228d0d73a7379023ab0d81c\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.6] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\d7ea4bf85d17ee9f4bc4c3f427ecad05\AndroidManifest.xml:2:1-42:12
 MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\5b261118a004bb74808eb795b948764c\AndroidManifest.xml:17:1-73:12
 MERGED from [com.jaeger.statusbarutil:library:1.5.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\6af375600aaeda6410a9d67791802bb9\AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\c8121cc84e92b843ebff7adb4c158724\AndroidManifest.xml:17:1-24:12
 MERGED from [me.zhanghai.android.materialratingbar:library:1.3.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\57e686c8fbdf611e1bf1216d451f0708\AndroidManifest.xml:6:1-15:12
+MERGED from [com.github.blikoon:QRCodeScanner:0.1.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b0f6ae90e0fc83e5d672bb04182821df\AndroidManifest.xml:2:1-19:12
 MERGED from [com.ruffian.library:RWidgetHelper:1.1.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\03a4e73cdb6d6639b1523e31ffaa0d27\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\9112a721415c587702fdafff7931b47d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\87dce58151174efd4a4466e5c45bf793\AndroidManifest.xml:2:1-11:12
@@ -57,20 +58,20 @@ MERGED from [com.youth.banner:banner:1.4.10] C:\Users\actor\.gradle\caches\trans
 MERGED from [com.blankj:utilcode:1.24.7] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\983eb250de912cdf938b47a770259e6c\AndroidManifest.xml:2:1-35:12
 MERGED from [com.flyco.dialog:FlycoDialog_Lib:1.3.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\39cd8dddc0e51cd4eff5ab262321100d\AndroidManifest.xml:2:1-11:12
 MERGED from [com.yanzhenjie:mediascanner:1.0.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\c4c0351a2211c03dfc0c4fc000c19991\AndroidManifest.xml:17:1-25:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-31:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-31:12
 	package
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:3:5-40
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-28:12
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-31:12
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:11-69
@@ -78,8 +79,12 @@ uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:5:5-78
 	android:name
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:5:22-75
+uses-permission#android.permission.VIBRATE
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:6:5-65
+	android:name
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:6:22-63
 application
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:8:5-26:19
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:8:5-29:19
 MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.6] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\d7ea4bf85d17ee9f4bc4c3f427ecad05\AndroidManifest.xml:30:5-40:19
 MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.6] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\d7ea4bf85d17ee9f4bc4c3f427ecad05\AndroidManifest.xml:30:5-40:19
 MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\5b261118a004bb74808eb795b948764c\AndroidManifest.xml:29:5-71:19
@@ -88,6 +93,8 @@ MERGED from [com.jaeger.statusbarutil:library:1.5.1] C:\Users\actor\.gradle\cach
 MERGED from [com.jaeger.statusbarutil:library:1.5.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\6af375600aaeda6410a9d67791802bb9\AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\c8121cc84e92b843ebff7adb4c158724\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\c8121cc84e92b843ebff7adb4c158724\AndroidManifest.xml:22:5-20
+MERGED from [com.github.blikoon:QRCodeScanner:0.1.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b0f6ae90e0fc83e5d672bb04182821df\AndroidManifest.xml:11:5-17:19
+MERGED from [com.github.blikoon:QRCodeScanner:0.1.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b0f6ae90e0fc83e5d672bb04182821df\AndroidManifest.xml:11:5-17:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\87dce58151174efd4a4466e5c45bf793\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\87dce58151174efd4a4466e5c45bf793\AndroidManifest.xml:9:5-20
 MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\03ee6c676e4348d0b3e3a80a786adc0c\AndroidManifest.xml:10:5-20
@@ -124,6 +131,10 @@ MERGED from [com.blankj:utilcode:1.24.7] C:\Users\actor\.gradle\caches\transform
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:16:9-44
 	android:name
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:9:9-38
+activity#com.actor.testapplication.activity.TestActivity
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:17:9-68
+	android:name
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:17:19-56
 activity#com.actor.testapplication.activity.MainActivity
 ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:18:9-24:20
 	android:name
@@ -139,9 +150,9 @@ ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:22:17-77
 	android:name
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:22:27-74
 service#com.actor.testapplication.service.CheckUpdateService
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:25:9-63
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:26:9-63
 	android:name
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:25:18-60
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:26:18-60
 uses-sdk
 INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
@@ -158,6 +169,8 @@ MERGED from [com.android.support:design:28.0.0] C:\Users\actor\.gradle\caches\tr
 MERGED from [com.android.support:design:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\c8121cc84e92b843ebff7adb4c158724\AndroidManifest.xml:20:5-44
 MERGED from [me.zhanghai.android.materialratingbar:library:1.3.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\57e686c8fbdf611e1bf1216d451f0708\AndroidManifest.xml:11:5-13:41
 MERGED from [me.zhanghai.android.materialratingbar:library:1.3.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\57e686c8fbdf611e1bf1216d451f0708\AndroidManifest.xml:11:5-13:41
+MERGED from [com.github.blikoon:QRCodeScanner:0.1.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b0f6ae90e0fc83e5d672bb04182821df\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.blikoon:QRCodeScanner:0.1.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b0f6ae90e0fc83e5d672bb04182821df\AndroidManifest.xml:7:5-9:41
 MERGED from [com.ruffian.library:RWidgetHelper:1.1.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\03a4e73cdb6d6639b1523e31ffaa0d27\AndroidManifest.xml:7:5-9:41
 MERGED from [com.ruffian.library:RWidgetHelper:1.1.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\03a4e73cdb6d6639b1523e31ffaa0d27\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\9112a721415c587702fdafff7931b47d\AndroidManifest.xml:20:5-44
@@ -380,6 +393,10 @@ ADDED from [com.yanzhenjie:album:2.1.3] C:\Users\actor\.gradle\caches\transforms
 		ADDED from [com.yanzhenjie:album:2.1.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\5b261118a004bb74808eb795b948764c\AndroidManifest.xml:69:17-62
 	android:name
 		ADDED from [com.yanzhenjie:album:2.1.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\5b261118a004bb74808eb795b948764c\AndroidManifest.xml:68:17-67
+activity#com.blikoon.qrcodescanner.QrCodeActivity
+ADDED from [com.github.blikoon:QRCodeScanner:0.1.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b0f6ae90e0fc83e5d672bb04182821df\AndroidManifest.xml:15:9-16:20
+	android:name
+		ADDED from [com.github.blikoon:QRCodeScanner:0.1.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b0f6ae90e0fc83e5d672bb04182821df\AndroidManifest.xml:15:19-74
 activity#com.yanzhenjie.permission.bridge.BridgeActivity
 ADDED from [com.yanzhenjie.permission:support:2.0.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\7b677f47f4165fa89854e5ef7838ebae\AndroidManifest.xml:25:9-27:55
 	android:theme

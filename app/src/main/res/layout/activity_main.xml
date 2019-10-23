@@ -24,12 +24,6 @@
                 android:id="@+id/video_view"
                 android:layout_width="200dp"
                 android:layout_height="200dp" />
-            <!--            android:background="@color/colorAccent"-->
-            <!--                <TextView-->
-            <!--                    android:layout_width="200dp"-->
-            <!--                    android:layout_height="200dp"-->
-            <!--                    android:layout_margin="10dp"-->
-            <!--                    android:text="sdfsadfasdfsdfsdfdsf" />-->
         </android.support.v7.widget.MyCardView>
 
         <me.zhanghai.android.materialratingbar.MaterialRatingBar
@@ -51,6 +45,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="btn" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Result"
+            android:minHeight="50dp" />
 
         <Button
             android:layout_width="wrap_content"

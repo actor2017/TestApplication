@@ -10,13 +10,14 @@ package com.actor.testapplication.utils;
  */
 public class Global {
 
-    public static final String CHECK_UPDATE = "https://github.com/actor20170211030627/" +
+    //必须GET
+    public static final String CHECK_UPDATE = "https://raw.githubusercontent.com/" +
+            "actor20170211030627/" +
             "TestApplication" +
-            "/raw/master/app/build/outputs/apk/debug/output.json";
+            "/master/app/build/outputs/apk/debug/output.json";
 
-    public static final String DOWNLOAD_URL = "https://github.com/actor20170211030627/" +
+    public static final String DOWNLOAD_URL = "https://raw.githubusercontent.com/" +
+            "actor20170211030627/" +
             "TestApplication" +
-            "/raw/master/app/build/outputs/apk/debug/" +
-            "app-debug" +
-            ".apk";
+            "/master/app/build/outputs/apk/debug/app-debug.apk";
 }
