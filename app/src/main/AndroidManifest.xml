@@ -3,7 +3,7 @@
     package="com.actor.testapplication">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".MyApplication"
@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.TestActivity"></activity>
+        <activity android:name=".activity.Export2ExcelActivity"></activity>
+        <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +25,6 @@
         </activity>
 
         <service android:name=".service.CheckUpdateService" />
-
-
     </application>
 
 </manifest>

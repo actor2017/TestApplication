@@ -34,6 +34,8 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        setTitle("主页");
         tvVersion.setText(getStringFormat("VersionName: %s(VersionCode: %d)",
                 AppUtils.getAppVersionName(), AppUtils.getAppVersionCode()));//版本
         startService(new Intent(this, CheckUpdateService.class));//检查更新
@@ -41,17 +43,21 @@ public class MainActivity extends BaseActivity {
         videoView.setVideoURI(Uri.parse(url));
     }
 
-    @OnClick({R.id.btn})
+    @OnClick({R.id.btn, R.id.btn_export_2_excel, R.id.btn_scan_qr_code, R.id.btn_go2_test})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn:
 //                videoView.start();
-
-                Intent i = new Intent(MainActivity.this, QrCodeActivity.class);
-                startActivityForResult( i, REQUEST_CODE_QR_SCAN);
-
-//                startActivity(new Intent(this, TestActivity.class));
-
+                break;
+            case R.id.btn_export_2_excel://导出到Excel
+                startActivity(new Intent(this, Export2ExcelActivity.class), view);
+                break;
+            case R.id.btn_scan_qr_code://扫描二维码
+                startActivityForResult(new Intent(this, QrCodeActivity.class),
+                        REQUEST_CODE_QR_SCAN, view);
+                break;
+            case R.id.btn_go2_test://测试页面
+                startActivity(new Intent(this, TestActivity.class), view);
                 break;
         }
     }

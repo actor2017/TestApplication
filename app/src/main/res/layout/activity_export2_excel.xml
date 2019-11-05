@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
-    tools:context=".activity.TestActivity">
+    tools:context=".activity.Export2ExcelActivity">
 
     <TextView
         android:id="@+id/tv_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Result"
+        android:hint="Excel已导出至："
         android:minHeight="50dp" />
 
     <Button
         android:id="@+id/btn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="btn"
-        android:transitionName="btnTest" />
+        android:text="导出"
+        android:transitionName="btnExportExcel" />
 </LinearLayout>

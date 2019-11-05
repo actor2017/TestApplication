@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--这是GridTableAddMinus的属性-->
+    <declare-styleable name="GridTableAddMinus">
+
+        <!--左侧红点是否显示-->
+        <!-- 解析成int类型,enum:只能选择一个状态.    flag:可用|连接多个状态.-->
+        <attr name="gtamRedStarVisiable" format="enum">
+            <!-- Visible on screen; the default value. -->
+            <enum name="visible" value="0"/>
+            <!-- Not displayed, but taken into account during layout (space is left for it). -->
+            <enum name="invisible" value="1"/>
+            <!-- Completely hidden, as if the view had not been added. -->
+            <enum name="gone" value="2"/>
+        </attr>
+
+        <!--左边的文字-->
+        <attr name="gtamItemName" format="string"/>
+
+        <!--最小值-->
+        <attr name="gtamMinValue" format="integer"/>
+
+        <!--最大值-->
+        <attr name="gtamMaxValue" format="integer"/>
+
+        <!--默认值-->
+        <attr name="gtamDefaultValue" format="integer"/>
+    </declare-styleable>
+</resources>

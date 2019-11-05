@@ -40,18 +40,39 @@
             app:mrb_secondaryProgressTint="@color/cardview_shadow_start_color"
             app:mrb_secondaryProgressTintMode="add" />
 
-        <Button
-            android:id="@+id/btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="btn" />
-
         <TextView
             android:id="@+id/tv_result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Result"
             android:minHeight="50dp" />
+
+        <Button
+            android:id="@+id/btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="btn" />
+
+        <Button
+            android:id="@+id/btn_export_2_excel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="导出到Excel"
+            android:transitionName="btnExportExcel" />
+
+        <Button
+            android:id="@+id/btn_scan_qr_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="扫描二维码"
+            android:transitionName="btnScanQrScan" />
+
+        <Button
+            android:id="@+id/btn_go2_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="测试页面"
+            android:transitionName="btnTest" />
 
         <Button
             android:layout_width="wrap_content"
