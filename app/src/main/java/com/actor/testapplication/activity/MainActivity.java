@@ -54,7 +54,7 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.btn_scan_qr_code://扫描二维码
                 startActivityForResult(new Intent(this, QrCodeActivity.class),
-                        REQUEST_CODE_QR_SCAN, view);
+                        REQUEST_CODE_QR_SCAN/*, view*/);
                 break;
             case R.id.btn_go2_test://测试页面
                 startActivity(new Intent(this, TestActivity.class), view);
@@ -67,7 +67,7 @@ public class MainActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data != null) {
             if(resultCode != Activity.RESULT_OK) {
-                //解析图片
+                //解析图片失败
                 String result = data.getStringExtra("com.blikoon.qrcodescanner.error_decoding_image");
                 tvResult.setText(result);
             } else {
