@@ -10,11 +10,11 @@ MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\actor\.gradle\caches\transform
 MERGED from [com.jaeger.statusbarutil:library:1.5.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\6af375600aaeda6410a9d67791802bb9\AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\c8121cc84e92b843ebff7adb4c158724\AndroidManifest.xml:17:1-24:12
 MERGED from [me.zhanghai.android.materialratingbar:library:1.3.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\57e686c8fbdf611e1bf1216d451f0708\AndroidManifest.xml:6:1-15:12
-MERGED from [com.github.blikoon:QRCodeScanner:0.1.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b0f6ae90e0fc83e5d672bb04182821df\AndroidManifest.xml:2:1-19:12
 MERGED from [com.ruffian.library:RWidgetHelper:1.1.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\03a4e73cdb6d6639b1523e31ffaa0d27\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\9112a721415c587702fdafff7931b47d\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\87dce58151174efd4a4466e5c45bf793\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:support-v4:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\f2beeb7b64bfc954eff3f5eb193fbfbc\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\128ebd0e72213fca0af7f3cf5760f3a4\AndroidManifest.xml:2:1-11:12
 MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b9aea2fd4916345988a66856c2d41f03\AndroidManifest.xml:2:1-7:12
 MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\7e480357b9f2cb5eaee1927bdc56c823\AndroidManifest.xml:15:1-20:12
 MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\03ee6c676e4348d0b3e3a80a786adc0c\AndroidManifest.xml:2:1-12:12
@@ -51,7 +51,6 @@ MERGED from [com.contrarywind:wheelview:4.0.9] C:\Users\actor\.gradle\caches\tra
 MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\5f394e009af76457006e45cddbaaf09b\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\ac8bc84d4d4d7dba73007629b120fff5\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\ff53206a78b3cab23c89e73670a9f690\AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\e00562112b6a29a6fe002784bbe6e631\AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.anzaizai:EasySwipeMenuLayout:1.1.4] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\ec740e0c4e88462d95c19d6cfa0f59b9\AndroidManifest.xml:2:1-14:12
 MERGED from [com.zhy:okhttputils:2.6.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\5b25fe9fe325d846cf1e6fb3ac428e75\AndroidManifest.xml:2:1-11:12
 MERGED from [com.youth.banner:banner:1.4.10] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\bf10e7778a0b78377ee4458e99fe8908\AndroidManifest.xml:2:1-11:12
@@ -93,8 +92,6 @@ MERGED from [com.jaeger.statusbarutil:library:1.5.1] C:\Users\actor\.gradle\cach
 MERGED from [com.jaeger.statusbarutil:library:1.5.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\6af375600aaeda6410a9d67791802bb9\AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\c8121cc84e92b843ebff7adb4c158724\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\c8121cc84e92b843ebff7adb4c158724\AndroidManifest.xml:22:5-20
-MERGED from [com.github.blikoon:QRCodeScanner:0.1.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b0f6ae90e0fc83e5d672bb04182821df\AndroidManifest.xml:11:5-17:19
-MERGED from [com.github.blikoon:QRCodeScanner:0.1.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b0f6ae90e0fc83e5d672bb04182821df\AndroidManifest.xml:11:5-17:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\87dce58151174efd4a4466e5c45bf793\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\87dce58151174efd4a4466e5c45bf793\AndroidManifest.xml:9:5-20
 MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\03ee6c676e4348d0b3e3a80a786adc0c\AndroidManifest.xml:10:5-20
@@ -131,10 +128,10 @@ MERGED from [com.blankj:utilcode:1.24.7] C:\Users\actor\.gradle\caches\transform
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:16:9-44
 	android:name
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:9:9-38
-activity#com.actor.testapplication.activity.Export2ExcelActivity
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:17:9-76
+activity#com.actor.testapplication.activity.ExpandableItemActivity
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:17:9-78
 	android:name
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:17:19-64
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:17:19-66
 activity#com.actor.testapplication.activity.TestActivity
 ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:18:9-59
 	android:name
@@ -173,8 +170,6 @@ MERGED from [com.android.support:design:28.0.0] C:\Users\actor\.gradle\caches\tr
 MERGED from [com.android.support:design:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\c8121cc84e92b843ebff7adb4c158724\AndroidManifest.xml:20:5-44
 MERGED from [me.zhanghai.android.materialratingbar:library:1.3.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\57e686c8fbdf611e1bf1216d451f0708\AndroidManifest.xml:11:5-13:41
 MERGED from [me.zhanghai.android.materialratingbar:library:1.3.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\57e686c8fbdf611e1bf1216d451f0708\AndroidManifest.xml:11:5-13:41
-MERGED from [com.github.blikoon:QRCodeScanner:0.1.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b0f6ae90e0fc83e5d672bb04182821df\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.blikoon:QRCodeScanner:0.1.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b0f6ae90e0fc83e5d672bb04182821df\AndroidManifest.xml:7:5-9:41
 MERGED from [com.ruffian.library:RWidgetHelper:1.1.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\03a4e73cdb6d6639b1523e31ffaa0d27\AndroidManifest.xml:7:5-9:41
 MERGED from [com.ruffian.library:RWidgetHelper:1.1.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\03a4e73cdb6d6639b1523e31ffaa0d27\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\9112a721415c587702fdafff7931b47d\AndroidManifest.xml:20:5-44
@@ -183,6 +178,8 @@ MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\ac
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\87dce58151174efd4a4466e5c45bf793\AndroidManifest.xml:5:5-7:41
 MERGED from [com.android.support:support-v4:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\f2beeb7b64bfc954eff3f5eb193fbfbc\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:28.0.0] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\f2beeb7b64bfc954eff3f5eb193fbfbc\AndroidManifest.xml:20:5-44
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\128ebd0e72213fca0af7f3cf5760f3a4\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\128ebd0e72213fca0af7f3cf5760f3a4\AndroidManifest.xml:7:5-9:41
 MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b9aea2fd4916345988a66856c2d41f03\AndroidManifest.xml:5:5-43
 MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b9aea2fd4916345988a66856c2d41f03\AndroidManifest.xml:5:5-43
 MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\7e480357b9f2cb5eaee1927bdc56c823\AndroidManifest.xml:18:5-43
@@ -255,8 +252,6 @@ MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\actor\.gradle\
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\ac8bc84d4d4d7dba73007629b120fff5\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\ff53206a78b3cab23c89e73670a9f690\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\ff53206a78b3cab23c89e73670a9f690\AndroidManifest.xml:20:5-44
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\e00562112b6a29a6fe002784bbe6e631\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\e00562112b6a29a6fe002784bbe6e631\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.anzaizai:EasySwipeMenuLayout:1.1.4] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\ec740e0c4e88462d95c19d6cfa0f59b9\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.anzaizai:EasySwipeMenuLayout:1.1.4] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\ec740e0c4e88462d95c19d6cfa0f59b9\AndroidManifest.xml:7:5-9:41
 MERGED from [com.zhy:okhttputils:2.6.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\5b25fe9fe325d846cf1e6fb3ac428e75\AndroidManifest.xml:7:5-9:41
@@ -397,10 +392,6 @@ ADDED from [com.yanzhenjie:album:2.1.3] C:\Users\actor\.gradle\caches\transforms
 		ADDED from [com.yanzhenjie:album:2.1.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\5b261118a004bb74808eb795b948764c\AndroidManifest.xml:69:17-62
 	android:name
 		ADDED from [com.yanzhenjie:album:2.1.3] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\5b261118a004bb74808eb795b948764c\AndroidManifest.xml:68:17-67
-activity#com.blikoon.qrcodescanner.QrCodeActivity
-ADDED from [com.github.blikoon:QRCodeScanner:0.1.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b0f6ae90e0fc83e5d672bb04182821df\AndroidManifest.xml:15:9-16:20
-	android:name
-		ADDED from [com.github.blikoon:QRCodeScanner:0.1.2] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\b0f6ae90e0fc83e5d672bb04182821df\AndroidManifest.xml:15:19-74
 activity#com.yanzhenjie.permission.bridge.BridgeActivity
 ADDED from [com.yanzhenjie.permission:support:2.0.1] C:\Users\actor\.gradle\caches\transforms-2\files-2.1\7b677f47f4165fa89854e5ef7838ebae\AndroidManifest.xml:25:9-27:55
 	android:theme

@@ -13,9 +13,9 @@ import butterknife.OnClick;
 public class TestActivity extends BaseActivity {
 
     @BindView(R.id.tv_result)//显示结果
-    TextView tvResult;
+    TextView     tvResult;
     @BindView(R.id.btn)
-    Button   btn;
+    Button       btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

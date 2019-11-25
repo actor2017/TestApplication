@@ -53,19 +53,20 @@
             android:layout_height="wrap_content"
             android:text="btn" />
 
-        <Button
-            android:id="@+id/btn_export_2_excel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="导出到Excel"
-            android:transitionName="btnExportExcel" />
-
+        <!--
         <Button
             android:id="@+id/btn_scan_qr_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="扫描二维码"
             android:transitionName="btnScanQrScan" />
+            -->
+
+        <Button
+            android:id="@+id/btn_expandable_item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="分组的伸缩栏(ExpandableItemAdapter)" />
 
         <Button
             android:id="@+id/btn_go2_test"
