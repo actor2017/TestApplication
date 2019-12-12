@@ -20,4 +20,12 @@
         android:layout_height="wrap_content"
         android:text="btn"
         android:transitionName="btnTest" />
+
+    <com.actor.testapplication.widget.GridTableRadioGroup
+        android:id="@+id/grid_table_radio_group"
+        android:layout_width="match_parent"
+        app:gtrItemName="性别: "
+        app:gtrRb1Text="男"
+        app:gtrRb2Text="女"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

@@ -27,11 +27,11 @@
         android:minWidth="90dp"
         android:textColor="#333333"
         android:textSize="17sp"
-        tools:text="性别："/>
+        tools:text="gtrItemName："/>
 
-    <!--android:id="@+id/rg"-->
     <RadioGroup
-        android:layout_width="wrap_content"
+        android:id="@+id/rg_for_gtr"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
@@ -39,20 +39,20 @@
             android:id="@+id/rb_1_for_gtr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="男"/>
+            tools:text="gtrRb1Text"/>
 
         <android.support.v7.widget.AppCompatRadioButton
             android:id="@+id/rb_2_for_gtr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            tools:text="女"/>
+            tools:text="gtrRb2Text"/>
 
         <android.support.v7.widget.AppCompatRadioButton
             android:id="@+id/rb_3_for_gtr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            tools:text="未知"/>
+            tools:text="gtrRb3Text"/>
     </RadioGroup>
 </LinearLayout>
