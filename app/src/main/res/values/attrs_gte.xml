@@ -21,6 +21,8 @@
         <attr name="gteInputEnable" format="boolean"/>
 
         <!--中间EditText的hint-->
+        <!--能输入时hint默认值:   "请输入" + itemName-->
+        <!--不能输入时hint默认值: "请选择" + itemName-->
         <attr name="gteHint" format="string"/>
 
         <!--中间EditText的文字-->

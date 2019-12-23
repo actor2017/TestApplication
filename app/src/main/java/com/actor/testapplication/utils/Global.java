@@ -13,11 +13,15 @@ public class Global {
     //必须GET
     public static final String CHECK_UPDATE = "https://raw.githubusercontent.com/" +
             "actor20170211030627/" +
-            "TestApplication" +
-            "/master/app/build/outputs/apk/debug/output.json";
+            "TestApplication" +//项目名
+            "/master/" +
+            "app" +//模块名
+            "/build/outputs/apk/debug/output.json";
 
     public static final String DOWNLOAD_URL = "https://raw.githubusercontent.com/" +
             "actor20170211030627/" +
-            "TestApplication" +
-            "/master/app/build/outputs/apk/debug/app-debug.apk";
+            "TestApplication" +//项目名
+            "/master/" +
+            "app" +//模块名
+            "/build/outputs/apk/debug/app-debug.apk";
 }

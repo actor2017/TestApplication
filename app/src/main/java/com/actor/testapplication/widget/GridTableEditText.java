@@ -2,10 +2,13 @@ package com.actor.testapplication.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.annotation.IntRange;
 import android.support.annotation.Nullable;
 import android.support.annotation.Px;
+import android.support.annotation.StringRes;
 import android.text.Editable;
 import android.text.InputFilter;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.method.DigitsKeyListener;
 import android.util.AttributeSet;
@@ -20,6 +23,9 @@ import android.widget.TextView;
 
 import com.actor.myandroidframework.utils.TextUtil;
 import com.actor.testapplication.R;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Description: 常用的表格输入布局,这是一个组合控件.
@@ -58,6 +64,11 @@ import com.actor.testapplication.R;
  * @version 1.1 修改attrs获取@string类型的值时, 获取到的是"@2131755078"的问题. 改用typedArray
  * @version 1.1.1 微小修改
  * @version 1.1.2 增加marginTop功能 & gteGravity功能
+ * @version 1.1.3 新增方法 & hint添加默认值
+ *                  @see #setDigits(int, boolean)
+ *                  @see #setDigits(String, boolean)
+ *                  @see #setDigitsRegex(int, boolean)
+ *                  @see #setDigitsRegex(String, boolean)
  */
 public class GridTableEditText extends LinearLayout implements TextUtil.GetTextAble {
 
@@ -90,7 +101,7 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
         density = getResources().getDisplayMetrics().density;
         //根据xml中属性, 给view赋值
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.GridTableEditText);
-        //红点是否显示
+        //左侧红点是否显示
         int redStarVisiable = typedArray.getInt(R.styleable.GridTableEditText_gteRedStarVisiable, 0);
         //EditText是否能输入
         boolean inputEnable = typedArray.getBoolean(R.styleable.GridTableEditText_gteInputEnable, true);
@@ -100,7 +111,7 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
         String gteHint = typedArray.getString(R.styleable.GridTableEditText_gteHint);
         //输入框的Text
         String gteText = typedArray.getString(R.styleable.GridTableEditText_gteText);
-        //输入类型
+        //输入类型(下一步, 完成...)
         int gteImeOptions = typedArray.getInt(R.styleable.GridTableEditText_gteImeOptions, -1);
         //最大输入长度
         int gteMaxLength = typedArray.getInt(R.styleable.GridTableEditText_gteMaxLength, -1);
@@ -108,9 +119,9 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
         int gravity = typedArray.getInt(R.styleable.GridTableEditText_gteGravity, Gravity.START | Gravity.CENTER_VERTICAL);
         //marginTop, 默认1dp
         int marginTop = typedArray.getDimensionPixelSize(R.styleable.GridTableEditText_gteMarginTop, (int) density);
-        //输入类型
+        //输入类型(text, number...)
         int gteInputType = typedArray.getInt(R.styleable.GridTableEditText_gteInputType, -1);
-        //输入限定
+        //输入限定(例如数字: digits=0123456789)
         String gteDigits = typedArray.getString(R.styleable.GridTableEditText_gteDigits);
         //右侧箭头显示状态
         int arrowRightVisiable = typedArray.getInt(R.styleable.GridTableEditText_gteArrowRightVisiable, -1);
@@ -118,19 +129,21 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
 
         tvRedStar.setVisibility(redStarVisiable * 4);
         if (!inputEnable) setInputEnable(false);
-        if (gteItemName != null) tv1.setText(gteItemName);
-        if (gteHint != null) et1.setHint(gteHint);
-        if (gteText != null) setText(gteText);
-        if(gteImeOptions != -1) et1.setImeOptions(gteImeOptions);
-        if (gteMaxLength != -1) {
-            et1.setFilters(new InputFilter[] { new InputFilter.LengthFilter(gteMaxLength)});
+        if (gteItemName != null) {
+            getTextViewItem().setText(gteItemName);
+            if (gteHint == null) {//hint=null
+                if (inputEnable) {//能输入
+                    setHint("请输入".concat(gteItemName));//"请输入" + item名称
+                } else setHint("请选择".concat(gteItemName));//"请输入请选择 + item名称
+            } else setHint(gteHint);
         }
+        if (gteText != null) setText(gteText);
+        if(gteImeOptions != -1) getEditText().setImeOptions(gteImeOptions);
+        if (gteMaxLength >= 0) setMaxLength(gteMaxLength);
         setGravityInput(gravity);
         setMarginTop(marginTop);
-        if (gteInputType != -1) et1.setInputType(gteInputType);
-        if (!TextUtils.isEmpty(gteDigits)) {
-                et1.setKeyListener(DigitsKeyListener.getInstance(gteDigits));
-            }
+        if (gteInputType != -1) getEditText().setInputType(gteInputType);
+        if (!TextUtils.isEmpty(gteDigits)) setDigits(gteDigits, false);
         if (arrowRightVisiable == -1) {
             if (inputEnable) {//如果能输入
                 ivArrowRight.setVisibility(GONE);//隐藏
@@ -139,46 +152,147 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
     }
 
     /**
-     * 获取红点
-     * @return
+     * @return 获取红点
      */
     public TextView getTextViewRedStar() {
         return tvRedStar;
     }
 
     /**
-     * 返回Item的TextView
-     * @return
+     * @return 返回Item的TextView
      */
     public TextView getTextViewItem() {
         return tv1;
     }
 
     /**
-     * 获取输入框
-     * @return
+     * @return 获取输入框
      */
     @Override
-    public EditText getEditText(){
+    public EditText getEditText() {
         return et1;
+    }
+
+    /**
+     * @return 获取右侧箭头
+     */
+    public ImageView getIvArrowRight() {
+        return ivArrowRight;
     }
 
     @Override
     public Editable getText(){
-        return et1.getText();
+        return getEditText().getText();
     }
 
     public void setText(CharSequence text) {
-        et1.setText(text);
+        getEditText().setText(text);
+    }
+
+    /**
+     * @param maxLength 设置输入最大长度
+     */
+    public void setMaxLength(@IntRange(from = 0) int maxLength) {
+        getEditText().setFilters(new InputFilter[] {new InputFilter.LengthFilter(maxLength)});
+    }
+
+    /**
+     * @param digits 设置输入限制, 示例只能输入数字: 0123456789
+     * @param reFilter 是否重新对已经输入的内容按照digits过滤一次
+     */
+    public void setDigits(@StringRes int digits, boolean reFilter) {
+        setDigits(getContext().getResources().getString(digits), reFilter);
+    }
+
+    /**
+     * @param digits 设置输入限制, 示例只能输入数字: 0123456789
+     * @param reFilter 是否重新对已经输入的内容按照digits过滤一次
+     */
+    public void setDigits(String digits, boolean reFilter) {
+        if (digits == null) return;
+        String regex = "[^" + digits + "]";//例: [^a-zA-Z0-9]
+        getEditText().setKeyListener(DigitsKeyListener.getInstance(digits));//设置输入限制
+        if (reFilter) filter(regex);
+    }
+
+    /**
+     * @param regex strings.xml中的资源, 示例: <string name="regex">[^a-zA-Z0-9\u4E00-\u9FA5]</string>
+     * @param reFilter 是否重新对已经输入的内容按照digits过滤一次
+     */
+    public void setDigitsRegex(@StringRes int regex, boolean reFilter) {
+        setDigitsRegex(getContext().getResources().getString(regex), reFilter);
+    }
+    /**
+     * @param regex 输入限制的正则, 示例只能输入数字: [^0-9]   //过滤0-9以外的字符
+     * @param reFilter 是否重新对已经输入的内容按照digits过滤一次
+     */
+    public void setDigitsRegex(String regex, boolean reFilter) {
+        if (regex == null) return;
+        InputFilter[] filters = getEditText().getFilters();//获取所有filter
+        boolean hasRegexFilter = false;
+        for (InputFilter filter : filters) {
+            if (filter instanceof RegexFilter) {//如果有就替换RegexFilter中的regex
+                ((RegexFilter) filter).setRegex(regex);
+                hasRegexFilter = true;
+            }
+        }
+        if (!hasRegexFilter) {//如果没有RegexFilter, 就增加一个
+            InputFilter[] newFilters = new InputFilter[filters.length + 1];
+            System.arraycopy(filters, 0, newFilters, 0, filters.length);
+            newFilters[filters.length] = new RegexFilter(regex);
+            filters = newFilters;
+        }
+        getEditText().setFilters(filters);
+        if (reFilter) filter(regex);
+    }
+
+    //正则过滤器
+    private class RegexFilter implements InputFilter {
+
+        private String regex;//正则
+
+        private RegexFilter(String regex) {
+            this.regex = regex;
+        }
+
+        public String getRegex() {
+            return regex;
+        }
+
+        public void setRegex(String regex) {
+            this.regex = regex;
+        }
+
+        @Override
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest,
+                                   int dstart, int dend) {
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(source.toString());
+            boolean find = matcher.find();
+            if (find) return "";
+            return source;
+        }
+    }
+
+    //根据正则, 对已经输入的内容进行过滤
+    protected void filter(String regex) {
+        if (regex != null) {
+            String text = getText().toString();
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(text);
+            String newText = matcher.replaceAll("");//将digits以外的字符替换成""
+            //要判断, 否则会递归栈溢出
+            if (!TextUtils.equals(text, newText)) setText(newText);
+        }
     }
 
     @Override
     public CharSequence getHint(){
-        return et1.getHint();
+        return getEditText().getHint();
     }
 
     public void setHint(CharSequence hilt){
-        et1.setHint(hilt);
+        getEditText().setHint(hilt);
     }
 
     /**
@@ -186,12 +300,12 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
      * @param enable
      */
     public void setInputEnable(boolean enable) {
-//        et1.setEnabled(enable);//这样不能编辑,可用于隐藏输入法,但是EditText的点击事件无反应,不能做点击事件
-        et1.setFocusable(enable);
-        et1.setClickable(!enable);
-        et1.setFocusableInTouchMode(enable);
-//        if (enable) et1.requestFocus();//把光标移动到这一个et1,但是不弹出键盘
-//        et1.setCursorVisible(false);
+//        getEditText().setEnabled(enable);//这样不能编辑,可用于隐藏输入法,但是EditText的点击事件无反应,不能做点击事件
+        getEditText().setFocusable(enable);
+        getEditText().setClickable(!enable);
+        getEditText().setFocusableInTouchMode(enable);
+//        if (enable) getEditText().requestFocus();//把光标移动到这一个et1,但是不弹出键盘
+//        getEditText().setCursorVisible(false);
     }
 
     /**
@@ -212,22 +326,22 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
 
     //设置输入框文字gravity
     public void setGravityInput(int gravity) {
-        et1.setGravity(gravity);
+        getEditText().setGravity(gravity);
     }
 
     @Override
     public void setOnClickListener(@Nullable final OnClickListener onClickListener) {
-        //System.out.println(getChildAt(0));//android.widget.LinearLayout
+        //getChildAt(0) = android.widget.LinearLayout
         getChildAt(0).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (onClickListener != null) onClickListener.onClick(GridTableEditText.this);
             }
         });
-        et1.setOnClickListener(new OnClickListener() {//必须要设置,否则点击EditText无效
+        getEditText().setOnClickListener(new OnClickListener() {//必须要设置,否则点击EditText无效
             @Override
             public void onClick(View v) {
-                if (onClickListener != null && et1.isClickable()) {
+                if (onClickListener != null && getEditText().isClickable()) {
                     onClickListener.onClick(GridTableEditText.this);
                 }
             }

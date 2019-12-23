@@ -5,24 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activity.TestActivity">
+    tools:context=".activity.CustomViewActivity">
 
-    <TextView
-        android:id="@+id/tv_result"
+    <com.actor.testapplication.widget.GridTableEditText
+        android:id="@+id/gte1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Result" />
+        app:gteImeOptions="actionDone"
+        app:gteInputType="text"
+        app:gteItemName="item1"
+        app:gteMaxLength="18" />
 
-    <EditText
-        android:id="@+id/edit_text"
+    <com.actor.testapplication.widget.GridTableRadioGroup
+        android:id="@+id/grid_table_radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="hint" />
+        app:gtrItemName="性别: "
+        app:gtrRb1Text="男"
+        app:gtrRb2Text="女" />
 
     <Button
         android:id="@+id/btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="btn"
+        android:transitionName="btnTest" />
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="btn1"
         android:transitionName="btnTest" />
 </LinearLayout>

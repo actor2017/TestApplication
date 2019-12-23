@@ -69,6 +69,12 @@
             android:text="分组的伸缩栏(ExpandableItemAdapter)" />
 
         <Button
+            android:id="@+id/btn_custom_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="自定义View" />
+
+        <Button
             android:id="@+id/btn_go2_test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
