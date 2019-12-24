@@ -10,7 +10,6 @@ import android.text.Editable;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.method.DigitsKeyListener;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -211,8 +210,10 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
     public void setDigits(String digits, boolean reFilter) {
         if (digits == null) return;
         String regex = "[^" + digits + "]";//例: [^a-zA-Z0-9]
-        getEditText().setKeyListener(DigitsKeyListener.getInstance(digits));//设置输入限制
-        if (reFilter) filter(regex);
+        //setFilters&setKeyListener会都起作用, 为避免引起bug, 统一使用setFilters方式
+//        getEditText().setKeyListener(DigitsKeyListener.getInstance(digits));//设置输入限制
+//        if (reFilter) filter(regex);
+        setDigitsRegex(regex, reFilter);
     }
 
     /**
