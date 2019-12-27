@@ -5,4 +5,4 @@ app/build/intermediates/
 app/build/tmp/
 *.iml
 local.properties
-.idea
+.idea/
