@@ -45,8 +45,8 @@ public class CustomViewActivity extends BaseActivity {
                 int pos = gridTableRadioGroup.getCheckedPosition();
                 gridTableRadioGroup.setCheckedPosition(1);
                 if (isAbc) {
-//                    gte1.setDigits("123456abcdef", true);
-                    gte1.setDigitsRegex(regEx1, true);
+                    gte1.setDigits("123456", true);
+//                    gte1.setDigitsRegex(regEx1, true);
                 } else {
 //                gte1.setDigits("abcdefg", true);
                     gte1.setDigitsRegex(regEx2, true);

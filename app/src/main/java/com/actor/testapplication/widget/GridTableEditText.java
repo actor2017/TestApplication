@@ -58,6 +58,8 @@ import java.util.regex.Pattern;
  * @see R.styleable#GridTableEditText_gteRedStarVisiable    //visible/invisible/gone
  * 12.右边EditText的文字
  * @see R.styleable#GridTableEditText_gteText
+ * 13.右边EditText的PaddingRight(默认: 右侧箭头可见时=0, 不可见时=10dp)
+ * @see R.styleable#GridTableEditText_gtePaddingRightText   //xx dp
  *
  *
  * @version 1.1 修改attrs获取@string类型的值时, 获取到的是"@2131755078"的问题. 改用typedArray
@@ -124,6 +126,8 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
         String gteDigits = typedArray.getString(R.styleable.GridTableEditText_gteDigits);
         //右侧箭头显示状态
         int arrowRightVisiable = typedArray.getInt(R.styleable.GridTableEditText_gteArrowRightVisiable, -1);
+        //EditText的PaddingRight
+        int paddingRightText = typedArray.getDimensionPixelSize(R.styleable.GridTableEditText_gtePaddingRightText, -999);
         typedArray.recycle();
 
         tvRedStar.setVisibility(redStarVisiable * 4);
@@ -148,6 +152,9 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
                 ivArrowRight.setVisibility(GONE);//隐藏
             } else ivArrowRight.setVisibility(VISIBLE);//显示
         } else ivArrowRight.setVisibility(arrowRightVisiable * 4);//根据属性来设置显示状态
+        boolean gone = ivArrowRight.getVisibility() == GONE;
+        if (paddingRightText == -999) paddingRightText = gone ? (int) (density * 10) : (int) (density * 5);
+        setPaddingRightText(paddingRightText);
     }
 
     /**
@@ -235,6 +242,7 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
             if (filter instanceof RegexFilter) {//如果有就替换RegexFilter中的regex
                 ((RegexFilter) filter).setRegex(regex);
                 hasRegexFilter = true;
+                break;
             }
         }
         if (!hasRegexFilter) {//如果没有RegexFilter, 就增加一个
@@ -265,13 +273,11 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
         }
 
         @Override
-        public CharSequence filter(CharSequence source, int start, int end, Spanned dest,
-                                   int dstart, int dend) {
+        public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(source.toString());
             boolean find = matcher.find();
-            if (find) return "";
-            return source;
+            return find ? "" : source;
         }
     }
 
@@ -282,7 +288,6 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(text);
             String newText = matcher.replaceAll("");//将digits以外的字符替换成""
-            //要判断, 否则会递归栈溢出
             if (!TextUtils.equals(text, newText)) setText(newText);
         }
     }
@@ -323,6 +328,13 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
         ViewGroup.LayoutParams layoutParams = spaceMarginTop.getLayoutParams();
         layoutParams.height = px;
         spaceMarginTop.setLayoutParams(layoutParams);
+    }
+
+    /**
+     * 右边EditText的PaddingRight, 单位px(默认: 右侧箭头可见时=0, 不可见时=10dp)
+     */
+    public void setPaddingRightText(@Px int px) {
+        et1.setPadding(0, 0, px, 0);
     }
 
     //设置输入框文字gravity

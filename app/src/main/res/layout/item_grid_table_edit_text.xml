@@ -18,8 +18,7 @@
         android:background="#fff"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp">
+        android:paddingLeft="10dp">
 
         <TextView
             android:id="@+id/tv_red_star_for_gte"
@@ -52,8 +51,10 @@
 
         <ImageView
             android:id="@+id/iv_arrow_right_for_gte"
-            android:layout_width="20dp"
-            android:layout_height="30dp"
+            android:layout_width="15dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/arrow_right_gray_dcdcdc" />
     </LinearLayout>
 </LinearLayout>
