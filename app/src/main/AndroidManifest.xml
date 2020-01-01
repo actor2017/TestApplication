@@ -14,7 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.CustomViewActivity"></activity>
+        <activity android:name=".activity.RegexActivity"></activity>
+        <activity
+            android:name=".activity.SurfaceViewActivity"
+            android:theme="@style/FullScreen" />
+        <activity android:name=".activity.CustomViewActivity" />
         <activity android:name=".activity.ExpandableItemActivity" />
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.MainActivity">
@@ -26,6 +30,7 @@
         </activity>
 
         <service android:name=".service.CheckUpdateService" />
+        <service android:name=".service.CheckUpdateLService" />
     </application>
 
 </manifest>

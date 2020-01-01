@@ -1,7 +1,6 @@
 package com.actor.testapplication.activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -38,10 +37,11 @@ public class MainActivity extends BaseActivity {
                 AppUtils.getAppVersionName(), AppUtils.getAppVersionCode()));//版本
         startService(new Intent(this, CheckUpdateService.class));//检查更新
 
-        videoView.setVideoURI(Uri.parse(url));
+//        videoView.setVideoURI(Uri.parse(url));
     }
 
-    @OnClick({R.id.btn, R.id.btn_expandable_item, R.id.btn_custom_view, R.id.btn_go2_test})
+    @OnClick({R.id.btn, R.id.btn_expandable_item, R.id.btn_custom_view, R.id.btn_surface_view,
+            R.id.btn_regex, R.id.btn_go2_test})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn:
@@ -56,7 +56,13 @@ public class MainActivity extends BaseActivity {
             case R.id.btn_custom_view://自定义View
                 startActivity(new Intent(this, CustomViewActivity.class));
                 break;
-            case R.id.btn_go2_test://测试页面
+            case R.id.btn_surface_view://SurfaceView
+                startActivity(new Intent(this, SurfaceViewActivity.class));
+                break;
+            case R.id.btn_regex://Regex正则表达式
+                startActivity(new Intent(this, RegexActivity.class));
+                break;
+            case R.id.btn_go2_test://Test测试页面
                 startActivity(new Intent(this, TestActivity.class), view);
                 break;
         }

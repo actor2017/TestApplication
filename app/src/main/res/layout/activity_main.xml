@@ -75,10 +75,23 @@
             android:text="自定义View" />
 
         <Button
+            android:id="@+id/btn_surface_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SurfaceView" />
+
+        <!---->
+        <Button
+            android:id="@+id/btn_regex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Regex正则表达式" />
+
+        <Button
             android:id="@+id/btn_go2_test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="测试页面"
+            android:text="Test测试页面"
             android:transitionName="btnTest" />
 
         <Button

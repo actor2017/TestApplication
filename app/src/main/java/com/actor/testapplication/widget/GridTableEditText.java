@@ -23,9 +23,6 @@ import android.widget.TextView;
 import com.actor.myandroidframework.utils.TextUtil;
 import com.actor.testapplication.R;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * Description: 常用的表格输入布局,这是一个组合控件.
  * Copyright  : Copyright (c) 2019
@@ -274,10 +271,7 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
 
         @Override
         public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
-            Pattern pattern = Pattern.compile(regex);
-            Matcher matcher = pattern.matcher(source.toString());
-            boolean find = matcher.find();
-            return find ? "" : source;
+            return source.toString().replaceAll(regex, "");
         }
     }
 
@@ -285,9 +279,7 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
     protected void filter(String regex) {
         if (regex != null) {
             String text = getText().toString();
-            Pattern pattern = Pattern.compile(regex);
-            Matcher matcher = pattern.matcher(text);
-            String newText = matcher.replaceAll("");//将digits以外的字符替换成""
+            String newText = text.replaceAll(regex, "");
             if (!TextUtils.equals(text, newText)) setText(newText);
         }
     }
