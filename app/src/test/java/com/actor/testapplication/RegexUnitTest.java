@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+//import static org.junit.Assert.*;
+
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
@@ -156,48 +158,45 @@ public class RegexUnitTest {
 //        Matcher region = matcherNum.region(0, 1);
 
         println("4.14. int      matcher.regionEnd();            //返回上方region()设置的start");
-//        int i1 = matcherNum.regionEnd();
+        int i1 = matcherNum.regionEnd();
 
         println("4.15. int      matcher.regionStart();          //返回上方region()设置的end");
-//        int i2 = matcherNum.regionStart();
+        int i2 = matcherNum.regionStart();
 
         println("4.16. String   matcher.replaceFirst(String replacement);//将第一个匹配到的替换成replacement");
 //        String replacement = matcherNum.replaceFirst("replacement");
 
-        println("4.17. boolean  matcher.requireEnd();          //");
+        println("4.17. boolean  matcher.requireEnd();          //只有匹配成功有意义,为true,表示更多输入数据可能会导致失败,false 输入更多,可能改变匹配文本,但不会失败");
         boolean b8 = matcherNum.requireEnd();
 
-//        Matcher reset = matcher.reset();
-//        Matcher input = matcher.reset("input");
+        println("4.18. Matcher  matcher.reset();                //重新开始匹配");
+        println("4.18. Matcher  matcher.reset(String input);");
+//        Matcher reset = matcherNum.reset();
+//        Matcher input = matcherNum.reset("input");
 
-        //返回匹配到的子字符串在字符串中的索引位置
+        println("4.19. int      matcher.start();                //现在已经匹配到的group的开始位置");//返回匹配到的子字符串在字符串中的索引位置
+        println("4.19. int      matcher.start(int group);");
+        println("4.19. int      matcher.start(String name);");
         //matches(),lookingAt(),find()其中任意一个方法返回true时,匹配操作成功,才可以使用(每次执行匹配操作后start(),end(),group()三个方法的值都会改变)
-//        int start = matcher.start();
-//        int start1 = matcher.start(1);//group:
-//        int name2 = matcher.start("name");
+//        int start = matcherNum.start();
+//        int start1 = matcherNum.start(1);
+//        int name2 = matcherNum.start("name");
+        /** @see #testGroup$Start$End() */
 
-//        MatchResult matchResult = matcher.toMatchResult();
-//        String s2 = matcher.toString();
-        Matcher matcher2 = matcherNum.useAnchoringBounds(true);//true使用定位界限，此匹配器区域的边界与定位点（如 ^ 和 $）匹配
+        println("4.20. MatchResult matcher.toMatchResult();     //匹配结果");
+//        MatchResult matchResult = matcherNum.toMatchResult();
+
+        println("4.21. String   matcher.toString();");
+//        String s2 = matcherNum.toString();
+
+        println("4.22. Matcher  matcher.useAnchoringBounds(boolean);//true使用定位界限，此匹配器区域的边界与定位点（如 ^ 和 $）匹配");
+//        Matcher matcher2 = matcherNum.useAnchoringBounds(true);
+
+        println("4.23. Matcher  matcher.usePattern(Pattern newPattern); //设置新的pattern");
 //        Matcher matcher3 = matcherNum.usePattern(pattern);
-        Matcher matcher4 = matcherNum.useTransparentBounds(true);//false允许正则regex="\\bcar\\b"中忽视一个类似\b的东西
 
-
-        Pattern p=Pattern.compile("([a-z]+)(\\d+)");
-        Matcher m=p.matcher("aaa2223bb");
-        boolean b = m.find();//匹配aaa2223 
-        int i = m.groupCount();//2,因为有2组
-        int start = m.start(1);//0 返回第一组匹配到的子字符串在字符串中的索引号
-        int start1 = m.start(2);//3
-        String group = m.group(1);//aaa, 返回第一组匹配到的子字符串
-        String group1 = m.group(2);//2223, 返回第二组匹配到的子字符串
-
-
-        Matcher matcher1 = patternNum.matcher(sMyQQ);
-        while(matcher1.find()) {
-            System.out.println(matcher1.group());//打印数字
-        }
-
+        println("4.24. Matcher  matcher.useTransparentBounds(boolean);  //false允许正则regex=\"\\\\bcar\\\\b\"中忽视一个类似\\b的东西");
+//        Matcher matcher4 = matcherNum.useTransparentBounds(true);
     }
 
     //测试 quote
