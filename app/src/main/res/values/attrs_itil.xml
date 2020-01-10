@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--这是GridTableEditText的属性-->
-    <declare-styleable name="GridTableEditText">
+    <!--这是ItemTextInputLayout的属性-->
+    <declare-styleable name="ItemTextInputLayout">
 
         <!--左侧红点是否显示-->
         <!-- 解析成int类型,enum:只能选择一个状态.    flag:可用|连接多个状态.-->
-        <attr name="gteRedStarVisiable" format="enum">
+        <attr name="itilRedStarVisiable" format="enum">
             <!-- Visible on screen; the default value. -->
             <enum name="visible" value="0" />
             <!-- Not displayed, but taken into account during layout (space is left for it). -->
@@ -15,30 +15,30 @@
         </attr>
 
         <!--左边的文字-->
-        <attr name="gteItemName" format="string" />
+        <attr name="itilItemName" format="string" />
 
         <!--EditText是否能输入(false的时候,可以当做TextView展示)-->
-        <attr name="gteInputEnable" format="boolean" />
+        <attr name="itilInputEnable" format="boolean" />
 
         <!--中间EditText的hint-->
         <!--能输入时hint默认值:   "请输入" + itemName-->
         <!--不能输入时hint默认值: "请选择" + itemName-->
-        <attr name="gteHint" format="string" />
+        <attr name="itilHint" format="string" />
 
         <!--中间EditText的文字-->
-        <attr name="gteText" format="string" />
+        <attr name="itilText" format="string" />
 
         <!--中间EditText输入最大长度-->
-        <attr name="gteMaxLength" format="integer" />
+        <attr name="itilMaxLength" format="integer" />
 
         <!--marginTop距离顶部的间距, 默认1dp-->
-        <attr name="gteMarginTop" format="dimension" />
+        <attr name="itilMarginTop" format="dimension" />
 
         <!--中间EditText输入过滤,比如输入身份证的时候可以这样:0123456789xX-->
-        <attr name="gteDigits" format="string" />
+        <attr name="itilDigits" format="string" />
 
         <!--中间EditText输入类型-->
-        <attr name="gteInputType" format="flags">
+        <attr name="itilInputType" format="flags">
             <flag name="none" value="0x00000000" />
             <flag name="text" value="0x00000001" />
             <flag name="textCapCharacters" value="0x00001001" />
@@ -74,7 +74,7 @@
         </attr>
 
         <!--键盘右下角显示内容-->
-        <attr name="gteImeOptions" format="flags">
+        <attr name="itilImeOptions" format="flags">
             <flag name="normal" value="0x00000000" />
             <flag name="actionUnspecified" value="0x00000000" />
             <flag name="actionNone" value="0x00000001" />
@@ -97,14 +97,14 @@
                 1.能输入的情况, 隐藏.
                 2.不能输入的情况, 显示.
                 可设置以下属性强制作用显示状态-->
-        <attr name="gteArrowRightVisiable" format="enum">
+        <attr name="itilArrowRightVisiable" format="enum">
             <enum name="visible" value="0" />
             <enum name="invisible" value="1" />
             <enum name="gone" value="2" />
         </attr>
 
         <!--输入框中文字Gravity, 默认start|center_vertical-->
-        <attr name="gteGravity">
+        <attr name="itilGravity">
             <flag name="top" value="0x30" />
             <flag name="bottom" value="0x50" />
             <flag name="left" value="0x03" />
@@ -122,6 +122,6 @@
         </attr>
 
         <!--右边EditText的PaddingRight-->
-        <attr name="gtePaddingRightText" format="dimension" />
+        <attr name="itilPaddingRightText" format="dimension" />
     </declare-styleable>
 </resources>

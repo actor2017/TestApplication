@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.RadioGroup;
 
 import com.actor.testapplication.R;
-import com.actor.testapplication.widget.GridTableEditText;
+import com.actor.testapplication.widget.ItemTextInputLayout;
 import com.actor.testapplication.widget.GridTableRadioGroup;
 
 import butterknife.BindView;
@@ -15,8 +15,8 @@ import butterknife.OnClick;
 
 public class CustomViewActivity extends BaseActivity {
 
-    @BindView(R.id.gte1)
-    GridTableEditText gte1;
+    @BindView(R.id.itil1)
+    ItemTextInputLayout itil1;
     @BindView(R.id.grid_table_radio_group)
     GridTableRadioGroup gridTableRadioGroup;
     private boolean isAbc = true;
@@ -45,11 +45,11 @@ public class CustomViewActivity extends BaseActivity {
                 int pos = gridTableRadioGroup.getCheckedPosition();
                 gridTableRadioGroup.setCheckedPosition(1);
                 if (isAbc) {
-                    gte1.setDigits("123456", true);
-//                    gte1.setDigitsRegex(regEx1, true);
+                    itil1.setDigits("123456", true);
+//                    itil1.setDigitsRegex(regEx1, true);
                 } else {
-//                gte1.setDigits("abcdefg", true);
-                    gte1.setDigitsRegex(regEx2, true);
+//                itil1.setDigits("abcdefg", true);
+                    itil1.setDigitsRegex(regEx2, true);
                 }
                 isAbc = !isAbc;
                 break;

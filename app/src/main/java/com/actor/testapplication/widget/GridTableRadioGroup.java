@@ -25,7 +25,7 @@ import com.actor.testapplication.R;
  * Date       : 2019/7/10 on 17:21
  *
  * 1.左侧红点显示类型, 默认visible
- * @see R.styleable#GridTableEditText_gteRedStarVisiable    //visible/invisible/gone
+ * @see R.styleable#ItemTextInputLayout_itilRedStarVisiable    //visible/invisible/gone
  * 2.左侧提示文字
  * @see R.styleable#GridTableRadioGroup_gtrItemName         //请选择性别：
  * 3.右侧RadioButton的gravity

@@ -24,51 +24,51 @@ import com.actor.myandroidframework.utils.TextUtil;
 import com.actor.testapplication.R;
 
 /**
- * Description: 常用的表格输入布局,这是一个组合控件.
+ * Description: 常用的Item输入布局,这是一个组合控件.
  * Copyright  : Copyright (c) 2019
  * Company    : 重庆市了赢科技有限公司 http://www.liaoin.com/
  * Author     : 李大发
  * Date       : 2019/7/10 on 17:20
  *
- * 全部属性都是gte开头:
+ * 全部属性都是itil开头:
  * 1.右侧箭头显示类型, 默认: 能输入时隐藏, 不能输入时显示
- * @see R.styleable#GridTableEditText_gteArrowRightVisiable //visible/invisible/gone
+ * @see R.styleable#ItemTextInputLayout_itilArrowRightVisiable //visible/invisible/gone
  * 2.输入限制, 只能输入哪些数字/字母
- * @see R.styleable#GridTableEditText_gteDigits             //0123456789xX
+ * @see R.styleable#ItemTextInputLayout_itilDigits             //0123456789xX
  * 3.右侧输入框文字gravity
- * @see R.styleable#GridTableEditText_gteGravity            //start|centerVertical
+ * @see R.styleable#ItemTextInputLayout_itilGravity            //start|centerVertical
  * 4.输入框hint
- * @see R.styleable#GridTableEditText_gteHint               //请输入身份证
+ * @see R.styleable#ItemTextInputLayout_itilHint               //请输入身份证
  * 5.键盘右下角显示内容
- * @see R.styleable#GridTableEditText_gteImeOptions         //actionNext(下一步)
+ * @see R.styleable#ItemTextInputLayout_itilImeOptions         //actionNext(下一步)
  * 6.是否能输入, 默认true(false的时候,可以当做TextView展示)
- * @see R.styleable#GridTableEditText_gteInputEnable        //true
+ * @see R.styleable#ItemTextInputLayout_itilInputEnable        //true
  * 7.输入类型
- * @see R.styleable#GridTableEditText_gteInputType          //text
+ * @see R.styleable#ItemTextInputLayout_itilInputType          //text
  * 8.左侧提示文字
- * @see R.styleable#GridTableEditText_gteItemName           //请输入身份证：
+ * @see R.styleable#ItemTextInputLayout_itilItemName           //请输入身份证：
  * 9.marginTop, 默认1dp
- * @see R.styleable#GridTableEditText_gteMarginTop          //1dp
+ * @see R.styleable#ItemTextInputLayout_itilMarginTop          //1dp
  * 10.最大输入长度
- * @see R.styleable#GridTableEditText_gteMaxLength          //18
+ * @see R.styleable#ItemTextInputLayout_itilMaxLength          //18
  * 11.左侧红点显示类型, 默认visible
- * @see R.styleable#GridTableEditText_gteRedStarVisiable    //visible/invisible/gone
+ * @see R.styleable#ItemTextInputLayout_itilRedStarVisiable    //visible/invisible/gone
  * 12.右边EditText的文字
- * @see R.styleable#GridTableEditText_gteText
+ * @see R.styleable#ItemTextInputLayout_itilText
  * 13.右边EditText的PaddingRight(默认: 右侧箭头可见时=0, 不可见时=10dp)
- * @see R.styleable#GridTableEditText_gtePaddingRightText   //xx dp
+ * @see R.styleable#ItemTextInputLayout_itilPaddingRightText   //xx dp
  *
  *
  * @version 1.1 修改attrs获取@string类型的值时, 获取到的是"@2131755078"的问题. 改用typedArray
  * @version 1.1.1 微小修改
- * @version 1.1.2 增加marginTop功能 & gteGravity功能
+ * @version 1.1.2 增加itilMarginTop功能 & itilGravity功能
  * @version 1.1.3 新增方法 & hint添加默认值
  *                  @see #setDigits(int, boolean)
  *                  @see #setDigits(String, boolean)
  *                  @see #setDigitsRegex(int, boolean)
  *                  @see #setDigitsRegex(String, boolean)
  */
-public class GridTableEditText extends LinearLayout implements TextUtil.GetTextAble {
+public class ItemTextInputLayout extends LinearLayout implements TextUtil.GetTextAble {
 
     private TextView  tvRedStar;
     private TextView  tv1;
@@ -77,73 +77,77 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
     private float     density;//px = dp * density;
     private Space     spaceMarginTop;
 
-    public GridTableEditText(Context context) {
+    public ItemTextInputLayout(Context context) {
         this(context,null);
     }
 
-    public GridTableEditText(Context context, AttributeSet attrs) {
+    public ItemTextInputLayout(Context context, AttributeSet attrs) {
         this(context, attrs,-1);
     }
 
-    public GridTableEditText(final Context context, AttributeSet attrs, int defStyleAttr) {
+    public ItemTextInputLayout(final Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         //设置view, 并找到子view
-        View inflate = View.inflate(context, R.layout.item_grid_table_edit_text, this);
-        spaceMarginTop = inflate.findViewById(R.id.space_margin_top_for_gte);
-        tvRedStar = inflate.findViewById(R.id.tv_red_star_for_gte);
-        tv1 = inflate.findViewById(R.id.tv_item_name_for_gte);
-        et1 = inflate.findViewById(R.id.et_input_for_gte);
-        ivArrowRight = inflate.findViewById(R.id.iv_arrow_right_for_gte);
+        View inflate = View.inflate(context, R.layout.item_text_input_layout, this);
+        spaceMarginTop = inflate.findViewById(R.id.space_margin_top_for_itil);
+        tvRedStar = inflate.findViewById(R.id.tv_red_star_for_itil);
+        tv1 = inflate.findViewById(R.id.tv_item_name_for_itil);
+        et1 = inflate.findViewById(R.id.et_input_for_itil);
+        ivArrowRight = inflate.findViewById(R.id.iv_arrow_right_for_itil);
 
         if (attrs == null) return;
         density = getResources().getDisplayMetrics().density;
         //根据xml中属性, 给view赋值
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.GridTableEditText);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ItemTextInputLayout);
         //左侧红点是否显示
-        int redStarVisiable = typedArray.getInt(R.styleable.GridTableEditText_gteRedStarVisiable, 0);
+        int redStarVisiable = typedArray.getInt(R.styleable.ItemTextInputLayout_itilRedStarVisiable, 0);
         //EditText是否能输入
-        boolean inputEnable = typedArray.getBoolean(R.styleable.GridTableEditText_gteInputEnable, true);
+        boolean inputEnable = typedArray.getBoolean(R.styleable.ItemTextInputLayout_itilInputEnable, true);
         //左侧TextView的Text
-        String gteItemName = typedArray.getString(R.styleable.GridTableEditText_gteItemName);
+        String itilItemName = typedArray.getString(R.styleable.ItemTextInputLayout_itilItemName);
         //输入框的Hint
-        String gteHint = typedArray.getString(R.styleable.GridTableEditText_gteHint);
+        String itilHint = typedArray.getString(R.styleable.ItemTextInputLayout_itilHint);
         //输入框的Text
-        String gteText = typedArray.getString(R.styleable.GridTableEditText_gteText);
+        String itilText = typedArray.getString(R.styleable.ItemTextInputLayout_itilText);
         //输入类型(下一步, 完成...)
-        int gteImeOptions = typedArray.getInt(R.styleable.GridTableEditText_gteImeOptions, -1);
+        int itilImeOptions = typedArray.getInt(R.styleable.ItemTextInputLayout_itilImeOptions, -1);
         //最大输入长度
-        int gteMaxLength = typedArray.getInt(R.styleable.GridTableEditText_gteMaxLength, -1);
+        int itilMaxLength = typedArray.getInt(R.styleable.ItemTextInputLayout_itilMaxLength, -1);
         //输入框文字gravity
-        int gravity = typedArray.getInt(R.styleable.GridTableEditText_gteGravity, Gravity.START | Gravity.CENTER_VERTICAL);
+        int gravity = typedArray.getInt(R.styleable.ItemTextInputLayout_itilGravity, Gravity.START | Gravity.CENTER_VERTICAL);
         //marginTop, 默认1dp
-        int marginTop = typedArray.getDimensionPixelSize(R.styleable.GridTableEditText_gteMarginTop, (int) density);
+        int marginTop = typedArray.getDimensionPixelSize(R.styleable.ItemTextInputLayout_itilMarginTop, (int) density);
         //输入类型(text, number...)
-        int gteInputType = typedArray.getInt(R.styleable.GridTableEditText_gteInputType, -1);
+        int itilInputType = typedArray.getInt(R.styleable.ItemTextInputLayout_itilInputType, -1);
         //输入限定(例如数字: digits=0123456789)
-        String gteDigits = typedArray.getString(R.styleable.GridTableEditText_gteDigits);
+        String itilDigits = typedArray.getString(R.styleable.ItemTextInputLayout_itilDigits);
         //右侧箭头显示状态
-        int arrowRightVisiable = typedArray.getInt(R.styleable.GridTableEditText_gteArrowRightVisiable, -1);
+        int arrowRightVisiable = typedArray.getInt(R.styleable.ItemTextInputLayout_itilArrowRightVisiable, -1);
         //EditText的PaddingRight
-        int paddingRightText = typedArray.getDimensionPixelSize(R.styleable.GridTableEditText_gtePaddingRightText, -999);
+        int paddingRightText = typedArray.getDimensionPixelSize(R.styleable.ItemTextInputLayout_itilPaddingRightText, -999);
         typedArray.recycle();
 
         tvRedStar.setVisibility(redStarVisiable * 4);
         if (!inputEnable) setInputEnable(false);
-        if (gteItemName != null) {
-            getTextViewItem().setText(gteItemName);
-            if (gteHint == null) {//hint=null
+        if (itilItemName != null) {
+            getTextViewItem().setText(itilItemName);
+            if (itilHint == null) {//hint=null
+                String trim = itilItemName.trim();
+                if (trim.endsWith(":") || trim.endsWith("：")) {//去掉最后:
+                    trim = trim.substring(0, trim.length() - 1);
+                }
                 if (inputEnable) {//能输入
-                    setHint("请输入".concat(gteItemName));//"请输入" + item名称
-                } else setHint("请选择".concat(gteItemName));//"请输入请选择 + item名称
-            } else setHint(gteHint);
+                    setHint("请输入".concat(trim));//"请输入" + item名称
+                } else setHint("请选择".concat(trim));//"请输入请选择 + item名称
+            } else setHint(itilHint);
         }
-        if (gteText != null) setText(gteText);
-        if(gteImeOptions != -1) getEditText().setImeOptions(gteImeOptions);
-        if (gteMaxLength >= 0) setMaxLength(gteMaxLength);
+        if (itilText != null) setText(itilText);
+        if(itilImeOptions != -1) getEditText().setImeOptions(itilImeOptions);
+        if (itilMaxLength >= 0) setMaxLength(itilMaxLength);
         setGravityInput(gravity);
         setMarginTop(marginTop);
-        if (gteInputType != -1) getEditText().setInputType(gteInputType);
-        if (!TextUtils.isEmpty(gteDigits)) setDigits(gteDigits, false);
+        if (itilInputType != -1) getEditText().setInputType(itilInputType);
+        if (!TextUtils.isEmpty(itilDigits)) setDigits(itilDigits, false);
         if (arrowRightVisiable == -1) {
             if (inputEnable) {//如果能输入
                 ivArrowRight.setVisibility(GONE);//隐藏
@@ -340,14 +344,14 @@ public class GridTableEditText extends LinearLayout implements TextUtil.GetTextA
         getChildAt(0).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (onClickListener != null) onClickListener.onClick(GridTableEditText.this);
+                if (onClickListener != null) onClickListener.onClick(ItemTextInputLayout.this);
             }
         });
         getEditText().setOnClickListener(new OnClickListener() {//必须要设置,否则点击EditText无效
             @Override
             public void onClick(View v) {
                 if (onClickListener != null && getEditText().isClickable()) {
-                    onClickListener.onClick(GridTableEditText.this);
+                    onClickListener.onClick(ItemTextInputLayout.this);
                 }
             }
         });
