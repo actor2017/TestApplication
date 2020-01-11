@@ -69,7 +69,7 @@ public class GridTableAddMinus extends LinearLayout {
         //红点是否显示
         int redStarVisiable = typedArray.getInt(R.styleable.GridTableAddMinus_gtamRedStarVisiable, 0);
         //左侧TextView的Text
-        String gteItemName = typedArray.getString(R.styleable.GridTableAddMinus_gtamItemName);
+        String gtamItemName = typedArray.getString(R.styleable.GridTableAddMinus_gtamItemName);
         //最小值
         minValue = typedArray.getInt(R.styleable.GridTableAddMinus_gtamMinValue, 0);
         //最大值
@@ -81,7 +81,7 @@ public class GridTableAddMinus extends LinearLayout {
         tvValue.setText(String.valueOf(nowValue));
 
         tvRedStar.setVisibility(redStarVisiable * 4);
-        if (gteItemName != null) tv1.setText(gteItemName);
+        if (gtamItemName != null) tv1.setText(gtamItemName);
         typedArray.recycle();
     }
 
