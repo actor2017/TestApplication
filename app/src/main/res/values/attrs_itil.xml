@@ -123,5 +123,8 @@
 
         <!--右边EditText的PaddingRight-->
         <attr name="itilPaddingRightText" format="dimension" />
+
+        <!--右侧箭头位置图片-->
+        <attr name="itilArrowRightSrc" format="reference|color" />
     </declare-styleable>
 </resources>
