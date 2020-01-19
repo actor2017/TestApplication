@@ -11,8 +11,8 @@
         android:id="@+id/itil1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:itilImeOptions="actionDone"
         app:itilGravity="right|center_vertical"
+        app:itilImeOptions="actionDone"
         app:itilInputType="text"
         app:itilItemName="item1" />
 
@@ -23,6 +23,11 @@
         app:gtrItemName="性别: "
         app:gtrRb1Text="男"
         app:gtrRb2Text="女" />
+
+    <com.contrarywind.view.WheelView
+        android:id="@+id/options1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
 
     <Button
         android:id="@+id/btn"

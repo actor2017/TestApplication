@@ -2,6 +2,8 @@ package com.actor.testapplication.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.IntRange;
 import android.support.annotation.Nullable;
 import android.support.annotation.Px;
@@ -67,6 +69,9 @@ import com.actor.testapplication.R;
  *                  @see #setDigits(String, boolean)
  *                  @see #setDigitsRegex(int, boolean)
  *                  @see #setDigitsRegex(String, boolean)
+ * @version 1.1.5 新增方法
+ *                  @see #setIvArrowRight(int, Integer, Integer)
+ *                  @see #setIvArrowRight(Drawable, Integer, Integer)
  */
 public class ItemTextInputLayout extends LinearLayout implements TextUtil.GetTextAble {
 
@@ -125,6 +130,8 @@ public class ItemTextInputLayout extends LinearLayout implements TextUtil.GetTex
         int arrowRightVisiable = typedArray.getInt(R.styleable.ItemTextInputLayout_itilArrowRightVisiable, -1);
         //EditText的PaddingRight
         int paddingRightText = typedArray.getDimensionPixelSize(R.styleable.ItemTextInputLayout_itilPaddingRightText, -999);
+        //右侧箭头位置图片
+        Drawable arrowSrc = typedArray.getDrawable(R.styleable.ItemTextInputLayout_itilArrowRightSrc);
         typedArray.recycle();
 
         tvRedStar.setVisibility(redStarVisiable * 4);
@@ -156,6 +163,7 @@ public class ItemTextInputLayout extends LinearLayout implements TextUtil.GetTex
         boolean gone = ivArrowRight.getVisibility() == GONE;
         if (paddingRightText == -999) paddingRightText = gone ? (int) (density * 10) : (int) (density * 5);
         setPaddingRightText(paddingRightText);
+        if (arrowSrc != null) setIvArrowRight(arrowSrc, null, null);
     }
 
     /**
@@ -333,9 +341,32 @@ public class ItemTextInputLayout extends LinearLayout implements TextUtil.GetTex
         et1.setPadding(0, 0, px, 0);
     }
 
-    //设置输入框文字gravity
+    /**
+     * @param gravity 设置输入框文字gravity
+     */
     public void setGravityInput(int gravity) {
         getEditText().setGravity(gravity);
+    }
+
+    public void setIvArrowRight(@DrawableRes int drawableRes, @Nullable Integer widthDp, @Nullable Integer heightDp) {
+        Drawable drawable = getResources().getDrawable(drawableRes);
+        setIvArrowRight(drawable, widthDp, heightDp);
+    }
+
+    /**
+     * @param drawable 设置最右侧图片drawable
+     * @param widthDp 最右侧图片宽度
+     * @param heightDp 最右侧图片高度
+     */
+    public void setIvArrowRight(Drawable drawable, @Nullable Integer widthDp, @Nullable Integer heightDp) {
+        ImageView ivArrowRight = getIvArrowRight();
+        ivArrowRight.setImageDrawable(drawable);
+        if (widthDp != null || heightDp != null) {
+            ViewGroup.LayoutParams layoutParams = ivArrowRight.getLayoutParams();
+            if (widthDp != null) layoutParams.width = (int) (widthDp * density);
+            if (heightDp != null) layoutParams.height = (int) (heightDp * density);
+            ivArrowRight.setLayoutParams(layoutParams);
+        }
     }
 
     @Override
