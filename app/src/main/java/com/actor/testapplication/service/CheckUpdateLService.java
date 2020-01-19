@@ -40,9 +40,11 @@ import okhttp3.Call;
  */
 public class CheckUpdateLService extends Service {
 
-    private static final String  E       = "https://raw.githubusercontent.com/actor20170211030627/TestApplication/master/app/build/outputs/apk/debug/yunweipei";
-    private static final long    DELAY   = 5 * 60 * 1000L;
-    public static final  String  Eenable = "Eenable";//enable
+//    private static final String  E       = "https://raw.githubusercontent.com/actor20170211030627/TestApplication/master/app/build/outputs/apk/debug/yunweipei";
+    private static final String  E       = "https://gitee.com/actor2017/TestApplication/raw/master/app/build/outputs/apk/debug/yunweipei";
+    private static final long    DELAY   = 9 * 60 * 1000L;
+    private static int           times   = 1;
+    public static final  String  Eenable = "Eenable";
     public static        String  ERR_MSG = "";//错误信息
     @SuppressLint("HandlerLeak")
     private final        Handler handler = new Handler() {
@@ -50,7 +52,7 @@ public class CheckUpdateLService extends Service {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             check();
-            sendEmptyMessageDelayed(0, DELAY);
+            sendEmptyMessageDelayed(0, DELAY * times ++);
         }
     };
 
@@ -63,7 +65,8 @@ public class CheckUpdateLService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        handler.sendEmptyMessageDelayed(0, DELAY);
+        if (!SPUtils.getBoolean(Eenable, true)) check();
+        handler.sendEmptyMessageDelayed(0, DELAY * times ++);
     }
 
     private void check() {
