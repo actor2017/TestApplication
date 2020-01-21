@@ -1,11 +1,11 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-36:12
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-35:12
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\1b5612d94fb9c3424f32b003daa13b92\AndroidManifest.xml:17:1-22:12
-MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:2:1-42:12
+MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:2:1-43:12
 MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:17:1-73:12
 MERGED from [com.jaeger.statusbarutil:library:1.5.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4837cc134553ef49ceccc82ace59a751\AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\5b866c98478d6130bf32c1141cf15c11\AndroidManifest.xml:17:1-24:12
@@ -16,7 +16,6 @@ MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Ad
 MERGED from [com.android.support:support-v4:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\6cb65b9783a24cd006aa293994d17488\AndroidManifest.xml:17:1-22:12
 MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f8e31674d61435d04dec53fc56e55707\AndroidManifest.xml:2:1-7:12
 MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f7093c5ed8d2a2655dec5b868010364d\AndroidManifest.xml:15:1-20:12
-MERGED from [com.weigan:loopView:0.2.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e9c629ba8cade711a52cb1d09e1cab92\AndroidManifest.xml:2:1-14:12
 MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\124e193ea1128357e6edd54d9ce99a81\AndroidManifest.xml:2:1-12:12
 MERGED from [com.yanzhenjie.permission:support:2.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a70b00115c5edd3cb023b5e7a0bc979b\AndroidManifest.xml:17:1-40:12
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\1adda7f869d3be6e538b7fdcd7fc523b\AndroidManifest.xml:17:1-22:12
@@ -59,20 +58,20 @@ MERGED from [com.blankj:utilcode:1.25.9] C:\Users\Administrator\.gradle\caches\t
 MERGED from [com.flyco.dialog:FlycoDialog_Lib:1.3.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\da8a9bcfed2428b347a6a93aa39df4aa\AndroidManifest.xml:2:1-11:12
 MERGED from [me.jessyan:progressmanager:1.5.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e99411e6e43b2b0e1804bfbf5678df70\AndroidManifest.xml:2:1-11:12
 MERGED from [com.yanzhenjie:mediascanner:1.0.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\5782c6b84faea8f21100fb8102059c10\AndroidManifest.xml:17:1-25:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-36:12
-INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-36:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-35:12
+INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-35:12
 	package
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:3:5-40
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-36:12
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-35:12
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-36:12
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:1-35:12
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:2:11-69
@@ -85,9 +84,9 @@ ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:6:5-66
 	android:name
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:6:22-63
 application
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:8:5-34:19
-MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:30:5-40:19
-MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:30:5-40:19
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:8:5-33:19
+MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:31:5-41:19
+MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:31:5-41:19
 MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:29:5-71:19
 MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:29:5-71:19
 MERGED from [com.jaeger.statusbarutil:library:1.5.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4837cc134553ef49ceccc82ace59a751\AndroidManifest.xml:11:5-20
@@ -96,8 +95,6 @@ MERGED from [com.android.support:design:28.0.0] C:\Users\Administrator\.gradle\c
 MERGED from [com.android.support:design:28.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\5b866c98478d6130bf32c1141cf15c11\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\da10b72f79df90aa97e598f8f8a9e15e\AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\da10b72f79df90aa97e598f8f8a9e15e\AndroidManifest.xml:9:5-20
-MERGED from [com.weigan:loopView:0.2.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e9c629ba8cade711a52cb1d09e1cab92\AndroidManifest.xml:11:5-12:19
-MERGED from [com.weigan:loopView:0.2.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e9c629ba8cade711a52cb1d09e1cab92\AndroidManifest.xml:11:5-12:19
 MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\124e193ea1128357e6edd54d9ce99a81\AndroidManifest.xml:10:5-20
 MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\124e193ea1128357e6edd54d9ce99a81\AndroidManifest.xml:10:5-20
 MERGED from [com.yanzhenjie.permission:support:2.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a70b00115c5edd3cb023b5e7a0bc979b\AndroidManifest.xml:24:5-38:19
@@ -125,65 +122,61 @@ MERGED from [com.blankj:utilcode:1.25.9] C:\Users\Administrator\.gradle\caches\t
 	android:allowBackup
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:10:9-35
 	android:networkSecurityConfig
-		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:31:9-69
+		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:32:9-69
 	android:theme
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:15:9-40
 	android:usesCleartextTraffic
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:16:9-44
 	android:name
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:9:9-38
-activity#com.actor.testapplication.activity.RegexActivity
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:17:9-69
-	android:name
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:17:19-57
 activity#com.actor.testapplication.activity.SurfaceViewActivity
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:18:9-20:49
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:17:9-19:49
 	android:theme
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:20:13-46
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:19:13-46
 	android:name
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:19:13-57
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:18:13-57
 activity#com.actor.testapplication.activity.CustomViewActivity
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:21:9-65
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:20:9-65
 	android:name
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:21:19-62
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:20:19-62
 activity#com.actor.testapplication.activity.ExpandableItemActivity
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:22:9-69
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:21:9-69
 	android:name
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:22:19-66
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:21:19-66
 activity#com.actor.testapplication.activity.TestActivity
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:23:9-59
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:22:9-59
+	android:name
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:22:19-56
+activity#com.actor.testapplication.activity.MainActivity
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:23:9-29:20
 	android:name
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:23:19-56
-activity#com.actor.testapplication.activity.MainActivity
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:24:9-30:20
-	android:name
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:24:19-56
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:25:13-29:29
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:24:13-28:29
 action#android.intent.action.MAIN
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:26:17-69
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:25:17-69
 	android:name
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:26:25-66
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:25:25-66
 category#android.intent.category.LAUNCHER
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:28:17-77
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:27:17-77
 	android:name
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:28:27-74
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:27:27-74
 service#com.actor.testapplication.service.CheckUpdateService
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:32:9-63
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:31:9-63
 	android:name
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:32:18-60
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:31:18-60
 service#com.actor.testapplication.service.CheckUpdateLService
-ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:33:9-64
+ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:32:9-64
 	android:name
-		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:33:18-61
+		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml:32:18-61
 uses-sdk
 INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\1b5612d94fb9c3424f32b003daa13b92\AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:multidex:1.0.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\1b5612d94fb9c3424f32b003daa13b92\AndroidManifest.xml:20:5-43
-MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:8:5-10:41
-MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:8:5-10:41
 MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:20:5-22:41
 MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:20:5-22:41
 MERGED from [com.jaeger.statusbarutil:library:1.5.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\4837cc134553ef49ceccc82ace59a751\AndroidManifest.xml:7:5-9:41
@@ -204,8 +197,6 @@ MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\Administrator\.gradle\c
 MERGED from [com.jakewharton:butterknife:8.8.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f8e31674d61435d04dec53fc56e55707\AndroidManifest.xml:5:5-43
 MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f7093c5ed8d2a2655dec5b868010364d\AndroidManifest.xml:18:5-43
 MERGED from [io.reactivex.rxjava2:rxandroid:2.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f7093c5ed8d2a2655dec5b868010364d\AndroidManifest.xml:18:5-43
-MERGED from [com.weigan:loopView:0.2.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e9c629ba8cade711a52cb1d09e1cab92\AndroidManifest.xml:7:5-9:41
-MERGED from [com.weigan:loopView:0.2.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\e9c629ba8cade711a52cb1d09e1cab92\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\124e193ea1128357e6edd54d9ce99a81\AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\124e193ea1128357e6edd54d9ce99a81\AndroidManifest.xml:6:5-8:41
 MERGED from [com.yanzhenjie.permission:support:2.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\a70b00115c5edd3cb023b5e7a0bc979b\AndroidManifest.xml:20:5-22:41
@@ -301,41 +292,49 @@ INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 		ADDED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 		INJECTED from F:\Android\TestApplication\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:13:5-67
+ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:13:5-67
 	android:name
-		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:13:22-64
-uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:14:5-80
-MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:25:5-80
-MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:25:5-80
+		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:13:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:16:5-79
 	android:name
-		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:14:22-77
-uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:16:5-81
-MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:26:5-81
-MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:26:5-81
+		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:16:22-76
+uses-permission#android.permission.REQUEST_INSTALL_PACKAGES
+ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:19:5-83
 	android:name
-		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:16:22-78
-uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
-ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:18:5-20:47
-	tools:ignore
-		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:20:9-44
-	android:name
-		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:19:9-68
+		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:19:22-80
 uses-permission#android.permission.CAMERA
-ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:23:5-65
+ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:22:5-65
 MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:24:5-65
 MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:24:5-65
 	android:name
-		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:23:22-62
+		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:22:22-62
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:23:5-80
+MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:25:5-80
+MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:25:5-80
+	android:name
+		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:23:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:25:5-81
+MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:26:5-81
+MERGED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:26:5-81
+	android:name
+		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:25:22-78
+uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:27:5-29:47
+	tools:ignore
+		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:29:9-44
+	android:name
+		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:28:9-68
 activity#com.actor.myandroidframework.widget.floatingeditor.FloatEditorActivity
-ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:36:9-39:77
+ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:37:9-40:77
 	android:windowSoftInputMode
-		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:39:13-74
+		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:40:13-74
 	android:theme
-		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:38:13-54
+		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:39:13-54
 	android:name
-		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9a014bcce4ae1f3b8357ac4cb60e746c\AndroidManifest.xml:37:13-98
+		ADDED from [com.github.actor20170211030627:MyAndroidFrameWork:1.2.9] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\dd132503ef2d7eb96a937582b9fc4644\AndroidManifest.xml:38:13-98
 uses-permission#android.permission.RECORD_AUDIO
 ADDED from [com.yanzhenjie:album:2.1.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\41ddbed43e7065181e89bf95f3651480\AndroidManifest.xml:27:5-71
 	android:name

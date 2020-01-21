@@ -80,13 +80,6 @@
             android:layout_height="wrap_content"
             android:text="SurfaceView" />
 
-        <!---->
-        <Button
-            android:id="@+id/btn_regex"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Regex正则表达式" />
-
         <Button
             android:id="@+id/btn_go2_test"
             android:layout_width="match_parent"

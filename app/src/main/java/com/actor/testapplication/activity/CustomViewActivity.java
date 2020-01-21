@@ -8,11 +8,6 @@ import android.widget.RadioGroup;
 import com.actor.testapplication.R;
 import com.actor.testapplication.widget.GridTableRadioGroup;
 import com.actor.testapplication.widget.ItemTextInputLayout;
-import com.bigkoo.pickerview.adapter.ArrayWheelAdapter;
-import com.contrarywind.view.WheelView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,10 +23,6 @@ public class CustomViewActivity extends BaseActivity {
     String regEx1 = "[^a-zA-Z0-9\u4E00-\u9FA5]";  //只能输入字母,数字,文字
     String regEx2 = "[^a-z]";  //只能输入字母,数字,文字
 
-    @BindView(R.id.options1)
-    WheelView    wheelView;
-    List<String> sdf = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,29 +36,6 @@ public class CustomViewActivity extends BaseActivity {
                 logFormat("checkedId = %d, pos = %d, reChecked = %b", checkedId, position, reChecked);
             }
         });
-
-        sdf.add("sdfsdfsdf");
-        sdf.add("sdfsdf123sdf");
-        sdf.add("sdfsdfs234234df");
-        /**
-         * 网络请求/延时 设置Adapter, 不显示数据...
-         */
-        wheelView.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                /**
-                 * date的类型: IPickerViewData, Integer, toString()
-                 * @see WheelView#getContentText(Object)
-                 */
-                wheelView.setAdapter(new ArrayWheelAdapter<>(sdf));
-                wheelView.setCurrentItem(0);//初始化时显示的数据, 默认第0条
-                wheelView.setIsOptions(true);//不设置就不显示, 默认false, 意义?
-                wheelView.setCyclic(false);//不循环滚动, 默认true
-            }
-        }, 1000);
-
-
-
     }
 
     @OnClick({R.id.btn, R.id.btn1})

@@ -24,11 +24,6 @@
         app:gtrRb1Text="男"
         app:gtrRb2Text="女" />
 
-    <com.contrarywind.view.WheelView
-        android:id="@+id/options1"
-        android:layout_width="match_parent"
-        android:layout_height="200dp" />
-
     <Button
         android:id="@+id/btn"
         android:layout_width="match_parent"

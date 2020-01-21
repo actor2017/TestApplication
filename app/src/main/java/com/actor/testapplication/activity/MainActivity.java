@@ -41,15 +41,12 @@ public class MainActivity extends BaseActivity {
     }
 
     @OnClick({R.id.btn, R.id.btn_expandable_item, R.id.btn_custom_view, R.id.btn_surface_view,
-            R.id.btn_regex, R.id.btn_go2_test})
+            R.id.btn_go2_test})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn:
 //                videoView.start();
                 break;
-//            case R.id.btn_scan_qr_code://扫描二维码
-//                startActivityForResult(new Intent(this, QrCodeActivity.class), REQUEST_CODE_QR_SCAN);
-//                break;
             case R.id.btn_expandable_item://分组的伸缩栏(ExpandableItemAdapter)
                 startActivity(new Intent(this, ExpandableItemActivity.class));
                 break;
@@ -59,30 +56,11 @@ public class MainActivity extends BaseActivity {
             case R.id.btn_surface_view://SurfaceView
                 startActivity(new Intent(this, SurfaceViewActivity.class));
                 break;
-            case R.id.btn_regex://Regex正则表达式
-                startActivity(new Intent(this, RegexActivity.class));
-                break;
             case R.id.btn_go2_test://Test测试页面
                 startActivity(new Intent(this, TestActivity.class), view);
                 break;
         }
     }
-
-//    private static final int REQUEST_CODE_QR_SCAN = 101;
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        if (data != null) {
-//            if(resultCode != Activity.RESULT_OK) {
-//                //解析图片失败
-//                String result = data.getStringExtra("com.blikoon.qrcodescanner.error_decoding_image");
-//                tvResult.setText(result);
-//            } else {
-//                //扫描二维码
-//                String result = data.getStringExtra("com.blikoon.qrcodescanner.got_qr_scan_relult");
-//                tvResult.setText(result);
-//            }
-//        }
-//    }
 
     @Override
     protected void onDestroy() {

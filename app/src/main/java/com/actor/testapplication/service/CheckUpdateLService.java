@@ -18,9 +18,13 @@ import okhttp3.Call;
 
 /**
  * 检查更新并Lock
+ * 1.添加权限
  * <uses-permission android:name="android.permission.INTERNET" />
  * <service android:name=".utils.CheckUpdateLService" />
  *
+ * 2.在AndroidManifest.xml中注册
+ *
+ * 3.开启服务
  * startService(new Intent(this, CheckUpdateLService.class));
  *
  * @Override
