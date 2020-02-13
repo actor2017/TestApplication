@@ -1,6 +1,7 @@
 package com.actor.testapplication.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -20,11 +21,10 @@ public class MainActivity extends BaseActivity {
     TextView  tvVersion;
     @BindView(R.id.video_view)
     VideoView videoView;
-    @BindView(R.id.tv_result)//显示结果
-    TextView  tvResult;
 
     //thanks www.baidu.com百度
     private String url = "http://tb-video.bdstatic.com/tieba-smallvideo-transcode/8_4871b1e9218ec13f03131176197ef53d_1.mp4";
+    private Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +36,18 @@ public class MainActivity extends BaseActivity {
         tvVersion.setText(getStringFormat("VersionName: %s(VersionCode: %d)",
                 AppUtils.getAppVersionName(), AppUtils.getAppVersionCode()));//版本
         startService(new Intent(this, CheckUpdateService.class));//检查更新
-
-//        videoView.setVideoURI(Uri.parse(url));
     }
 
-    @OnClick({R.id.btn, R.id.btn_expandable_item, R.id.btn_custom_view, R.id.btn_surface_view,
+    @OnClick({R.id.btn_play, R.id.btn_glide, R.id.btn_expandable_item, R.id.btn_custom_view, R.id.btn_surface_view,
             R.id.btn_go2_test})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btn:
-//                videoView.start();
+            case R.id.btn_play://播放视频
+                if (uri == null) videoView.setVideoURI(uri = Uri.parse(url));
+                if (!videoView.isPlaying()) videoView.start();
+                break;
+            case R.id.btn_glide://Glide测试
+                startActivity(new Intent(this, GlideTestActivity.class));
                 break;
             case R.id.btn_expandable_item://分组的伸缩栏(ExpandableItemAdapter)
                 startActivity(new Intent(this, ExpandableItemActivity.class));
