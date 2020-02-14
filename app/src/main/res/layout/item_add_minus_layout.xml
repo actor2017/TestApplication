@@ -12,7 +12,7 @@
     android:paddingRight="10dp">
 
     <TextView
-        android:id="@+id/tv_red_star_for_gtam"
+        android:id="@+id/tv_red_star_for_iaml"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="* "
@@ -20,7 +20,7 @@
         android:textSize="20sp"/>
 
     <TextView
-        android:id="@+id/tv_item_name_for_gtam"
+        android:id="@+id/tv_item_name_for_iaml"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:minWidth="90dp"
@@ -33,14 +33,14 @@
         android:layout_weight="1"/>
 
     <ImageView
-        android:id="@+id/iv_minus_for_gtam"
+        android:id="@+id/iv_minus_for_iaml"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:padding="5dp"
-        android:src="@drawable/gift_minus"/>
+        android:src="@drawable/icon_minus_gray_cdcdcd"/>
 
     <TextView
-        android:id="@+id/tv_value_for_gtam"
+        android:id="@+id/tv_value_for_iaml"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -50,9 +50,9 @@
         android:textSize="16sp"/>
 
     <ImageView
-        android:id="@+id/iv_add_for_gtam"
+        android:id="@+id/iv_add_for_iaml"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:padding="5dp"
-        android:src="@drawable/gift_add"/>
+        android:src="@drawable/icon_add_gray_cdcdcd"/>
 </LinearLayout>

@@ -22,6 +22,7 @@ import com.actor.testapplication.R;
  * Author     : 李大发
  * Date       : 2019/6/18 on 14:21
  * 修改过的地方: edited
+ * FIXME: 2020/2/14 CardView待改进
  */
 public class MyCardView extends FrameLayout {
 

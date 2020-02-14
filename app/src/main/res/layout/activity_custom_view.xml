@@ -7,18 +7,37 @@
     android:orientation="vertical"
     tools:context=".activity.CustomViewActivity">
 
-    <com.actor.testapplication.widget.GridTableRadioGroup
-        android:id="@+id/grid_table_radio_group"
+    <com.actor.testapplication.widget.ItemRadioGroupLayout
+        android:id="@+id/item_radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:gtrItemName="性别: "
-        app:gtrRb1Text="男"
-        app:gtrRb2Text="女" />
+        app:irglItemName="性别: "
+        app:irglTexts="男,女,未知" />
 
     <Button
-        android:id="@+id/btn"
+        android:id="@+id/btn_check_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="btn"
+        android:text="Check position 1"
         android:transitionName="btnTest" />
+
+    <com.actor.testapplication.widget.ItemAddMinusLayout
+        android:id="@+id/item_add_minus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:iamlAlreadyMaxValueHint="已经是最大值了"
+        app:iamlAlreadyMinValueHint="不能更小了!!"
+        app:iamlDefaultValue="3"
+        app:iamlItemName="人数: "
+        app:iamlMaxValue="5"
+        app:iamlMinValue="1"
+        app:iamlRedStarVisiable="visible" />
+
+    <com.actor.testapplication.widget.ItemSpinnerLayout
+        android:id="@+id/item_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:islEntries="@array/languages"
+        app:islItemName="请选择: "
+        app:islRedStarVisiable="visible" />
 </LinearLayout>

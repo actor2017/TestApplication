@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--这是GridTableRadioGroup的属性-->
-    <declare-styleable name="GridTableRadioGroup">
+    <!--这是ItemRadioGroupLayout的属性-->
+    <declare-styleable name="ItemRadioGroupLayout">
 
         <!--左边的红点是否显示-->
-        <attr name="gtrRedStarVisiable" format="enum">
-            <enum name="visible" value="0"/>
-            <enum name="invisible" value="1"/>
-            <enum name="gone" value="2"/>
+        <attr name="irglRedStarVisiable" format="enum">
+            <enum name="visible" value="0" />
+            <enum name="invisible" value="1" />
+            <enum name="gone" value="2" />
         </attr>
 
         <!--左边的文字-->
-        <attr name="gtrItemName" format="string"/>
+        <attr name="irglItemName" format="string" />
 
         <!--RadioButton居中类型, 默认start|center_vertical-->
-        <attr name="gtrGravity" format="flags">
+        <attr name="irglGravity" format="flags">
             <flag name="top" value="0x30" />
             <flag name="bottom" value="0x50" />
             <flag name="left" value="0x03" />
@@ -31,16 +31,10 @@
             <flag name="end" value="0x00800005" />
         </attr>
 
-        <!--radioButton1的值-->
-        <attr name="gtrRb1Text" format="string"/>
-
-        <!--radioButton2的值-->
-        <attr name="gtrRb2Text" format="string"/>
-
-        <!--radioButton3的值-->
-        <attr name="gtrRb3Text" format="string"/>
+        <!--多个RadioButton的text, 用','分隔开-->
+        <attr name="irglTexts" format="string" />
 
         <!--选中第几个, 默认0-->
-        <attr name="gtrCheckedPosition" format="integer"/>
+        <attr name="irglCheckedPosition" format="integer" />
     </declare-styleable>
 </resources>

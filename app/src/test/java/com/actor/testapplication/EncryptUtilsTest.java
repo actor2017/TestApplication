@@ -71,6 +71,7 @@ import static org.junit.Assert.assertEquals;
  * encryptRSA, encryptRSA2HexString, encryptRSA2Base64   : RSA 加密,{@link #encryptDecryptRSA()}?????
  * decryptRSA, decryptHexStringRSA, decryptBase64RSA     : RSA 解密,{@link #decryptDecryptRSA()}?????
  * </pre>
+ * FIXME: 2020/2/14 EncryptUtilsTest待改进
  */
 public class EncryptUtilsTest {
     @Test

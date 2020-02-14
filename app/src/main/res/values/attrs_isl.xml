@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="GridTableSpinner">
+    <declare-styleable name="ItemSpinnerLayout">
 
         <!--左边的红点是否显示-->
-        <attr name="gtsRedStarVisiable" format="enum">
+        <attr name="islRedStarVisiable" format="enum">
             <enum name="visible" value="0"/>
             <enum name="invisible" value="1"/>
             <enum name="gone" value="2"/>
         </attr>
 
         <!--左边的文字-->
-        <attr name="gtsItemName" format="string"/>
+        <attr name="islItemName" format="string"/>
 
         <!--给spinner设置本地数据源,示例:@array/languages(不要写成@arrays)-->
-        <attr name="gtsEntries" format="reference"/>
+        <attr name="islEntries" format="reference"/>
     </declare-styleable>
 
     <!-- 这是entries的本地示例写法,用于给spinner赋值,

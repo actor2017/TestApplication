@@ -31,6 +31,9 @@ import android.widget.TextView;
 import com.actor.testapplication.R;
 import com.blankj.utilcode.util.ConvertUtils;
 
+/**
+ * FIXME: 2020/2/14 EaseSidebar待查看
+ */
 public class EaseSidebar extends View{
 	private Paint paint;
 	private TextView header;

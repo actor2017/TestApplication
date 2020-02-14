@@ -52,7 +52,7 @@ public class ExpandableItemAdapter extends BaseMultiItemQuickAdapter<MultiItemEn
             case TYPE_LEVEL_1:
                 final Level1Item lv1 = (Level1Item) item;
                 helper.setText(R.id.tv, lv1.title + ", " + lv1.subTitle)
-                        .setImageResource(R.id.iv, R.drawable.gift_add);
+                        .setImageResource(R.id.iv, R.drawable.icon_add_gray_cdcdcd);
                 helper.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -68,7 +68,7 @@ public class ExpandableItemAdapter extends BaseMultiItemQuickAdapter<MultiItemEn
             case TYPE_PERSON:
                 final Person person = (Person) item;
                 helper.setText(R.id.tv, person.name + ", " + person.age)
-                        .setImageResource(R.id.iv, R.drawable.gift_minus);
+                        .setImageResource(R.id.iv, R.drawable.icon_minus_gray_cdcdcd);
                 helper.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

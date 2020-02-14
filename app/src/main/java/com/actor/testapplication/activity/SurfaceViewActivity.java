@@ -23,6 +23,7 @@ import butterknife.OnClick;
 
 /**
  * SurfaceView
+ * FIXME: 2020/2/14 SurfaceView待改进
  */
 public class SurfaceViewActivity extends BaseActivity {
 
