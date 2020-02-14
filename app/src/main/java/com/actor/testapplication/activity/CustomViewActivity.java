@@ -44,7 +44,7 @@ public class CustomViewActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.btn_check_1:
                 int pos = itemRadioGroupLayout.getCheckedPosition();
-                itemRadioGroupLayout.setCheckedPosition(1);
+                itemRadioGroupLayout.setCheckedPosition(2);
                 break;
         }
     }

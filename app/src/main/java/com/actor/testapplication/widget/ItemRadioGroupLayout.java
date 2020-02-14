@@ -28,13 +28,13 @@ import com.actor.testapplication.R;
  * 1.左侧红点显示类型, 默认visible
  * @see R.styleable#ItemRadioGroupLayout_irglRedStarVisiable    //visible/invisible/gone
  * 2.左侧提示文字
- * @see R.styleable#ItemRadioGroupLayout_irglItemName         //请选择性别：
+ * @see R.styleable#ItemRadioGroupLayout_irglItemName           //请选择性别：
  * 3.右侧RadioButton的gravity
- * @see R.styleable#ItemRadioGroupLayout_irglGravity          //start|centerVertical
+ * @see R.styleable#ItemRadioGroupLayout_irglGravity            //start|centerVertical
  * 4.多个RadioButton的text, 用','分隔开
- * @see R.styleable#ItemRadioGroupLayout_irglTexts            //"男,女,未知"
+ * @see R.styleable#ItemRadioGroupLayout_irglTexts              //"男,女,未知"
  * 5.选中第几个, 默认0
- * @see R.styleable#ItemRadioGroupLayout_irglCheckedPosition  //0
+ * @see R.styleable#ItemRadioGroupLayout_irglCheckedPosition    //0
  *
  * @version 1.0
  * @version 1.1 增加irglGravity属性
@@ -87,11 +87,8 @@ public class ItemRadioGroupLayout extends LinearLayout {
         int visiable = typedArray.getInt(R.styleable.ItemRadioGroupLayout_irglRedStarVisiable, 0);
         //左侧TextView的Text
         String irglItemName = typedArray.getString(R.styleable.ItemRadioGroupLayout_irglItemName);
-        //radioButton1的值
+        //几个RadioButton的值
         String texts = typedArray.getString(R.styleable.ItemRadioGroupLayout_irglTexts);
-//        String irglRb1Text = typedArray.getString(R.styleable.ItemRadioGroupLayout_irglRb1Text);
-//        String irglRb2Text = typedArray.getString(R.styleable.ItemRadioGroupLayout_irglRb2Text);
-//        String irglRb3Text = typedArray.getString(R.styleable.ItemRadioGroupLayout_irglRb3Text);
         //默认选中第几个
         int irglCheckedPosition = typedArray.getInt(R.styleable.ItemRadioGroupLayout_irglCheckedPosition, 0);
         //RadioButton的居中gravity
@@ -145,12 +142,12 @@ public class ItemRadioGroupLayout extends LinearLayout {
     /**
      * @param position 设置选中的position
      */
-    public void setCheckedPosition(@IntRange(from = 0, to = 2) int position) {
+    public void setCheckedPosition(@IntRange(from = 0) int position) {
         if (position < 0 || position >= radioGroup.getChildCount()) return;
         int checkedPosition = getCheckedPosition();
         AppCompatRadioButton child = (AppCompatRadioButton) radioGroup.getChildAt(position);
         child.setChecked(true);
-//        radioGroup.check(R.id.rb_2_for_irgl);//这种方式不行, 会回调多次
+//        radioGroup.check(R.id.rb_for_irgl);//这种方式不行, 会回调多次
         //重复选中
         if (onCheckedChangeListener != null && checkedPosition == position) {
             onCheckedChangeListener.onCheckedChanged(radioGroup, radioGroup.getCheckedRadioButtonId(), position, true);
