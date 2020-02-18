@@ -19,9 +19,9 @@ import android.widget.TextView;
 import com.actor.testapplication.R;
 
 /**
+ * https://github.com/actor20170211030627/TestApplication/blob/master/app/src/main/java/com/actor/testapplication/widget/ItemRadioGroupLayout.java
  * Description: 常用的单选输入布局,这是一个组合控件.
  * Copyright  : Copyright (c) 2019
- * Company    : 重庆市了赢科技有限公司 http://www.liaoin.com/
  * Author     : 李大发
  * Date       : 2019/7/10 on 17:21
  *

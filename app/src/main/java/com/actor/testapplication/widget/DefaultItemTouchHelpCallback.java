@@ -7,9 +7,7 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 
 /**
  * Description: 实现自己的ItemTouchHelper.Callback：继承ItemTouchHelper.Callback
- * Copyright  : Copyright (c) 2015
- * Company    : 公司名称
- * Author     : 李小松
+ * Author     : 李大发
  * Date       : 2017/4/13 on 19:54.
  * FIXME: 2020/2/14 DefaultItemTouchHelpCallback待改进
  */

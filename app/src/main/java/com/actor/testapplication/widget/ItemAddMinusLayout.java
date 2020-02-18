@@ -14,8 +14,8 @@ import com.actor.myandroidframework.utils.ToastUtils;
 import com.actor.testapplication.R;
 
 /**
+ * https://github.com/actor20170211030627/TestApplication/blob/master/app/src/main/java/com/actor/testapplication/widget/ItemAddMinusLayout.java
  * Description: 加减
- * Company    : 重庆市了赢科技有限公司 http://www.liaoin.com/
  * Author     : 李大发
  * Date       : 2019-8-19 on 21:10
  *
