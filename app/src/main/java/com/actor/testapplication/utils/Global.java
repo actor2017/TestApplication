@@ -26,22 +26,22 @@ public class Global {
             "/build/outputs/apk/debug/output.json";
 
 
-    //github.com
-//    public static final String DOWNLOAD_URL = "https://raw.githubusercontent.com/" +
-//            "actor20170211030627/" +
-//            "TestApplication" + //项目名
-//            "/master/" +
-//            "app" +             //模块名
-//            "/build/outputs/apk/debug/" +
-//            "app" +             //模块名
-//            "-debug.apk";
-
-    //gitee.com码云
-    public static final String DOWNLOAD_URL = "https://gitee.com/actor2017/" +
-            "TestApplication" +
-            "/raw/master/" +
-            "app" +
+    //github.com(国内网速慢)
+    public static final String DOWNLOAD_URL = "https://raw.githubusercontent.com/" +
+            "actor20170211030627/" +
+            "TestApplication" + //项目名
+            "/master/" +
+            "app" +             //模块名
             "/build/outputs/apk/debug/" +
-            "app" +
+            "app" +             //模块名
             "-debug.apk";
+
+    //gitee.com码云(大于1M要登录后才能下载)
+//    public static final String DOWNLOAD_URL = "https://gitee.com/actor2017/" +
+//            "TestApplication" +
+//            "/raw/master/" +
+//            "app" +
+//            "/build/outputs/apk/debug/" +
+//            "app" +
+//            "-debug.apk";
 }
