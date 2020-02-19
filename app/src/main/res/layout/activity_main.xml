@@ -45,6 +45,13 @@
             android:text="分组的伸缩栏(ExpandableItemAdapter)" />
 
         <Button
+            android:id="@+id/btn_database"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Database 数据库"
+            android:transitionName="btn" />
+
+        <Button
             android:id="@+id/btn_custom_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

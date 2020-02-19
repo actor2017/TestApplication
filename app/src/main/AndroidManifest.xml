@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.actor.testapplication">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -13,8 +14,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".activity.GlideTestActivity"></activity>
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activity.GlideTestActivity" />
         <activity
             android:name=".activity.SurfaceViewActivity"
             android:theme="@style/FullScreen" />
@@ -28,6 +29,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.DatabaseActivity" />
 
         <service android:name=".service.CheckUpdateService" />
         <service android:name=".service.CheckUpdateLService" />

@@ -38,8 +38,8 @@ public class MainActivity extends BaseActivity {
         startService(new Intent(this, CheckUpdateService.class));//检查更新
     }
 
-    @OnClick({R.id.btn_play, R.id.btn_glide, R.id.btn_expandable_item, R.id.btn_custom_view, R.id.btn_surface_view,
-            R.id.btn_go2_test})
+    @OnClick({R.id.btn_play, R.id.btn_glide, R.id.btn_expandable_item, R.id.btn_database,
+            R.id.btn_custom_view, R.id.btn_surface_view, R.id.btn_go2_test})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_play://播放视频
@@ -52,6 +52,9 @@ public class MainActivity extends BaseActivity {
             case R.id.btn_expandable_item://分组的伸缩栏(ExpandableItemAdapter)
                 startActivity(new Intent(this, ExpandableItemActivity.class));
                 break;
+            case R.id.btn_database://数据库
+                startActivity(new Intent(this, DatabaseActivity.class), false, view);
+                break;
             case R.id.btn_custom_view://自定义View
                 startActivity(new Intent(this, CustomViewActivity.class));
                 break;
@@ -59,7 +62,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(this, SurfaceViewActivity.class));
                 break;
             case R.id.btn_go2_test://Test测试页面
-                startActivity(new Intent(this, TestActivity.class), view);
+                startActivity(new Intent(this, TestActivity.class), false, view);
                 break;
         }
     }
