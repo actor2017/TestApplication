@@ -7,23 +7,6 @@
     android:orientation="vertical"
     tools:context=".activity.CustomViewActivity">
 
-    <com.actor.testapplication.widget.ItemRadioGroupLayout
-        android:id="@+id/item_radio_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:irglCheckedPosition="0"
-        app:irglGravity="right|center_vertical"
-        app:irglItemName="性别: "
-        app:irglRedStarVisiable="visible"
-        app:irglTexts="男,女,未知" />
-
-    <Button
-        android:id="@+id/btn_check_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Check position 1"
-        android:transitionName="btnTest" />
-
     <com.actor.testapplication.widget.ItemAddMinusLayout
         android:id="@+id/item_add_minus"
         android:layout_width="match_parent"
@@ -36,11 +19,10 @@
         app:iamlMinValue="1"
         app:iamlRedStarVisiable="visible" />
 
-    <com.actor.testapplication.widget.ItemSpinnerLayout
-        android:id="@+id/item_spinner"
+    <Button
+        android:id="@+id/btn1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:islEntries="@array/languages"
-        app:islItemName="请选择: "
-        app:islRedStarVisiable="visible" />
+        android:text="btn"
+        android:transitionName="btnTest" />
 </LinearLayout>
