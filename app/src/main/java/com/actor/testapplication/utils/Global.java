@@ -10,6 +10,13 @@ package com.actor.testapplication.utils;
  */
 public class Global {
 
+    //GET/POST, 这个也可以检测更新
+//    public static final String CHECK_UPDATE = "https://github.com/actor20170211030627/" +
+//            "TestApplication" +
+//            "/raw/master/" +
+//            "app" +
+//            "/build/outputs/apk/debug/output.json";
+
     //github.com, GET请求
 //    public static final String CHECK_UPDATE = "https://raw.githubusercontent.com/" +
 //            "actor20170211030627/" +
@@ -26,6 +33,12 @@ public class Global {
             "/build/outputs/apk/debug/output.json";
 
 
+    //这个也可以下载
+//    public static final String DOWNLOAD_URL = "https://github.com/actor20170211030627/" +
+//            "TestApplication" +
+//            "/raw/master/" +
+//            "app" +
+//            "/build/outputs/apk/debug/app-debug.apk";
     //github.com(国内网速慢)
     public static final String DOWNLOAD_URL = "https://raw.githubusercontent.com/" +
             "actor20170211030627/" +
