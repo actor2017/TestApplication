@@ -25,4 +25,68 @@
         android:layout_height="wrap_content"
         android:text="btn"
         android:transitionName="btnTest" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue_2EABFB" />
+
+        <com.actor.testapplication.widget.BaseSlidingDrawer
+            android:id="@+id/sliding_drawer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:content="@+id/ll_content"
+            android:handle="@+id/ll_handle">
+
+            <!--抽屉的把手-->
+            <LinearLayout
+                android:id="@id/ll_handle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/red_EC4651"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="抽屉的把手"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:src="@drawable/arrow_right_gray_dcdcdc" />
+            </LinearLayout>
+
+            <!--抽屉内的内容-->
+            <LinearLayout
+                android:id="@id/ll_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/red_trans_CC99"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="内容11111111111"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="内容22222222222"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+            </LinearLayout>
+        </com.actor.testapplication.widget.BaseSlidingDrawer>
+    </FrameLayout>
 </LinearLayout>
