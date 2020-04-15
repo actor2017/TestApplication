@@ -8,6 +8,7 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
  */
 
 public class Level1Item extends AbstractExpandableItem<Person> implements MultiItemEntity {
+
     public String title;
     public String subTitle;
 

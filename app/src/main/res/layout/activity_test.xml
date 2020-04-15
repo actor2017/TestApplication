@@ -20,7 +20,8 @@
             android:descendantFocusability="afterDescendants"
             android:divider="#d4d4d4"
             android:dividerHeight="1px"
-            android:fastScrollEnabled="false" />
+            android:fastScrollEnabled="false"
+            tools:listitem="@layout/item_birthday" />
 
         <com.actor.testapplication.widget.EaseSidebar
             android:id="@+id/sidebar"

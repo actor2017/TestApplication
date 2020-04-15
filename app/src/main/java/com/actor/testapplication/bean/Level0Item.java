@@ -7,6 +7,7 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
  * Created by luoxw on 2016/8/10.
  */
 public class Level0Item extends AbstractExpandableItem<Level1Item> implements MultiItemEntity {
+
     public String title;
     public String subTitle;
 
