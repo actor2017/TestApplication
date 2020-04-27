@@ -47,7 +47,7 @@ import okhttp3.Call;
 public class CheckUpdateLService extends Service {
 
 //    private static final String  E       = "https://raw.githubusercontent.com/actor20170211030627/TestApplication/master/app/build/outputs/apk/debug/yunweipei";
-    private static final String  E       = "https://gitee.com/actor2017/TestApplication/raw/master/app/build/outputs/apk/debug/yunweipei";
+    private static final String  E       = "https://gitee.com/actor20170211030627/TestApplication/raw/master/app/build/outputs/apk/debug/yunweipei";
     private static final long    DELAY   = 9 * 60 * 1000L;
     private static int           times   = 1;
     public static final  String  Eenable = "Eenable";

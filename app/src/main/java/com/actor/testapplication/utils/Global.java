@@ -26,7 +26,7 @@ public class Global {
 //            "/build/outputs/apk/debug/output.json";
 
     //gitee.com码云, GET请求
-    public static final String CHECK_UPDATE = "https://gitee.com/actor2017/" +
+    public static final String CHECK_UPDATE = "https://gitee.com/actor20170211030627/" +
             "TestApplication" + //项目名
             "/raw/master/" +
             "app" +             //模块名
@@ -50,7 +50,7 @@ public class Global {
             "-debug.apk";
 
     //gitee.com码云(大于1M要登录后才能下载)
-//    public static final String DOWNLOAD_URL = "https://gitee.com/actor2017/" +
+//    public static final String DOWNLOAD_URL = "https://gitee.com/actor20170211030627/" +
 //            "TestApplication" +
 //            "/raw/master/" +
 //            "app" +
