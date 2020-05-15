@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.actor.myandroidframework.utils.ToastUtils;
 import com.actor.testapplication.R;
+import com.blankj.utilcode.util.ToastUtils;
 
 /**
  * https://github.com/actor20170211030627/TestApplication/blob/master/app/src/main/java/com/actor/testapplication/widget/ItemAddMinusLayout.java
@@ -74,7 +74,7 @@ public class ItemAddMinusLayout extends LinearLayout {
             @Override
             public void onClick(View v) {
                 if (nowValue <= minValue) {
-                    if (hintAlreadyMinValue != null) ToastUtils.show(hintAlreadyMinValue);
+                    if (hintAlreadyMinValue != null) ToastUtils.showShort(hintAlreadyMinValue);
                 } else {
                     tvValue.setText(String.valueOf(-- nowValue));
                 }
@@ -85,7 +85,7 @@ public class ItemAddMinusLayout extends LinearLayout {
             @Override
             public void onClick(View v) {
                 if (nowValue >= maxValue) {
-                    if (hintAlreadyMaxValue != null) ToastUtils.show(hintAlreadyMaxValue);
+                    if (hintAlreadyMaxValue != null) ToastUtils.showShort(hintAlreadyMaxValue);
                 } else {
                     tvValue.setText(String.valueOf(++ nowValue));
                 }

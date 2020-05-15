@@ -9,9 +9,9 @@ import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.actor.myandroidframework.utils.MyOkhttpUtils.BaseCallback;
-import com.actor.myandroidframework.utils.MyOkhttpUtils.MyOkHttpUtils;
 import com.actor.myandroidframework.utils.SPUtils;
+import com.actor.myandroidframework.utils.okhttputils.BaseCallback;
+import com.actor.myandroidframework.utils.okhttputils.MyOkHttpUtils;
 import com.alibaba.fastjson.JSONObject;
 
 import okhttp3.Call;

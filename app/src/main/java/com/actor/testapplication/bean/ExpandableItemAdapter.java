@@ -2,8 +2,8 @@ package com.actor.testapplication.bean;
 
 import android.view.View;
 
-import com.actor.myandroidframework.utils.ToastUtils;
 import com.actor.testapplication.R;
+import com.blankj.utilcode.util.ToastUtils;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
@@ -73,7 +73,7 @@ public class ExpandableItemAdapter extends BaseMultiItemQuickAdapter<MultiItemEn
                     @Override
                     public void onClick(View view) {
                         int pos = helper.getAdapterPosition();
-                        ToastUtils.show(String.valueOf(pos));
+                        ToastUtils.showShort(String.valueOf(pos));
 //                        // 先获取到当前 item 的父 positon，再移除自己
 //                        int positionAtAll = getParentPositionInAll(pos);
 //                        remove(pos);

@@ -1,13 +1,10 @@
 package com.actor.testapplication;
 
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import com.actor.myandroidframework.application.ActorApplication;
-
-import java.util.concurrent.TimeUnit;
-
-import okhttp3.OkHttpClient;
+import com.zhouyou.http.EasyHttp;
+import com.zhy.http.okhttp.OkHttpUtils;
 
 /**
  * Description: 类的描述
@@ -19,12 +16,13 @@ import okhttp3.OkHttpClient;
  */
 public class MyApplication extends ActorApplication {
 
-    @Nullable
     @Override
-    protected OkHttpClient.Builder getOkHttpClientBuilder(OkHttpClient.Builder builder) {
-        return builder.connectTimeout(60_000L, TimeUnit.MILLISECONDS)//默认10s, 可不设置
-                .readTimeout(60_000L, TimeUnit.MILLISECONDS)//默认10s, 可不设置
-                .writeTimeout(60_000L, TimeUnit.MILLISECONDS);//默认10s, 可不设置
+    protected void configEasyHttp(EasyHttp easyHttp) {
+        easyHttp.setConnectTimeout(60_000L)
+                .setReadTimeOut(60_000L)
+                .setWriteTimeOut(60_000L);
+        //配置张鸿洋的OkHttpUtils
+        OkHttpUtils.initClient(EasyHttp.getOkHttpClient());
     }
 
     @NonNull

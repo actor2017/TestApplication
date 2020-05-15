@@ -11,8 +11,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 
-import com.actor.myandroidframework.utils.MyOkhttpUtils.GetFileCallback;
-import com.actor.myandroidframework.utils.MyOkhttpUtils.MyOkHttpUtils;
+import com.actor.myandroidframework.utils.okhttputils.GetFileCallback;
+import com.actor.myandroidframework.utils.okhttputils.MyOkHttpUtils;
 import com.actor.myandroidframework.widget.BaseItemDecoration;
 import com.actor.testapplication.R;
 import com.blankj.utilcode.util.ConvertUtils;
