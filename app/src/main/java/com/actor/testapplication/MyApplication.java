@@ -18,9 +18,6 @@ public class MyApplication extends ActorApplication {
 
     @Override
     protected void configEasyHttp(EasyHttp easyHttp) {
-        easyHttp.setConnectTimeout(60_000L)
-                .setReadTimeOut(60_000L)
-                .setWriteTimeOut(60_000L);
         //配置张鸿洋的OkHttpUtils
         OkHttpUtils.initClient(EasyHttp.getOkHttpClient());
     }
@@ -34,6 +31,6 @@ public class MyApplication extends ActorApplication {
 
     @Override
     protected void onUncaughtException(Thread thread, Throwable e) {
-        e.printStackTrace();
+//        System.exit(-1);//退出
     }
 }

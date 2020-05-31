@@ -2,6 +2,7 @@ package com.actor.testapplication.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -84,6 +85,7 @@ public class SurfaceViewActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);//设置屏幕朝向,在setContentView之前
         setContentView(R.layout.activity_surface_view);
         ButterKnife.bind(this);
 

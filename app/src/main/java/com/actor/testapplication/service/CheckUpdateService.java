@@ -120,8 +120,9 @@ public class CheckUpdateService extends Service {
 
             @Override
             public void onError(int id, Call call, Exception e) {
-                super.onError(id, call, e);
+//                super.onError(id, call, e);
                 progressDialog.dismiss();
+                toast("下载出错, 请到Github下载!");
             }
         });
     }

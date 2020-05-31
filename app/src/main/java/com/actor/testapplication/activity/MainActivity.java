@@ -3,12 +3,15 @@ package com.actor.testapplication.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.actor.testapplication.R;
 import com.actor.testapplication.service.CheckUpdateService;
+import com.actor.testapplication.widget.BasePopupWindow;
 import com.blankj.utilcode.util.AppUtils;
 
 import butterknife.BindView;
@@ -60,8 +63,20 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.btn_go2_test://Test测试页面
                 startActivity(new Intent(this, TestActivity.class), false, view);
+//                showPopupWindow(view);
                 break;
         }
+    }
+
+    private void showPopupWindow(View v) {
+        BasePopupWindow popup = new BasePopupWindow(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        popup.setLayout(activity, R.layout.item_add_minus_layout);
+
+        //显示在某个位置
+//        popup.showAtLocation(v, Gravity.BOTTOM, 0, 0);
+
+        //显示在某个控件正下方
+        popup.showAsDropDown(v, 0, 0, Gravity.TOP | Gravity.END);
     }
 
     @Override
