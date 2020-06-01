@@ -19,74 +19,36 @@
         app:iamlMinValue="1"
         app:iamlRedStarVisiable="visible" />
 
-    <Button
-        android:id="@+id/btn1"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="btn"
-        android:transitionName="btnTest" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
 
-<!--    <FrameLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_birthday" />
 
-<!--        <View-->
-<!--            android:id="@+id/view"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:background="@color/blue_2EABFB" />-->
+        <com.actor.myandroidframework.widget.QuickSearchBar
+            android:id="@+id/quick_search_bar"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true" />
 
-<!--        <com.actor.testapplication.widget.BaseSlidingDrawer-->
-<!--            android:id="@+id/sliding_drawer"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:content="@+id/ll_content"-->
-<!--            android:handle="@+id/ll_handle">-->
-
-<!--            &lt;!&ndash;抽屉的把手&ndash;&gt;-->
-<!--            <LinearLayout-->
-<!--                android:id="@id/ll_handle"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:background="@color/red_EC4651"-->
-<!--                android:gravity="center"-->
-<!--                android:orientation="horizontal">-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="抽屉的把手"-->
-<!--                    android:textColor="@color/white"-->
-<!--                    android:textSize="16sp" />-->
-
-<!--                <ImageView-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="30dp"-->
-<!--                    android:src="@drawable/arrow_right_gray_dcdcdc" />-->
-<!--            </LinearLayout>-->
-
-<!--            &lt;!&ndash;抽屉内的内容&ndash;&gt;-->
-<!--            <LinearLayout-->
-<!--                android:id="@id/ll_content"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:background="@color/red_trans_CC99"-->
-<!--                android:orientation="vertical">-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="内容11111111111"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="20sp" />-->
-
-<!--                <TextView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="内容22222222222"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="20sp" />-->
-<!--            </LinearLayout>-->
-<!--        </com.actor.testapplication.widget.BaseSlidingDrawer>-->
-<!--    </FrameLayout>-->
+        <TextView
+            android:id="@+id/tv_letter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/take_photo_pressed"
+            android:gravity="center"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:textColor="@android:color/white"
+            android:textSize="40sp"
+            android:visibility="invisible"
+            tools:text="A" />
+    </RelativeLayout>
 </LinearLayout>
