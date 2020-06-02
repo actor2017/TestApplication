@@ -28,6 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.NestedScrollViewActivity" />
 
         <service android:name=".service.CheckUpdateService" />
         <service android:name=".service.CheckUpdateLService" />

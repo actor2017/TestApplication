@@ -41,8 +41,8 @@ public class MainActivity extends BaseActivity {
         startService(new Intent(this, CheckUpdateService.class));//检查更新
     }
 
-    @OnClick({R.id.btn_play, R.id.btn_glide, R.id.btn_expandable_item,
-            R.id.btn_custom_view, R.id.btn_surface_view, R.id.btn_go2_test})
+    @OnClick({R.id.btn_play, R.id.btn_glide, R.id.btn_expandable_item, R.id.btn_custom_view,
+            R.id.btn_surface_view, R.id.btn_nested_scroll_view, R.id.btn_go2_test})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_play://播放视频
@@ -60,6 +60,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.btn_surface_view://SurfaceView
                 startActivity(new Intent(this, SurfaceViewActivity.class));
+                break;
+            case R.id.btn_nested_scroll_view://NestedScrollView
+                startActivity(new Intent(this, NestedScrollViewActivity.class));
                 break;
             case R.id.btn_go2_test://Test测试页面
                 startActivity(new Intent(this, TestActivity.class), false, view);

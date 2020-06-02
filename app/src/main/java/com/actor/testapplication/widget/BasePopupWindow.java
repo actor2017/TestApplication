@@ -11,12 +11,13 @@ import android.widget.PopupWindow;
 
 /**
  * description: PopupWindow基类
- *              Android7.0中PopupWindow 有点问题, 还是用其它框架吧
  *
  * @author : 李大发
  * date       : 2020/5/31 on 12:13
  * @version 1.0
+ * @deprecated Android7.0中PopupWindow 有点问题, api懒得适配, 还是用其它框架吧
  */
+@Deprecated
 public class BasePopupWindow extends PopupWindow {
 
     public BasePopupWindow(Context context) {

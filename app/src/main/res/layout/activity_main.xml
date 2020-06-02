@@ -57,6 +57,12 @@
             android:text="SurfaceView" />
 
         <Button
+            android:id="@+id/btn_nested_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NestedScrollView" />
+
+        <Button
             android:id="@+id/btn_go2_test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
