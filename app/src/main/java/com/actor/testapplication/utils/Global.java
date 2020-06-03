@@ -57,4 +57,9 @@ public class Global {
 //            "/build/outputs/apk/debug/" +
 //            "app" +
 //            "-debug.apk";
+
+    public static final String BAIDU_LOGO = "https://www.baidu.com/img/baidu_jgylogo3.gif";
+
+    //thanks www.baidu.com百度
+    public static final String BAIDU_VIDEO = "http://tb-video.bdstatic.com/tieba-smallvideo-transcode/8_4871b1e9218ec13f03131176197ef53d_1.mp4";
 }

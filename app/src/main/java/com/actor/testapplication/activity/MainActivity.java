@@ -11,6 +11,7 @@ import android.widget.VideoView;
 
 import com.actor.testapplication.R;
 import com.actor.testapplication.service.CheckUpdateService;
+import com.actor.testapplication.utils.Global;
 import com.actor.testapplication.widget.BasePopupWindow;
 import com.blankj.utilcode.util.AppUtils;
 
@@ -25,8 +26,6 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.video_view)
     VideoView videoView;
 
-    //thanks www.baidu.com百度
-    private String url = "http://tb-video.bdstatic.com/tieba-smallvideo-transcode/8_4871b1e9218ec13f03131176197ef53d_1.mp4";
     private Uri uri;
 
     @Override
@@ -46,7 +45,7 @@ public class MainActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_play://播放视频
-                if (uri == null) videoView.setVideoURI(uri = Uri.parse(url));
+                if (uri == null) videoView.setVideoURI(uri = Uri.parse(Global.BAIDU_VIDEO));
                 if (!videoView.isPlaying()) videoView.start();
                 break;
             case R.id.btn_glide://Glide测试

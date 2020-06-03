@@ -15,6 +15,7 @@ import com.actor.myandroidframework.utils.okhttputils.GetFileCallback;
 import com.actor.myandroidframework.utils.okhttputils.MyOkHttpUtils;
 import com.actor.myandroidframework.widget.BaseItemDecoration;
 import com.actor.testapplication.R;
+import com.actor.testapplication.utils.Global;
 import com.blankj.utilcode.util.ConvertUtils;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.GlideBuilder;
@@ -76,7 +77,6 @@ public class GlideTestActivity extends BaseActivity {
     private int dp3;
     private static final String[] TYPES = {"url", "assets", "Resources", "File", "Uri", "byte[]",
             "raw", "raw", "ContentProvider"};
-    private static final String URL = "https://www.baidu.com/img/baidu_jgylogo3.gif";
     private RequestOptions requestOptions;
 
     @Override
@@ -107,7 +107,7 @@ public class GlideTestActivity extends BaseActivity {
             ImageView iv = helper.setText(R.id.tv, position + ". " + TYPES[position]).getView(R.id.iv);
             switch (position) {
                 case 0://url网络
-                    Glide.with(activity).load(URL).into(iv);
+                    Glide.with(activity).load(Global.BAIDU_LOGO).into(iv);
                     break;
                 case 1://assets
                     Glide.with(activity).load("file:///android_asset/logo.png").into(iv);
@@ -116,7 +116,7 @@ public class GlideTestActivity extends BaseActivity {
                     Glide.with(activity).load(R.mipmap.ic_launcher).into(iv);
                     break;
                 case 3://File
-                    MyOkHttpUtils.getFile(URL, new GetFileCallback(this, null, null) {
+                    MyOkHttpUtils.getFile(Global.BAIDU_LOGO, new GetFileCallback(this, null, null) {
                         @Override
                         public void onOk(@NonNull File info, int id) {
                             Glide.with(activity).load(info).into(iv);
@@ -124,7 +124,7 @@ public class GlideTestActivity extends BaseActivity {
                     });
                     break;
                 case 4://Uri
-                    Glide.with(activity).load(Uri.parse(URL)).into(iv);
+                    Glide.with(activity).load(Uri.parse(Global.BAIDU_LOGO)).into(iv);
                     break;
                 case 5://byte[]字节数组
 //                    Glide.with(this).load(byte[]).into(iv6);
@@ -175,7 +175,7 @@ public class GlideTestActivity extends BaseActivity {
 //                .addDefaultRequestListener(RequestListener)
 //                .applyDefaultRequestOptions(RequestOptions)
         Glide.with(this).clear(iv/*Target*/);//取消加载
-        RequestBuilder<File> download = Glide.with(this).download(URL);//Object model
+        RequestBuilder<File> download = Glide.with(this).download(Global.BAIDU_LOGO);//Object model
         RequestBuilder<File> downloadOnly = Glide.with(this).downloadOnly();
         boolean paused = Glide.with(this).isPaused();
         Glide.with(this).onDestroy();
@@ -238,7 +238,7 @@ public class GlideTestActivity extends BaseActivity {
                 .asDrawable()   //默认
 //                .asFile()
 //                .asGif()      //如果不是gif, 不能加载出来, 会一片空白
-                .load(URL)
+                .load(Global.BAIDU_LOGO)
 //                .getDiskCacheStrategy()   //DiskCacheStrategy, 获取磁盘缓存策略
 //                .getErrorId()
 //                .getErrorPlaceholder()    //Drawable

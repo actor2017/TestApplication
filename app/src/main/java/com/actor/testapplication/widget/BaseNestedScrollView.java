@@ -17,8 +17,8 @@ public class BaseNestedScrollView extends NestedScrollView {
     /**
      * 该控件滑动的高度，高于这个高度后交给子滑动控件
      */
-    int mParentScrollHeight ;
-    int mScrollY ;
+    int mParentScrollHeight;
+    int mScrollY;
 
     public BaseNestedScrollView(@NonNull Context context) {
         super(context);
@@ -38,11 +38,11 @@ public class BaseNestedScrollView extends NestedScrollView {
 
     /**
      * 子控件告诉父控件 开始滑动了
+     *
      * @param target
      * @param dx
      * @param dy
-     * @param consumed
-     * 如果有就返回true
+     * @param consumed 如果有就返回true
      */
     @Override
     public void onNestedPreScroll(View target, int dx, int dy, int[] consumed) {
