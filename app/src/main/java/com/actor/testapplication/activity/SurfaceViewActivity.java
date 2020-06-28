@@ -95,50 +95,7 @@ public class SurfaceViewActivity extends BaseActivity {
 
         mediaRecorder = new MediaRecorder();//实例化媒体录制器
 
-        //添加surface回调函数
-//        surfaceView.getHolder().addCallback(new SurfaceHolder.Callback() {
-//
-//            //控件创建时，打开照相机
-//            @Override
-//            public void surfaceCreated(SurfaceHolder holder) {
-//                logError("surfaceCreated");
-//
-//                camera = Camera.open();//打开照相机
-//                if (camera == null) return;
-//
-//                //设置参数
-//                Camera.Parameters parameters = camera.getParameters();
-//                parameters.setPictureFormat(ImageFormat.JPEG);
-////                parameters.set("jpeg-quality", 85);//↓
-//                parameters.setJpegQuality(100);
-//                try {
-//                    camera.setParameters(parameters);//将画面展示到SurfaceView
-//                    camera.setPreviewDisplay(holder);
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-//                camera.startPreview();//开启预览效果
-//            }
-//
-//            //控件改变
-//            @Override
-//            public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-//                logFormat("surfaceChanged: holder=%s, format=%d, width=%d, height=%d",
-//                        holder, format, width, height);
-//            }
-//
-//            //控件销毁
-//            @Override
-//            public void surfaceDestroyed(SurfaceHolder holder) {
-//                logError("surfaceDestroyed");
-//                //照相同一时刻只能允许一个软件打开
-//                if (camera != null) {
-//                    camera.stopPreview();
-//                    camera.release();//释放内存
-//                    camera = null;
-//                }
-//            }
-//        });
+        holder = surfaceView.getHolder();
     }
     private SensorEventListener2 sensorEventListener2 = new SensorEventListener2() {
         @Override
@@ -394,7 +351,13 @@ public class SurfaceViewActivity extends BaseActivity {
         public void surfaceCreated(SurfaceHolder holder) {
             if (camera == null) {
                 camera = Camera.open();
+//                //设置参数
+//                Camera.Parameters parameters = camera.getParameters();
+//                parameters.setPictureFormat(ImageFormat.JPEG);
+////                parameters.set("jpeg-quality", 85);//↓
+//                parameters.setJpegQuality(100);
                 try {
+//                    camera.setParameters(parameters);//将画面展示到SurfaceView
                     camera.setPreviewDisplay(holder);//通过surfaceview显示取景画面
                     camera.startPreview();//开始预览
                 } catch (IOException e) {
@@ -435,8 +398,13 @@ public class SurfaceViewActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        holder = surfaceView.getHolder();
         holder.addCallback(surfaceHolderCallback);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        holder.removeCallback(surfaceHolderCallback);
     }
 
     @Override

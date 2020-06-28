@@ -29,6 +29,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.NestedScrollViewActivity" />
+        <activity android:name=".activity.DragLayoutActivity" />
 
         <service android:name=".service.CheckUpdateService" />
         <service android:name=".service.CheckUpdateLService" />

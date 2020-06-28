@@ -1,5 +1,6 @@
 package com.actor.testapplication.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -19,6 +20,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class CustomViewActivity extends BaseActivity {
 
@@ -126,6 +128,17 @@ public class CustomViewActivity extends BaseActivity {
         public BirthItem(String name, Date lunarCalendar) {
             this.name = name;
             this.lunarCalendar = lunarCalendar;
+        }
+    }
+
+    @OnClick(R.id.btn_drag_layout)
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+        case R.id.btn_drag_layout:
+            startActivity(new Intent(this, DragLayoutActivity.class));
+            break;
+        default:
+            break;
         }
     }
 }

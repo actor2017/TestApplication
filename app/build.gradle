@@ -10,6 +10,23 @@ android {
         versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
+
+        /**
+         * 1. 两个字段的作用
+         * -frtti：如果您希望支持 RTTI，Gradle 会将其传递到 CMake。
+         * -fexceptions：启用对 C++ 异常处理的支持，Gradle 会将其传递到 CMake。
+         */
+        externalNativeBuild {
+            cmake {
+                cppFlags "-frtti -fexceptions"
+            }
+        }
+        //2.不写也可以
+//            ndk {
+//                moduleName 'native-lib'//moduleName要与CMakeLists.txt中add_library定义的libraryName一致
+//                //指定本机的ABI配置,类库应该与APK一起构建和打包。
+//                abiFilters 'armeabi', 'armeabi-v7a', 'x86', 'x86_64', 'arm64-v8a', 'mips', 'mips64'
+//            }
     }
     signingConfigs {
         debug {

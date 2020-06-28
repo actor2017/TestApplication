@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context=".activity.CustomViewActivity">
 
+    <Button
+        android:id="@+id/btn_drag_layout"
+        android:layout_width="match_parent"
+        android:text="DragLayout(未完)"
+        android:layout_height="wrap_content"/>
+
     <com.actor.testapplication.widget.ItemAddMinusLayout
         android:id="@+id/item_add_minus"
         android:layout_width="match_parent"
