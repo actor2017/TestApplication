@@ -24,6 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.actor.base.BaseActivity;
 import com.actor.myandroidframework.utils.FileUtils;
 import com.actor.testapplication.R;
 import com.actor.testapplication.utils.CameraParamUtil;

@@ -1,1 +1,3 @@
+include ':android5'
+include ':base'
 include ':app'

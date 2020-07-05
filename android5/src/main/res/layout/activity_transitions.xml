@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <Button
+        android:id="@+id/bt1"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:text="explode爆炸"
+        android:textAllCaps="false"/>
+
+
+    <Button
+        android:id="@+id/bt2"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:text="fade淡入淡出"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/bt3"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:text="slide滑动"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/bt4"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:text="share"
+        android:textAllCaps="false"/>
+</LinearLayout>

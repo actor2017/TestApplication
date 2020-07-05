@@ -3,6 +3,7 @@ package com.actor.testapplication.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.actor.base.BaseActivity;
 import com.actor.testapplication.R;
 
 /**

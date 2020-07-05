@@ -1,10 +1,12 @@
 package com.actor.testapplication;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.actor.myandroidframework.application.ActorApplication;
-import com.zhouyou.http.EasyHttp;
 import com.zhy.http.okhttp.OkHttpUtils;
+
+import okhttp3.OkHttpClient;
 
 /**
  * Description: 类的描述
@@ -16,10 +18,10 @@ import com.zhy.http.okhttp.OkHttpUtils;
  */
 public class MyApplication extends ActorApplication {
 
+    @Nullable
     @Override
-    protected void configEasyHttp(EasyHttp easyHttp) {
-        //配置张鸿洋的OkHttpUtils
-        OkHttpUtils.initClient(EasyHttp.getOkHttpClient());
+    protected OkHttpClient.Builder configOkHttpClientBuilder(OkHttpClient.Builder builder) {
+        return null;
     }
 
     @NonNull

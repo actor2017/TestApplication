@@ -11,6 +11,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 
+import com.actor.base.BaseActivity;
 import com.actor.myandroidframework.utils.okhttputils.GetFileCallback;
 import com.actor.myandroidframework.utils.okhttputils.MyOkHttpUtils;
 import com.actor.myandroidframework.widget.BaseItemDecoration;
@@ -116,7 +117,7 @@ public class GlideTestActivity extends BaseActivity {
                     Glide.with(activity).load(R.mipmap.ic_launcher).into(iv);
                     break;
                 case 3://File
-                    MyOkHttpUtils.getFile(Global.BAIDU_LOGO, new GetFileCallback(this, null, null) {
+                    MyOkHttpUtils.getFile(Global.BAIDU_LOGO, null, null, new GetFileCallback(this, null, null) {
                         @Override
                         public void onOk(@NonNull File info, int id) {
                             Glide.with(activity).load(info).into(iv);

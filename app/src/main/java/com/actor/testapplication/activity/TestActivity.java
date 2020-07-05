@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
 
+import com.actor.base.BaseActivity;
+
 /**
  * Description: Test测试页面
  * Author     : 李大发

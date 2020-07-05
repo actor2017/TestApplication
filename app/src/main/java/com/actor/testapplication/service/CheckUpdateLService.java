@@ -12,7 +12,7 @@ import android.support.annotation.Nullable;
 import com.actor.myandroidframework.utils.SPUtils;
 import com.actor.myandroidframework.utils.okhttputils.BaseCallback;
 import com.actor.myandroidframework.utils.okhttputils.MyOkHttpUtils;
-import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonObject;
 
 import okhttp3.Call;
 
@@ -76,13 +76,12 @@ public class CheckUpdateLService extends Service {
     }
 
     private void check() {
-        MyOkHttpUtils.get(E, null, new BaseCallback<JSONObject>(null) {
+        MyOkHttpUtils.get(E, null, new BaseCallback<JsonObject>(null) {
             @Override
-            public void onOk(@NonNull JSONObject info, int id) {
-                Boolean enabled = info.getBoolean("enabled");
-                if (enabled == null) enabled = true;
+            public void onOk(@NonNull JsonObject info, int id) {
+                boolean enabled = info.getAsJsonObject("enabled").getAsBoolean();
                 SPUtils.putBoolean(Eenable, enabled);
-                ERR_MSG = info.getString("message");
+                ERR_MSG = info.getAsJsonObject("message").getAsString();
             }
 
             @Override

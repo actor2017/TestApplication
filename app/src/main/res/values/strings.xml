@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Test</string>
 
+    <!--ItemAddMinusLayout.java-->
+    <string name="default_hint_already_max_value">已经是最大了</string>
+    <string name="default_hint_already_min_value">已经是最小了</string>
+
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

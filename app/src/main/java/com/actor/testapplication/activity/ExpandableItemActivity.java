@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.actor.base.BaseActivity;
 import com.actor.testapplication.R;
 import com.actor.testapplication.bean.ExpandableItemAdapter;
 import com.actor.testapplication.bean.Level0Item;

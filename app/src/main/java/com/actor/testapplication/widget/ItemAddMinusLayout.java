@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -30,18 +31,19 @@ import com.blankj.utilcode.util.ToastUtils;
  * @see R.styleable#ItemAddMinusLayout_iamlMaxValue             //1
  * 5.最小值, 默认0
  * @see R.styleable#ItemAddMinusLayout_iamlMinValue             //0
- * 6.已经是最大值了的提示, 默认没提示
+ * 6.已经是最大值了的提示, 默认: 已经是最大了
  * @see R.styleable#ItemAddMinusLayout_iamlAlreadyMaxValueHint  //"已经是最大了"
- * 7.已经是最小值了的提示, 默认没提示
+ * 7.已经是最小值了的提示, 默认: 已经是最小了
  * @see R.styleable#ItemAddMinusLayout_iamlAlreadyMinValueHint  //"已经是最小了"
  *
  * @version 1.0
  */
 public class ItemAddMinusLayout extends LinearLayout {
 
-    private TextView  tvRedStar, tvItem, tvValue;
-    private int minValue = 0, maxValue = 1, nowValue = 0;
-    private String hintAlreadyMaxValue, hintAlreadyMinValue;
+    protected TextView  tvRedStar, tvItem, tvValue;
+    protected int minValue = 0, maxValue = 1, nowValue = 0;
+    protected String hintAlreadyMaxValue, hintAlreadyMinValue;//自定义提示
+    protected String defaultHintAlreadyMaxValue, defaultHintAlreadyMinValue;//默认提示
 
     public ItemAddMinusLayout(Context context) {
         super(context);
@@ -74,7 +76,12 @@ public class ItemAddMinusLayout extends LinearLayout {
             @Override
             public void onClick(View v) {
                 if (nowValue <= minValue) {
-                    if (hintAlreadyMinValue != null) ToastUtils.showShort(hintAlreadyMinValue);
+                    if (hintAlreadyMinValue != null) {
+                        ToastUtils.showShort(hintAlreadyMinValue);
+                    } else {
+                        String hintMim = getDefaultHintAlreadyMinValue();
+                        if (!TextUtils.isEmpty(hintMim)) ToastUtils.showShort(hintMim);
+                    }
                 } else {
                     tvValue.setText(String.valueOf(-- nowValue));
                 }
@@ -85,7 +92,12 @@ public class ItemAddMinusLayout extends LinearLayout {
             @Override
             public void onClick(View v) {
                 if (nowValue >= maxValue) {
-                    if (hintAlreadyMaxValue != null) ToastUtils.showShort(hintAlreadyMaxValue);
+                    if (hintAlreadyMaxValue != null) {
+                        ToastUtils.showShort(hintAlreadyMaxValue);
+                    }  else {
+                        String hintMax = getDefaultHintAlreadyMaxValue();
+                        if (!TextUtils.isEmpty(hintMax)) ToastUtils.showShort(hintMax);
+                    }
                 } else {
                     tvValue.setText(String.valueOf(++ nowValue));
                 }
@@ -116,6 +128,28 @@ public class ItemAddMinusLayout extends LinearLayout {
 
         tvRedStar.setVisibility(redStarVisiable * 4);
         if (itemName != null) tvItem.setText(itemName);
+    }
+
+    /**
+     * 默认提示: 已经是最大了
+     * 可在自己strings.xml中自定义: <string name="default_hint_already_max_value">xxx</string>
+     */
+    protected String getDefaultHintAlreadyMaxValue() {
+        if (defaultHintAlreadyMaxValue == null) {
+            defaultHintAlreadyMaxValue = getResources().getString(R.string.default_hint_already_max_value);
+        }
+        return defaultHintAlreadyMaxValue;
+    }
+
+    /**
+     * 默认提示: 已经是最小了
+     * 可在自己strings.xml中自定义: <string name="default_hint_already_min_value">xxx</string>
+     */
+    protected String getDefaultHintAlreadyMinValue() {
+        if (defaultHintAlreadyMinValue == null) {
+            defaultHintAlreadyMinValue = getResources().getString(R.string.default_hint_already_min_value);
+        }
+        return defaultHintAlreadyMinValue;
     }
 
     /**
