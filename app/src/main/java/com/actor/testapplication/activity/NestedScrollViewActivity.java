@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.actor.base.BaseActivity;
 import com.actor.testapplication.R;
 import com.actor.testapplication.widget.BaseNestedScrollView;
 import com.blankj.utilcode.util.BarUtils;

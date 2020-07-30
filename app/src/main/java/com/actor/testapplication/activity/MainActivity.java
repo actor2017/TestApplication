@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-import com.actor.android5.activity.Android5MainActivity;
-import com.actor.base.BaseActivity;
 import com.actor.testapplication.R;
 import com.actor.testapplication.service.CheckUpdateService;
 import com.actor.testapplication.utils.Global;
@@ -43,7 +41,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @OnClick({R.id.btn_play, R.id.btn_glide, R.id.btn_expandable_item, R.id.btn_custom_view,
-            R.id.btn_surface_view, R.id.btn_nested_scroll_view, R.id.btn_android5, R.id.btn_go2_test})
+            R.id.btn_surface_view, R.id.btn_nested_scroll_view, R.id.btn_go2_test})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_play://播放视频
@@ -64,9 +62,6 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.btn_nested_scroll_view://NestedScrollView
                 startActivity(new Intent(this, NestedScrollViewActivity.class));
-                break;
-            case R.id.btn_android5://android 5.0新特性
-                startActivity(new Intent(this, Android5MainActivity.class));
                 break;
             case R.id.btn_go2_test://Test测试页面
                 startActivity(new Intent(this, TestActivity.class), false, view);

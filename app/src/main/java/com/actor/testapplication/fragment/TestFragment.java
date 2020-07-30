@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.actor.base.BaseFragment;
 import com.actor.testapplication.R;
 
 import java.util.concurrent.Callable;

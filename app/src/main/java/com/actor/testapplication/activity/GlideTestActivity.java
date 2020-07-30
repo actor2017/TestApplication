@@ -11,7 +11,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
 
-import com.actor.base.BaseActivity;
 import com.actor.myandroidframework.utils.okhttputils.GetFileCallback;
 import com.actor.myandroidframework.utils.okhttputils.MyOkHttpUtils;
 import com.actor.myandroidframework.widget.BaseItemDecoration;

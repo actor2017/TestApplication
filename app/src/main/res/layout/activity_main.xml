@@ -56,12 +56,6 @@
             android:text="NestedScrollView" />
 
         <Button
-            android:id="@+id/btn_android5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="android 5.0新特性" />
-
-        <Button
             android:id="@+id/btn_go2_test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
