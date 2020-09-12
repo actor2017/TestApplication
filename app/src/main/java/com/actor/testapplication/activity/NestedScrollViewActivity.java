@@ -19,7 +19,6 @@ import butterknife.ButterKnife;
 
 /**
  * description: 类的描述
- * company    : 重庆市了赢科技有限公司 http://www.liaoin.com/
  *
  * @author : 李大发
  * date       : 2020/6/2 on 10:55

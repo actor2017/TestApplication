@@ -31,7 +31,6 @@ import okhttp3.Call;
  * 3.开启服务
  * startService(new Intent(this, CheckUpdateService.class));
  *
- * Company    : 重庆市了赢科技有限公司 http://www.liaoin.com/
  * Author     : 李大发
  * Date       : 2019/10/19 on 14:39
  *
@@ -55,7 +54,9 @@ public class CheckUpdateService extends Service {
         MyOkHttpUtils.get(Global.CHECK_UPDATE, null, new BaseCallback<List<CheckUpdateInfo>>(this) {
             @Override
             public void onOk(@NonNull List<CheckUpdateInfo> info, int id) {
-                if (info.isEmpty()) return;
+                if (info.isEmpty()) {
+                    return;
+                }
                 CheckUpdateInfo info1 = info.get(0);
                 if (info1 == null) {
                     return;

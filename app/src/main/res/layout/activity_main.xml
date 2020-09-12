@@ -14,17 +14,6 @@
         android:focusableInTouchMode="true"
         android:orientation="vertical">
 
-        <VideoView
-            android:id="@+id/video_view"
-            android:layout_width="200dp"
-            android:layout_height="200dp" />
-
-        <Button
-            android:id="@+id/btn_play"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="播放视频" />
-
         <Button
             android:id="@+id/btn_glide"
             android:layout_width="match_parent"
@@ -54,6 +43,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="NestedScrollView" />
+
+        <Button
+            android:id="@+id/btn_encrypt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="加密解密" />
 
         <Button
             android:id="@+id/btn_go2_test"

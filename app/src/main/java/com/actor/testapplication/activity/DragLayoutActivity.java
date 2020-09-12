@@ -7,7 +7,6 @@ import com.actor.testapplication.R;
 
 /**
  * description: 拖拽 测试
- * company    : 重庆市了赢科技有限公司 http://www.liaoin.com/
  *
  * @author : 李大发
  * date       : 2020/6/28 on 18:06

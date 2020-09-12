@@ -14,7 +14,6 @@ import okhttp3.OkHttpClient;
 
 /**
  * Description: 类的描述
- * Company    : 重庆市了赢科技有限公司 http://www.liaoin.com/
  * Author     : 李大发
  * Date       : 2019-9-4 on 09:14
  *
@@ -37,6 +36,8 @@ public class MyApplication extends ActorApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        // TODO: 2020/7/30 未完成
 //        Gson gson = GsonUtils.getGson().newBuilder()
 //                .registerTypeAdapterFactory(DateJsonDeserializer.FACTORY)
 //                .create();
@@ -47,7 +48,7 @@ public class MyApplication extends ActorApplication {
         System.out.println("json: " + json);
         json = "{\"age\":\"11\",\"date\":\"2020-01-02 03:04:05\"}";//Jul 30, 2020 4:26:16 PM
 
-        User user1 = GsonUtils.fromJson(json, User.class);
+//        User user1 = GsonUtils.fromJson(json, User.class);
         System.out.println(1);
     }
 

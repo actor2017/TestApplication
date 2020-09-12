@@ -1,4 +1,4 @@
-package com.actor.testapplication.utils.encrypt;
+package com.actor.testapplication.utils;
 
 import android.annotation.TargetApi;
 import android.content.Context;

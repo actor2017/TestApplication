@@ -119,6 +119,7 @@ public class GlideTestActivity extends BaseActivity {
                     MyOkHttpUtils.getFile(Global.BAIDU_LOGO, null, null, new GetFileCallback(this, null, null) {
                         @Override
                         public void onOk(@NonNull File info, int id) {
+                            dismissLoadingDialog();
                             Glide.with(activity).load(info).into(iv);
                         }
                     });

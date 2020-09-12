@@ -1,17 +1,14 @@
 package com.actor.testapplication.activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.VideoView;
 
 import com.actor.testapplication.R;
 import com.actor.testapplication.service.CheckUpdateService;
-import com.actor.testapplication.utils.Global;
 import com.actor.testapplication.widget.BasePopupWindow;
 import com.blankj.utilcode.util.AppUtils;
 
@@ -23,10 +20,6 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.tv_version)//版本
     TextView  tvVersion;
-    @BindView(R.id.video_view)
-    VideoView videoView;
-
-    private Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +33,10 @@ public class MainActivity extends BaseActivity {
         startService(new Intent(this, CheckUpdateService.class));//检查更新
     }
 
-    @OnClick({R.id.btn_play, R.id.btn_glide, R.id.btn_expandable_item, R.id.btn_custom_view,
-            R.id.btn_surface_view, R.id.btn_nested_scroll_view, R.id.btn_go2_test})
+    @OnClick({R.id.btn_glide, R.id.btn_expandable_item, R.id.btn_custom_view, R.id.btn_surface_view,
+            R.id.btn_nested_scroll_view, R.id.btn_encrypt, R.id.btn_go2_test})
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_play://播放视频
-                if (uri == null) videoView.setVideoURI(uri = Uri.parse(Global.BAIDU_VIDEO));
-                if (!videoView.isPlaying()) videoView.start();
-                break;
             case R.id.btn_glide://Glide测试
                 startActivity(new Intent(this, GlideTestActivity.class));
                 break;
@@ -62,6 +51,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.btn_nested_scroll_view://NestedScrollView
                 startActivity(new Intent(this, NestedScrollViewActivity.class));
+                break;
+            case R.id.btn_encrypt://加密解密
+                startActivity(new Intent(this, EncryptActivity.class));
                 break;
             case R.id.btn_go2_test://Test测试页面
                 startActivity(new Intent(this, TestActivity.class), false, view);
