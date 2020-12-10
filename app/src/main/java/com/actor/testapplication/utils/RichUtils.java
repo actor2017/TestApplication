@@ -1,8 +1,12 @@
 package com.actor.testapplication.utils;
 
+import android.app.Application;
+import android.graphics.Bitmap;
 import android.graphics.BlurMaskFilter;
+import android.graphics.Matrix;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Parcel;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
@@ -32,6 +36,9 @@ import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 
 import com.actor.myandroidframework.utils.ConfigUtils;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -103,6 +110,8 @@ import java.util.regex.Pattern;
 
 public class RichUtils {
 
+    protected static final Application APPLICATION = ConfigUtils.APPLICATION;
+
     public static Builder getBuilder(CharSequence showText) {
         return new Builder(showText);
     }
@@ -137,6 +146,7 @@ public class RichUtils {
         /**
          * 点击事件
          * TextView必须要设置:tv.setMovementMethod(LinkMovementMethod.getInstance());//否则没有点击响应
+         * 点击后背景色颜色: tv.setHighlightColor(@ColorInt int color);
          */
         public Builder addClickableSpan(ClickableSpan span) {
             spanStringBuilder.setSpan(span, start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -175,7 +185,7 @@ public class RichUtils {
          * 图片
          */
         public Builder addImageSpan(@DrawableRes int drawableId, Integer width, Integer height) {
-            Drawable drawable = ConfigUtils.APPLICATION.getResources().getDrawable(drawableId);
+            Drawable drawable = APPLICATION.getResources().getDrawable(drawableId);
             if (width == null || width < 0) width = drawable.getIntrinsicWidth();
             if (height == null || height < 0) height = drawable.getIntrinsicHeight();
             spanStringBuilder.clear();
@@ -184,6 +194,65 @@ public class RichUtils {
             ImageSpan span = new ImageSpan(drawable, ImageSpan.ALIGN_BOTTOM);//ALIGN_BOTTOM(默认),ALIGN_BASELINE
             spanStringBuilder.setSpan(span, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             return this;
+        }
+
+        /**
+         * 添加图片
+         * @param imgPath 图片路径,用Glide加载出Bitmap,再包装成ImageSpan对象
+         * @param perfix 前缀, 比如你需要换行\n
+         * @param suffix 后缀, 比如你添加图片后也是需要换行\n
+         * @param width 图片宽度
+         * @param height 图片高度, 暂未作处理
+         * @param lishener 回调
+         * 示例用法:
+         * RichUtils.getBuilder("")
+         *         .addImageSpan(path, "\n", "\n", editText.getMeasuredWidth(), null, new
+         *                 RichUtils.OnLishener() {
+         *             @Override
+         *             public void onFinish(RichUtils.Builder builder) {
+         *                 SpannableStringBuilder build = builder.build();
+         * //                  build.insert(0, "\n");//前面加换行
+         * //                  build.append("\n", 0, 0);
+         * //                  build.append("\n\n");//后面加换行
+         * //                  editText.getText().insert(selectionStart, "\n");
+         *                 int selectionStart = editText.getSelectionStart();//光标位置[0,+max]
+         *                 editText.getEditableText().insert(selectionStart, build);
+         * //                  editText.append("\n\n");
+         * //                  editText.requestLayout();
+         *             }
+         *         });
+         */
+        public void addImageSpan(String imgPath, String perfix, String suffix, Integer width, Integer height, OnLishener lishener) {
+            if (perfix == null) perfix = "";
+            if (suffix == null) suffix = "";
+            String finalPerfix = perfix;
+            String finalSuffix = suffix;
+            Glide.with(APPLICATION)
+                    .asBitmap()
+                    .load(imgPath)
+//                    .apply(new RequestOptions().centerCrop())
+                    .into(new SimpleTarget<Bitmap>() {
+                        @Override
+                        public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> transition) {
+                            spanStringBuilder.clear();
+                            //img乱写,但不能是空格,原因未查明...
+                            spanStringBuilder.append(finalPerfix + "img" + finalSuffix);
+                            if (width != null && width > 0) {
+                                bitmap = zoomBitmapToFixWidth(bitmap, width);
+                            } else if (height != null && height > 0) {
+                                //暂未实现...
+                            }
+                            RichImageSpan span = new RichImageSpan(APPLICATION, bitmap, Uri.parse(imgPath));//context, Uri.parse(imgPath)
+                            //把img替换成ImageSpan
+                            spanStringBuilder.setSpan(span, finalPerfix.length(), finalPerfix.length() + 3, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            if (lishener != null) lishener.onFinish(Builder.this);
+                        }
+                    });
+//            spanStringBuilder.clear();
+//            spanStringBuilder.append(" ");
+//            ImageSpan span = new ImageSpan(context, Uri.parse(imgPath));
+//            spanStringBuilder.setSpan(span, 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+//            return this;
         }
 
         /**
@@ -375,5 +444,26 @@ public class RichUtils {
         public SpannableStringBuilder build() {
             return spanStringBuilder;
         }
+    }
+
+    public interface OnLishener {
+        void onFinish(Builder builder);
+    }
+
+    private static Bitmap zoomBitmapToFixWidth(Bitmap bitmap, int maxWidth) {
+        int w = bitmap.getWidth();
+        int h = bitmap.getHeight();
+        int newHight = maxWidth * h / w;
+        return zoomBitmap(bitmap, maxWidth, newHight);
+    }
+
+    private static Bitmap zoomBitmap(Bitmap bitmap, int width, int height) {
+        int w = bitmap.getWidth();
+        int h = bitmap.getHeight();
+        Matrix matrix = new Matrix();
+        float scaleWidth = ((float) width / w);
+        float scaleHeight = ((float) height / h);
+        matrix.postScale(scaleWidth, scaleHeight);
+        return Bitmap.createBitmap(bitmap, 0, 0, w, h, matrix, true);
     }
 }
