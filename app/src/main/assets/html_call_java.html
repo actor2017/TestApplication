@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>hsga测试</title>
+    <style type="text/css">
+        h3,h4{
+            text-align:center;
+        }
+
+        button {width: 600px; height: 100px; font-size: 40px;}
+    </style>
+</head>
+
+
+<body>
+<ul>
+    <li>
+        <button type="button" id="btn" onclick="callAndroid('你好，Android!')">callAndroid('你好，Android!')
+        </button>
+    </li>
+    <li>
+        <button type="button" id="btn1" onclick="scanIdCard('tag111')">scanIdCard('tag111')</button>
+    </li>
+    <li>
+        <button type="button" id="btn2" onclick="notifycation(1, '标题', '内容')">notifycation(int id, 'title',
+            'content'))
+        </button>
+    </li>
+    <li>
+        <button type="button" onclick="uploadFile()">uploadFile()</button>
+    </li>
+</ul>
+<canvas id="myCanvas"></canvas>
+
+
+<script type="text/javascript">
+    <!-- js调android, 并传参 -->
+    function callAndroid(str) {
+        console.log("call android");
+        window.android.callAndroid(str);
+    }
+
+    <!--扫描身份证-->
+    function scanIdCard(tag) {
+      console.log("call android, tag=" + tag);
+      if(window.android != null && typeof(window.android) != "undefined"){
+        window.android.scanIdCard(tag);
+      }else{
+         alert(typeof(window.android));
+      }
+    }
+    <!--扫描身份证后返回json-->
+    function onScanResult(json) {
+        alert("Js收到消息："+json);
+    }
+
+    <!--通知-->
+    function notifycation(id, title, content) {
+        console.log("call android")
+        window.android.notifycation(id, title, content);
+    }
+
+    <!--选择文件-->
+    function uploadFile() {
+        window.agentWebX5.uploadFile();
+    }
+
+</script>
+
+</body>
+</html>

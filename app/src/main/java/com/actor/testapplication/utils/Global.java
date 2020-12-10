@@ -1,5 +1,7 @@
 package com.actor.testapplication.utils;
 
+import android.content.Context;
+
 /**
  * Description: 全局变量
  * Author     : 李大发
@@ -61,4 +63,12 @@ public class Global {
 
     //thanks www.baidu.com百度
     public static final String BAIDU_VIDEO = "http://tb-video.bdstatic.com/tieba-smallvideo-transcode/8_4871b1e9218ec13f03131176197ef53d_1.mp4";
+
+
+    public static final String JNI_IP = "IP";
+    public static final String JNI_PORT = "PORT";
+
+    static {System.loadLibrary("native-lib");}
+    public static native void jniInit(Context context, boolean isDebugMode);
+    public static native String getString(String key);
 }

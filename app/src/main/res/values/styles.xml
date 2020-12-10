@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
 
@@ -13,6 +13,14 @@
 
         <!--Theme.AppCompat.Light.DarkActionBar默认#EEEEEE-->
 <!--        <item name="android:windowBackground">#EEEEEE</item>-->
+
+
+        <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
+        <!--下面的内容要在5.0上才好用,启用转换过程都会更加流畅自然,指定进入和退出的动画可以重叠 -->
+        <item name="android:windowAllowEnterTransitionOverlap" tools:targetApi="lollipop">true
+        </item>
+        <item name="android:windowAllowReturnTransitionOverlap" tools:targetApi="lollipop">true
+        </item>
     </style>
 
     <style name="FullScreen" parent="Theme.AppCompat.Light.NoActionBar">

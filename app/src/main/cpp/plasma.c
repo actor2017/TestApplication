@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include "com_actor_testapplication_activity_TestActivity_PlasmaView.h"
+//#include "com_actor_testapplication_activity_TestActivity_PlasmaView.h"//TODO 报错, 被注释了!
 #include <jni.h>
 #include <time.h>
 #include <android/log.h>
@@ -332,10 +332,11 @@ stats_endFrame( Stats*  s )
             avgRender /= s->numFrames;
             avgFrame  /= s->numFrames;
 
-            LOGI("frame/s (avg,min,max) = (%.1f,%.1f,%.1f) "
-                         "render time ms (avg,min,max) = (%.1f,%.1f,%.1f)\n",
-                 1000./avgFrame, 1000./maxFrame, 1000./minFrame,
-                 avgRender, minRender, maxRender);
+            //TODO 报错, 被注释了!
+//            LOGI("frame/s (avg,min,max) = (%.1f,%.1f,%.1f) "
+//                         "render time ms (avg,min,max) = (%.1f,%.1f,%.1f)\n",
+//                 1000./avgFrame, 1000./maxFrame, 1000./minFrame,
+//                 avgRender, minRender, maxRender);
         }
         s->numFrames  = 0;
         s->firstFrame = 0;
@@ -374,26 +375,29 @@ stats_init(&stats);
 init = 1;
 }
 
-if ((ret = AndroidBitmap_getInfo(env, bitmap, &info)) < 0) {
-LOGE("AndroidBitmap_getInfo() failed ! error=%d", ret);
-return;
-}
+//TODO 报错, 被注释了!
+//if ((ret = AndroidBitmap_getInfo(env, bitmap, &info)) < 0) {
+//LOGE("AndroidBitmap_getInfo() failed ! error=%d", ret);
+//return;
+//}
 
-if (info.format != ANDROID_BITMAP_FORMAT_RGB_565) {
-LOGE("Bitmap format is not RGB_565 !");
-return;
-}
+//TODO 报错, 被注释了!
+//if (info.format != ANDROID_BITMAP_FORMAT_RGB_565) {
+//LOGE("Bitmap format is not RGB_565 !");
+//return;
+//}
 
-if ((ret = AndroidBitmap_lockPixels(env, bitmap, &pixels)) < 0) {
-LOGE("AndroidBitmap_lockPixels() failed ! error=%d", ret);
-}
+//TODO 报错, 被注释了!
+//if ((ret = AndroidBitmap_lockPixels(env, bitmap, &pixels)) < 0) {
+//LOGE("AndroidBitmap_lockPixels() failed ! error=%d", ret);
+//}
 
 stats_startFrame(&stats);
 
 /* Now fill the values with a nice little plasma */
 fill_plasma(&info, pixels, time_ms );
 
-AndroidBitmap_unlockPixels(env, bitmap);
+//AndroidBitmap_unlockPixels(env, bitmap);//TODO 报错, 被注释了!
 
 stats_endFrame(&stats);
 }

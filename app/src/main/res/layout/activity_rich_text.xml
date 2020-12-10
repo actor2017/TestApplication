@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.RichTextActivity">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="TextView"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="4">
+
+        <Button
+            android:id="@+id/image_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="图片"/>
+
+        <Button
+            android:id="@+id/url_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Url"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/color_btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="前景色"/>
+
+        <Button
+            android:id="@+id/color_btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="背景色"/>
+
+        <Button
+            android:id="@+id/font_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="字体大小"/>
+
+        <Button
+            android:id="@+id/style_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="斜体加粗"/>
+
+        <Button
+            android:id="@+id/strike_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="删除线"/>
+
+        <Button
+            android:id="@+id/underline_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="下划线"/>
+
+        <Button
+            android:id="@+id/btn_relative_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="相对大小"/>
+
+        <Button
+            android:id="@+id/btn_click"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击事件"/>
+    </GridLayout>
+</LinearLayout>

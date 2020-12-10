@@ -25,11 +25,10 @@ add_library( # Sets the name of the library.
              # file are automatically included.
              # 2.新增的.c文件都写在下面
              src/main/cpp/plasma.c
-#             src/main/cpp/Log.c
-#             src/main/cpp/native-lib.c
-#             src/main/cpp/global.cpp
-#             src/main/cpp/c-call-java.c
-              )
+             src/main/cpp/Log.c
+             src/main/cpp/native-lib.c
+             src/main/cpp/global.cpp
+             src/main/cpp/c-call-java.c )
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because system libraries are included in the search path by
