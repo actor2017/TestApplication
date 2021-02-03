@@ -7,4 +7,7 @@
     <color name="black">#000</color>
     <color name="white">#FFF</color>
     <color name="gray_trans_9000">#99000000</color>
+
+    <color name="gray_3e3e3e">#3e3e3e</color>
+    <color name="black_454545">#454545</color>
 </resources>

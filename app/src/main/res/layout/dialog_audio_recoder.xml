@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    tools:context=".dialog.AudioRecoderDialog">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_cor5dp_white_stroke1dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/btn_start"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.75" />
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="取消"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="@id/view"
+        app:layout_constraintTop_toTopOf="@id/view"
+        tools:visibility="visible" />
+
+    <!--android:background="@drawable/shape_cor_3_color_accent"-->
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:background="@color/blue_15AFED"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/btn_cancel"
+        app:layout_constraintRight_toRightOf="@id/view"
+        app:layout_constraintTop_toTopOf="@id/btn_cancel"
+        tools:visibility="visible" />
+
+    <com.actor.myandroidframework.widget.VoiceRecorderView
+        android:id="@+id/voice_recoder"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@id/btn_start"
+        app:layout_constraintDimensionRatio="1"
+        app:layout_constraintLeft_toLeftOf="@id/view"
+        app:layout_constraintRight_toRightOf="@id/view"
+        app:layout_constraintTop_toBottomOf="@id/btn_cancel"
+        app:layout_constraintWidth_percent="0.7" />
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="开始录音"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/view"
+        app:layout_constraintRight_toRightOf="@id/view"
+        app:layout_constraintTop_toBottomOf="@id/voice_recoder" />
+</android.support.constraint.ConstraintLayout>
