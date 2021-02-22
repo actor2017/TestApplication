@@ -1,11 +1,12 @@
 package com.actor.testapplication.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.actor.testapplication.R;
 import com.actor.testapplication.widget.BaseNestedScrollView;
@@ -31,7 +32,7 @@ public class NestedScrollViewActivity extends BaseActivity {
     @BindView(R.id.tv_top_1)
     TextView tvTop1;
     @BindView(R.id.tv_top_2)
-    TextView tvTop2;
+    TextView     tvTop2;
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 

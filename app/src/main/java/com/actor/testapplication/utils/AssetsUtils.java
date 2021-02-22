@@ -3,6 +3,7 @@ package com.actor.testapplication.utils;
 import android.content.Context;
 import android.content.res.AssetManager;
 
+import com.actor.myandroidframework.utils.ConfigUtils;
 import com.actor.testapplication.MyApplication;
 
 import java.io.File;
@@ -94,7 +95,7 @@ public class AssetsUtils {
     }
 
     private static void println(String message) {
-        if (MyApplication.instance.isDebugMode) {
+        if (ConfigUtils.IS_APP_DEBUG) {
             System.out.println(TAG + ":" + message);
         }
     }

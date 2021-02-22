@@ -3,7 +3,6 @@ package com.actor.testapplication.activity;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Surface;
 import android.view.SurfaceView;
 import android.view.TextureView;
@@ -31,8 +30,7 @@ public class CCallJavaActivity extends BaseActivity {
     @BindView(R.id.btn)
     Button btn;
 
-    private AppCompatActivity activity;
-    private int[] arr = new int[]{1, 2, 3, 4, 5};
+    private int[]             arr = new int[]{1, 2, 3, 4, 5};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

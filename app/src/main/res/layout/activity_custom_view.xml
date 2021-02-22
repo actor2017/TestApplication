@@ -10,8 +10,17 @@
     <Button
         android:id="@+id/btn_drag_layout"
         android:layout_width="match_parent"
-        android:text="DragLayout(未完)"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="DragLayout(未完)" />
+
+    <com.actor.testapplication.widget.RippleButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="RippleButton(波纹按钮)"
+        android:textColor="@color/white" />
 
     <com.actor.testapplication.widget.ItemAddMinusLayout
         android:id="@+id/item_add_minus"
@@ -30,11 +39,11 @@
         android:layout_height="match_parent"
         android:layout_marginTop="10dp">
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_birthday" />
 
         <com.actor.myandroidframework.widget.QuickSearchBar

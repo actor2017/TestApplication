@@ -2,7 +2,8 @@ package com.actor.testapplication.dialog;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import com.actor.myandroidframework.dialog.BaseAlertDialogV7;
 import com.actor.testapplication.widget.AudioPlayerLaout;

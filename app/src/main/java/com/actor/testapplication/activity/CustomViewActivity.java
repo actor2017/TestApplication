@@ -2,10 +2,11 @@ package com.actor.testapplication.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.actor.myandroidframework.widget.QuickSearchBar;
 import com.actor.testapplication.R;
@@ -27,11 +28,11 @@ public class CustomViewActivity extends BaseActivity {
     @BindView(R.id.item_add_minus)
     ItemAddMinusLayout itemAddMinus;
     @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
+    RecyclerView       recyclerView;
     @BindView(R.id.quick_search_bar)
-    QuickSearchBar quickSearchBar;
+    QuickSearchBar     quickSearchBar;
     @BindView(R.id.tv_letter)
-    TextView tvLetter;
+    TextView           tvLetter;
 
     private List<BirthItem> items = new ArrayList<>();
 

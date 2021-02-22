@@ -3,11 +3,12 @@ package com.actor.testapplication.widget;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.LayoutRes;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.PopupWindow;
+
+import androidx.annotation.LayoutRes;
 
 /**
  * description: PopupWindow基类

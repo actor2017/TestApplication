@@ -4,11 +4,14 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.view.MotionEventCompat;
+import androidx.core.view.ViewCompat;
 
 /**
  * Created by moon.zhong on 2015/4/27.
@@ -35,38 +38,42 @@ public class RippleButton extends AppCompatTextView {
 
     private boolean mDrawFinish;
 
-    private final int DURATION = 150;
-    private final int FREQUENCY = 10;
+    private final int   DURATION  = 150;
+    private final int   FREQUENCY = 10;
     private       float mCycle;
-    private final Rect  mRect = new Rect();
+    private final Rect  mRect     = new Rect();
 
     private boolean mPressUp = false;
 
     private Paint mRevealPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
-    public RippleButton(Context context) {
+    public RippleButton(@NonNull Context context) {
         super(context);
-        initView(context);
+        initView(context, null);
     }
 
-    public RippleButton(Context context, AttributeSet attrs) {
+    public RippleButton(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        initView(context);
-
+        initView(context, attrs);
     }
 
-    private void initView(Context context) {
+    public RippleButton(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        initView(context, attrs);
+    }
+
+    private void initView(@NonNull Context context, @Nullable AttributeSet attrs) {
         mRevealPaint.setColor(0x25000000);
         mCycle = DURATION / FREQUENCY;
-        final float density = getResources().getDisplayMetrics().density ;
-        mCycle = (density*mCycle);
+        final float density = getResources().getDisplayMetrics().density;
+        mCycle = (density * mCycle);
         mDrawFinish = true;
         setClickable(true);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (mDrawFinish||!isClickable()) {
+        if (mDrawFinish || !isClickable()) {
             super.onDraw(canvas);
             return;
         }
@@ -123,7 +130,7 @@ public class RippleButton extends AppCompatTextView {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if(!isClickable()){
+        if (!isClickable()) {
             return super.onTouchEvent(event);
         }
         final int action = MotionEventCompat.getActionMasked(event);
