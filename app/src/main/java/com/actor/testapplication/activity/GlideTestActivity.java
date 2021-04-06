@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -14,10 +15,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.actor.myandroidframework.utils.okhttputils.GetFileCallback;
 import com.actor.myandroidframework.utils.okhttputils.MyOkHttpUtils;
+import com.actor.myandroidframework.utils.picture_selector.PictureSelectorUtils;
 import com.actor.myandroidframework.widget.BaseItemDecoration;
 import com.actor.testapplication.R;
 import com.actor.testapplication.utils.Global;
 import com.blankj.utilcode.util.ConvertUtils;
+import com.blankj.utilcode.util.FileIOUtils;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.GlideBuilder;
 import com.bumptech.glide.MemoryCategory;
@@ -49,9 +52,10 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.luck.picture.lib.entity.LocalMedia;
+import com.luck.picture.lib.listener.OnResultCallbackListener;
 
 import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -70,14 +74,13 @@ public class GlideTestActivity extends BaseActivity {
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
-    @BindView(R.id.iv)
-    ImageView    iv;
+    @BindView(R.id.iv_test)
+    ImageView    ivTest;
 
-    private List<String> items = new ArrayList<>();
-    private MyAdapter myAdapter;
-    private int dp3;
     private static final String[] TYPES = {"url", "assets", "Resources", "File", "Uri", "byte[]",
-            "raw", "raw", "ContentProvider"};
+            "raw", "raw", "ContentProvider(点击选择本都图片)"};
+    private int dp3;
+    private String contentProvider;
     private RequestOptions requestOptions;
 
     @Override
@@ -87,25 +90,52 @@ public class GlideTestActivity extends BaseActivity {
         ButterKnife.bind(this);
         setTitle("主页 -> Glide测试");
         dp3 = ConvertUtils.dp2px(3);
-        for (int i = 0; i < TYPES.length; i++) {
-            items.add("");
-        }
-        myAdapter = new MyAdapter(R.layout.item_homemenu_layout, items);
+
         recyclerView.addItemDecoration(new BaseItemDecoration(10, 10));
+        MyAdapter myAdapter = new MyAdapter();
+        myAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                if (position == TYPES.length - 1) {
+                    PictureSelectorUtils.selectImage(activity, true, new OnResultCallbackListener<LocalMedia>() {
+                        @Override
+                        public void onResult(List<LocalMedia> result) {
+                            contentProvider = result.get(0).getPath();
+                            logFormat("选择图片, path = %s", contentProvider);//content://media/external/file/122414
+                            //刷新最后一个itme
+                            myAdapter.notifyItemChanged(position);
+                        }
+                        @Override
+                        public void onCancel() {
+                            toast("取消选择");
+                        }
+                    });
+                }
+            }
+        });
         recyclerView.setAdapter(myAdapter);
-//        glideWith(iv);
+
+        /**
+         * 其余方法, 见:
+         * @see #glideGet()
+         * @see #glideOthers()
+         * @see #glideWithOther()
+         * @see #glideWith(ImageView)
+         */
     }
 
     private class MyAdapter extends BaseQuickAdapter<String, BaseViewHolder> {
-
-        private MyAdapter(int layoutResId, @Nullable List<String> data) {
-            super(layoutResId, data);
+        private MyAdapter() {
+            super(R.layout.item_homemenu_layout);
+            for (String type : TYPES) {
+                addData(type);
+            }
         }
 
         @Override
         protected void convert(@NonNull BaseViewHolder helper, String item) {
             int position = helper.getAdapterPosition();
-            ImageView iv = helper.setText(R.id.tv, position + ". " + TYPES[position]).getView(R.id.iv);
+            ImageView iv = helper.setText(R.id.tv, position + ". " + item).getView(R.id.iv);
             switch (position) {
                 case 0://url网络
                     Glide.with(activity).load(Global.BAIDU_LOGO).into(iv);
@@ -129,7 +159,14 @@ public class GlideTestActivity extends BaseActivity {
                     Glide.with(activity).load(Uri.parse(Global.BAIDU_LOGO)).into(iv);
                     break;
                 case 5://byte[]字节数组
-//                    Glide.with(this).load(byte[]).into(iv6);
+                    MyOkHttpUtils.getFile(Global.BAIDU_LOGO, null, null, new GetFileCallback(this, null, "baidu_jgylogo3(1).gif") {
+                        @Override
+                        public void onOk(@NonNull File info, int id) {
+                            dismissLoadingDialog();
+                            byte[] bytes = FileIOUtils.readFile2BytesByStream(info);
+                            Glide.with(activity).load(bytes).into(iv);
+                        }
+                    });
                     break;
                 case 6://raw
                     Glide.with(activity).load(getStringFormat("android.resource://%s/raw/%s", getPackageName(), "logo")).into(iv);
@@ -138,8 +175,10 @@ public class GlideTestActivity extends BaseActivity {
                     Glide.with(activity).load(getStringFormat("android.resource://%s/raw/%d", getPackageName(), R.raw.logo)).into(iv);
                     break;
                 case 8://ContentProvider
-                    //DownloadManagerUtils查询下载: content://downloads/my_downloads/xxx
-                    Glide.with(activity).load("content://media/external/images/media/139469");
+                    //DownloadManagerUtils 查询下载: content://downloads/my_downloads/xxx
+                    Glide.with(activity).load(contentProvider).into(iv);
+                    break;
+                default:
                     break;
             }
         }
@@ -176,7 +215,7 @@ public class GlideTestActivity extends BaseActivity {
         RequestManager requestManager = Glide.with(this);
 //                .addDefaultRequestListener(RequestListener)
 //                .applyDefaultRequestOptions(RequestOptions)
-        Glide.with(this).clear(iv/*Target*/);//取消加载
+        Glide.with(this).clear(ivTest/*Target*/);//取消加载
         RequestBuilder<File> download = Glide.with(this).download(Global.BAIDU_LOGO);//Object model
         RequestBuilder<File> downloadOnly = Glide.with(this).downloadOnly();
         boolean paused = Glide.with(this).isPaused();

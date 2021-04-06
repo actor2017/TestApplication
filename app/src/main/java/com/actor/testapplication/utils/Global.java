@@ -11,6 +11,8 @@ import android.content.Context;
  */
 public class Global {
 
+    public static final String BASE_URL = "https://api.github.com";
+
     //GET/POST, 这个也可以检测更新
 //    public static final String CHECK_UPDATE = "https://github.com/actor20170211030627/" +
 //            "TestApplication" +

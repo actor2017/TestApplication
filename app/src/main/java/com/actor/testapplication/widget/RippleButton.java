@@ -156,6 +156,8 @@ public class RippleButton extends AppCompatTextView {
                 mPressUp = true;
                 invalidate();
                 break;
+            default:
+                break;
         }
         return super.onTouchEvent(event);
     }

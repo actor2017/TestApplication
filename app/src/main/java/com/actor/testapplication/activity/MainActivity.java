@@ -33,13 +33,16 @@ public class MainActivity extends BaseActivity {
         startService(new Intent(this, CheckUpdateService.class));//检查更新
     }
 
-    @OnClick({R.id.btn_glide, R.id.btn_expandable_item, R.id.btn_rich_text, R.id.btn_c_call_java,
-            R.id.btn_custom_view, R.id.btn_surface_view, R.id.btn_nested_scroll_view,
-            R.id.btn_encrypt, R.id.btn_go2_test})
+    @OnClick({R.id.btn_glide, R.id.btn_path, R.id.btn_expandable_item, R.id.btn_rich_text,
+            R.id.btn_c_call_java, R.id.btn_custom_view, R.id.btn_surface_view,
+            R.id.btn_nested_scroll_view, R.id.btn_encrypt, R.id.btn_go2_test})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_glide://Glide测试
                 startActivity(new Intent(this, GlideTestActivity.class));
+                break;
+            case R.id.btn_path://Path绘制测试
+                startActivity(new Intent(this, PathDrawActivity.class));
                 break;
             case R.id.btn_expandable_item://分组的伸缩栏(ExpandableItemAdapter)
                 startActivity(new Intent(this, ExpandableItemActivity.class));
@@ -65,6 +68,8 @@ public class MainActivity extends BaseActivity {
             case R.id.btn_go2_test://Test测试页面
                 startActivity(new Intent(this, TestActivity.class), false, view);
 //                showPopupWindow(view);
+                break;
+            default:
                 break;
         }
     }

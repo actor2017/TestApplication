@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import com.actor.myandroidframework.application.ActorApplication;
 import com.actor.myandroidframework.utils.LogUtils;
 import com.actor.testapplication.utils.AssetsUtils;
+import com.actor.testapplication.utils.Global;
 import com.franmontiel.persistentcookiejar.ClearableCookieJar;
 import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
@@ -134,7 +135,7 @@ public class MyApplication extends ActorApplication {
     @NonNull
     @Override
     protected String getBaseUrl(boolean isDebugMode) {
-        return "https://api.github.com";
+        return Global.BASE_URL;
     }
 
     @Override
