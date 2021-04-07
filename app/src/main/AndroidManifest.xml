@@ -7,6 +7,11 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
+    <!--OpenGL ES支持, arcgis-runtime-samples-android -->
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -16,16 +21,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".activity.PathDrawActivity"></activity>
+        <activity android:name=".activity.PathDrawActivity" />
         <activity android:name=".activity.CCallJavaActivity" />
         <activity android:name=".activity.RichTextActivity" />
         <activity android:name=".activity.EncryptActivity" />
-        <activity android:name=".activity.GlideTestActivity" />
+
         <activity
             android:name=".activity.SurfaceViewActivity"
             android:theme="@style/FullScreen" />
         <activity android:name=".activity.CustomViewActivity" />
-        <activity android:name=".activity.ExpandableItemActivity" />
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>

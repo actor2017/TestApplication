@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".activity.PathDrawActivity">
 
-    <View
-        android:id="@+id/view"
+    <com.actor.testapplication.widget.PathView
+        android:id="@+id/path_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

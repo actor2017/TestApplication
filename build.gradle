@@ -23,6 +23,7 @@ allprojects {
         mavenCentral() // add repository
         maven { url 'https://jitpack.io' }
         maven { url 'D://repository' }
+        maven { url 'https://esri.jfrog.io/artifactory/arcgis' }
     }
 }
 
