@@ -1,13 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.PathDrawActivity">
 
+    <com.actor.myandroidframework.widget.BaseSpinner
+        android:id="@+id/bs_paint_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        app:bsEntriesString="设置Paint的Style,Paint.Style.FILL(实心),Paint.Style.STROKE(空心，填充模式 - 描边),Paint.Style.FILL_AND_STROKE??" />
+
+    <LinearLayout
+        android:id="@+id/ll_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bs_paint_style"
+        android:background="@color/red_trans_CC99"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_x"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:digits="@string/digits_num"
+            android:hint="x轴"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
+            android:text="300"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/et_y"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:digits="@string/digits_num"
+            android:hint="y轴"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:text="300"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
     <com.actor.testapplication.widget.PathView
         android:id="@+id/path_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_lineto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="lineTo(x,y)" />
+    </LinearLayout>
+</RelativeLayout>
