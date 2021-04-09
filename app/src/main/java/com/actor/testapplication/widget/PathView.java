@@ -6,11 +6,13 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.View;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
@@ -143,4 +145,55 @@ public class PathView extends View {
     ///////////////////////////////////////////////////////////////////////////
     // Path 基本形状
     ///////////////////////////////////////////////////////////////////////////
+
+    /**
+     * 矩形
+     * @param rect
+     * @param dir
+     */
+    public void addRect(RectF rect, Path.Direction dir) {
+        addRect(rect.left, rect.top, rect.right, rect.bottom, dir);
+    }
+    /**
+     * 矩形
+     * @param left
+     * @param top
+     * @param right
+     * @param bottom
+     * @param dir
+     */
+    public void addRect(float left, float top, float right, float bottom, Path.Direction dir) {
+        mPath.addRect(left, top, right, bottom, dir);
+    }
+
+    /**
+     * 圆形
+     * @param x
+     * @param y
+     * @param radius
+     * @param dir
+     */
+    public void addCircle(float x, float y, float radius, Path.Direction dir) {
+        mPath.addCircle(x, y, radius, dir);
+    }
+
+    /**
+     * 圆角矩形
+     * @param rect
+     * @param radii
+     * @param dir
+     */
+    public void addRoundRect(@NonNull RectF rect, float rx, float ry, @NonNull Path.Direction dir) {
+        addRoundRect(rect.left, rect.top, rect.right, rect.bottom, rx, ry, dir);
+    }
+    public void addRoundRect (float left,float top,float right,float bottom,float rx,float ry, Path.Direction dir) {
+
+    }
+    public void addRoundRect(RectF rect, float[] radii, Path.Direction dir) {
+        mPath.addRoundRect(rect, radii, dir);
+    }
+    public void addRoundRect (float left,float top,float right,float bottom,float[] radii,Path.Direction dir) {
+
+    }
+
 }
