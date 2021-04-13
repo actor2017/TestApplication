@@ -4,9 +4,15 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.Display;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.actor.testapplication.R;
+
+import butterknife.BindView;
 
 
 /**
@@ -16,23 +22,20 @@ import android.view.View;
  */
 public class TestActivity extends BaseActivity {
 
-//    @BindView(R.id.tv_result)//显示结果
-//    TextView tvResult;
-//    @BindView(R.id.edit_text)
-//    EditText editText;
-//    @BindView(R.id.btn)
-//    Button btn;
+
+    @BindView(R.id.tv_result)//显示结果
+    TextView tvResult;
+    @BindView(R.id.edit_text)
+    EditText editText;
+    @BindView(R.id.btn)
+    Button   btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Handler handler = new Handler();
-
-
 //        setContentView(R.layout.activity_test);
 //        ButterKnife.bind(this);
-//
-//        setTitle("Test测试页面");
+        setTitle("Test测试页面");
 
 //        setContentView(new PlasmaView(this));
 

@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
-    <!--OpenGL ES支持, arcgis-runtime-samples-android -->
+    <!-- OpenGL ES支持, arcgis-runtime-samples-android -->
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
@@ -21,16 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".activity.PathDrawActivity" />
-        <activity android:name=".activity.CCallJavaActivity" />
-        <activity android:name=".activity.RichTextActivity" />
-        <activity android:name=".activity.EncryptActivity" />
 
-        <activity
-            android:name=".activity.SurfaceViewActivity"
-            android:theme="@style/FullScreen" />
-        <activity android:name=".activity.CustomViewActivity" />
-        <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,8 +29,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.PathDrawActivity" />
+        <activity android:name=".activity.CCallJavaActivity" />
+        <activity android:name=".activity.RichTextActivity" />
+        <activity android:name=".activity.EncryptActivity" />
+        <activity
+            android:name=".activity.SurfaceViewActivity"
+            android:theme="@style/FullScreen" />
+        <activity android:name=".activity.CustomViewActivity" />
+        <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.NestedScrollViewActivity" />
         <activity android:name=".activity.DragLayoutActivity" />
+        <activity android:name=".AppLinksActivity">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="api.github.com"
+                    android:path="/TestApplication"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
 
         <service android:name=".service.CheckUpdateService" />
         <service android:name=".service.CheckUpdateLService" />
