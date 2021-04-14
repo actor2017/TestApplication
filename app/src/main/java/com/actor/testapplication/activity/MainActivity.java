@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.actor.testapplication.R;
-import com.actor.testapplication.service.CheckUpdateService;
+import com.actor.testapplication.utils.CheckUpdateUtils;
 import com.actor.testapplication.widget.BasePopupWindow;
 import com.blankj.utilcode.util.AppUtils;
 
@@ -30,7 +30,7 @@ public class MainActivity extends BaseActivity {
         setTitle("主页");
         AppUtils.AppInfo appInfo = AppUtils.getAppInfo();
         tvVersion.setText(getStringFormat("VersionName: %s(VersionCode: %d)", appInfo.getVersionName(), appInfo.getVersionCode()));//版本
-        startService(new Intent(this, CheckUpdateService.class));//检查更新
+        new CheckUpdateUtils().check(this);//检查更新
     }
 
     @OnClick({R.id.btn_path, R.id.btn_rich_text,
@@ -77,11 +77,5 @@ public class MainActivity extends BaseActivity {
 
         //显示在某个控件正下方
         popup.showAsDropDown(v, 0, 0, Gravity.TOP | Gravity.END);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        stopService(new Intent(this, CheckUpdateService.class));
     }
 }

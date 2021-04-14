@@ -2,6 +2,8 @@ package com.actor.testapplication.utils;
 
 import android.content.Context;
 
+import com.blankj.utilcode.util.AppUtils;
+
 /**
  * Description: 全局变量
  * Author     : 李大发
@@ -18,7 +20,7 @@ public class Global {
 //            "TestApplication" +
 //            "/raw/master/" +
 //            "app" +
-//            "/build/outputs/apk/debug/output.json";
+//            "/build/outputs/apk/debug/output-metadata.json";
 
     //github.com, GET请求
 //    public static final String CHECK_UPDATE = "https://raw.githubusercontent.com/" +
@@ -26,14 +28,14 @@ public class Global {
 //            "TestApplication" +//项目名
 //            "/master/" +
 //            "app" +//模块名
-//            "/build/outputs/apk/debug/output.json";
+//            "/build/outputs/apk/debug/output-metadata.json";
 
     //gitee.com码云, GET请求
     public static final String CHECK_UPDATE = "https://gitee.com/actor20170211030627/" +
             "TestApplication" + //项目名
             "/raw/master/" +
             "app" +             //模块名
-            "/build/outputs/apk/debug/output.json";
+            "/build/outputs/apk/debug/output-metadata.json";
 
 
     //这个也可以下载
@@ -41,7 +43,7 @@ public class Global {
 //            "TestApplication" +
 //            "/raw/master/" +
 //            "app" +
-//            "/build/outputs/apk/debug/app-debug.apk";
+//            "/build/outputs/apk/debug/Test_" + AppUtils.getAppVersionName() + ".apk";
     //github.com(国内网速慢)
     public static final String DOWNLOAD_URL = "https://raw.githubusercontent.com/" +
             "actor20170211030627/" +
@@ -49,8 +51,8 @@ public class Global {
             "/master/" +
             "app" +             //模块名
             "/build/outputs/apk/debug/" +
-            "app" +             //模块名
-            "-debug.apk";
+            "Test_" +             //模块名
+            AppUtils.getAppVersionName() + ".apk";
 
     //gitee.com码云(大于1M要登录后才能下载)
 //    public static final String DOWNLOAD_URL = "https://gitee.com/actor20170211030627/" +
@@ -58,8 +60,8 @@ public class Global {
 //            "/raw/master/" +
 //            "app" +
 //            "/build/outputs/apk/debug/" +
-//            "app" +
-//            "-debug.apk";
+//            "Test_" +
+//            AppUtils.getAppVersionName() + ".apk";
 
 
     //thanks www.baidu.com百度

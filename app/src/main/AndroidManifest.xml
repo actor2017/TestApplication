@@ -54,7 +54,6 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".service.CheckUpdateService" />
         <service android:name=".service.CheckUpdateLService" />
     </application>
 
