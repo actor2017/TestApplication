@@ -1,3 +1,5 @@
+import groovy.transform.PackageScope
+
 //1.黑马程序员精品教程|Java进阶教程之Gradle入门到精通
 /**
  * https://www.bilibili.com/video/BV1iW411C7CV?p=1
@@ -78,18 +80,40 @@ def b1 = {
 def b2 = {
     v -> println ("定义一个闭包, 带参数: ${v}")
 }
+//闭包有返回值
+def b3Return = {
+    param -> return param + 1
+}
+def b4Return = {
+    it + 1    //可不写return, 最后一行结果就是返回值. it值参数
+}
 
 //定义个方法, 参数需要闭包类型
-def method1(Closure closure) {
-    closure()               //执行闭包里的代码
+def method1(Closure c) {
+    c()               //执行闭包里的代码
 }
-def method2Param(Closure closure) {
-    closure("xiao ma")
+def method2Param(Closure c) {
+    c("xiao ma")
 }
+def method3Param(int i, Closure c) {
+    return c(i)
+}
+/**
+ * Android Gradle中常见闭包
+ * compileOptions {
+ *     sourceCompatibility JavaVersion.VERSION_1_8
+ *     targetCompatibility JavaVersion.VERSION_1_8
+ * }
+ */
 
 //调用方法
+b1()
+println b3Return(2)         //3
+println b4Return(3)         //4
 method1(b1)
 method2Param(b2)
+println method3Param(3, { 2 * it }) //6
+println method3Param(5) { 2 * it }  //10, 如果Closure是最后一个参数, 大括号放外面
 
 
 /**
@@ -125,5 +149,45 @@ method2Param(b2)
 
 
 
+///////////////////////////////////////////////////////////////////////////
+// https://www.bilibili.com/video/BV1DE411Z7nt?p=1
+// 来自Gradle开发团队的Gradle入门教程
+///////////////////////////////////////////////////////////////////////////
+/**
+ * https://www.bilibili.com/video/BV1DE411Z7nt?p=1
+ * 1_Gradle与Groovy基础: 时间: 25:00
+ */
+public class Clazz1 {
+    int anInt = 456
 
+    @PackageScope   //方法默认是public, 如果要private, 需要加这个注解: 包: import groovy.transform.PackageScope
+    /*public */void method1() {
+        println "anInt = " + anInt
+    }
+}
+new Clazz1().method1()          //456
+new Clazz1(anInt: 123).method1()//123
+
+List list1 = [1, 2, 3, 4, 5]
+list1.findAll { it % 2 != 0 }   //返回所有奇数(包括负数)
+
+/**
+ * https://www.bilibili.com/video/BV1DE411Z7nt?p=2
+ * _2Gradle构建
+ * 1.生命周期
+ *      Initialization  初始化
+ *      Configuration   配置
+ *      Execution       执行
+ *
+ * 2.在 Teminal 中执行: ./gradlew help
+ */
+//在"Gradle"中写代码!!!
+//创建一个任务
+task('helloworld', {//参2: 配置闭包
+    println 'configure'
+
+    doLast {
+        println 'Executing task'
+    }
+})
 
