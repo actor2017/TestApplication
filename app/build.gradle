@@ -120,3 +120,12 @@ dependencies {
     //https://github.com/Esri/arcgis-runtime-samples-android 地图
     compileOnly 'com.esri.arcgisruntime:arcgis-android:100.4.0'
 }
+
+//创建一个任务
+task('helloworld', {//参2: 配置闭包
+    println 'configure'
+
+    doLast {
+        println 'Executing task'
+    }
+})

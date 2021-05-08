@@ -17,6 +17,22 @@ import butterknife.OnClick;
 /**
  * Path绘制测试
  *
+ *  TODO: 2021/5/8 亲爱的自己, 下次再修改的时候是什么时候?
+ * PathMeasure:
+ * https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baidu&wd=PathMeasure&oq=PathMeasure
+ * https://blog.csdn.net/weiwozhiyi/article/details/70149147
+ *
+ *
+ *
+ * android 根据点计算贝塞尔曲线:
+ * https://www.baidu.com/s?ie=UTF-8&wd=android%20%E6%A0%B9%E6%8D%AE%E7%82%B9%E8%AE%A1%E7%AE%97%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF
+ *
+ *
+ *
+ * doodleview:
+ * https://www.baidu.com/s?ie=UTF-8&wd=doodleview
+ *
+ *
  * F:\AndroidProjects\AndroidNote\Animation动画\3.2.Path动画(用属性动画实现)
  *
  * F:\AndroidProjects\AndroidNote\Widget 自定义控件,自定义View\6.Paint 笔
