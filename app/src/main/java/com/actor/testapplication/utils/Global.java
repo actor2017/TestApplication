@@ -6,7 +6,6 @@ import com.blankj.utilcode.util.AppUtils;
 
 /**
  * Description: 全局变量
- * Author     : 李大发
  * Date       : 2019-9-17 on 15:08
  *
  * @version 1.0

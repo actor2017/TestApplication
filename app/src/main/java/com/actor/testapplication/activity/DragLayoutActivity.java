@@ -9,7 +9,6 @@ import com.actor.testapplication.R;
 /**
  * description: 拖拽 测试
  *
- * @author : 李大发
  * date       : 2020/6/28 on 18:06
  * @version 1.0
  */

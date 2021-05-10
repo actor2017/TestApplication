@@ -2,8 +2,6 @@ package com.actor.testapplication.utils;
 
 /**
  * Description: Java调C
- * Copyright  : Copyright (c) 2018
- * Author     : 李大发
  * Date       : 2018/10/15 on 18:04
  */
 
@@ -20,7 +18,7 @@ public class JavaCallC {
         System.loadLibrary("native-lib");
     }
 
-    //这是生成的Activity,可以随便写一个方法,然后Alt+Enter
+    //这是生成的Activity, 可以随便写一个方法, 然后Alt+Enter
     public static native int add(int x, int y);
 
     public static native void add10(int[] arr);//给数组每项加10

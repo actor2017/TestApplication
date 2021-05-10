@@ -17,7 +17,6 @@ import butterknife.BindView;
 
 /**
  * Description: Test测试页面
- * Author     : 李大发
  * Date       : 2019/12/30 on 11:38
  */
 public class TestActivity extends BaseActivity {

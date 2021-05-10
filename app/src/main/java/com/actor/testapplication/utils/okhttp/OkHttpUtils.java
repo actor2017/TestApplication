@@ -21,7 +21,6 @@ import okhttp3.Request;
  * 使用:
  * 1. OkHttpUtils.getInstance().initClient(okHttpClient);
  *
- * @author : 李大发
  * date       : 2020/10/9 on 09
  * @version 1.0
  */

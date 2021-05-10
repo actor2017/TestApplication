@@ -19,7 +19,6 @@ import java.text.DateFormat;
 /**
  * description: GsonBuilder属性
  *
- * @author : 李大发
  * date       : 2020/7/30 on 16:11
  * @version 1.0
  */

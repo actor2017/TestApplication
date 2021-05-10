@@ -33,7 +33,6 @@ import com.esri.arcgisruntime.mapping.view.MapView;
  *      android:layout_width="match_parent"
  *      android:layout_height="match_parent" />
  *
- * @author : 李大发
  * date       : 2021/4/6 on 13
  * @version 1.0
  */

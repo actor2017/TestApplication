@@ -1,11 +1,17 @@
 package com.actor.testapplication.activity;
 
 import android.content.Intent;
+import android.graphics.SurfaceTexture;
+import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Surface;
+import android.view.SurfaceView;
+import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.actor.testapplication.R;
 import com.actor.testapplication.utils.CheckUpdateUtils;
@@ -20,6 +26,14 @@ public class MainActivity extends BaseActivity {
 
     @BindView(R.id.tv_version)//版本
     TextView  tvVersion;
+
+    Surface       surface;//extends Object implements Parcelable
+    SurfaceView   surfaceView = null;//extends View
+    GLSurfaceView glSurfaceView;//extends SurfaceView
+    VideoView     videoView;//extends SurfaceView
+
+    SurfaceTexture surfaceTexture;//extends Object
+    TextureView    textureView = null;//extends View
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

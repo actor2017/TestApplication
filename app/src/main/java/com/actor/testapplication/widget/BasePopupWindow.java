@@ -13,7 +13,6 @@ import androidx.annotation.LayoutRes;
 /**
  * description: PopupWindow基类
  *
- * @author : 李大发
  * date       : 2020/5/31 on 12:13
  * @version 1.0
  * @deprecated Android7.0中PopupWindow 有点问题, api懒得适配, 还是用其它框架吧

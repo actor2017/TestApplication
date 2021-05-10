@@ -23,7 +23,6 @@ import java.util.List;
 
 /**
  * description: 录音Dialog
- * author     : 李大发
  * date       : 2020/4/1 on 17:18
  *
  * @version 1.0

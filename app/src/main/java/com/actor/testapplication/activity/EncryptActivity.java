@@ -27,7 +27,6 @@ import butterknife.OnClick;
  * https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/src/test/java/com/blankj/utilcode/util/EncryptUtilsTest.java
  * @see com.actor.testapplication.R.string#encode_instruction 加密解密说明
  *
- * @author : 李大发
  * date       : 2020/9/12 o 14:43
  * @version 1.0
  */

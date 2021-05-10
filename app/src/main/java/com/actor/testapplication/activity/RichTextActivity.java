@@ -17,7 +17,6 @@ import butterknife.OnClick;
 
 /**
  * description: 富文本测试
- * @author    : 李大发
  * date       : 2020/12/10 on 15:46
  */
 public class RichTextActivity extends BaseActivity {

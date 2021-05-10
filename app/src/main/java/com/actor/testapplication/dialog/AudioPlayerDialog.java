@@ -10,7 +10,6 @@ import com.actor.testapplication.widget.AudioPlayerLaout;
 
 /**
  * description: 音频播放
- * @author : 李大发
  * date       : 2020/6/19 on 11:15
  * @version 1.0
  */

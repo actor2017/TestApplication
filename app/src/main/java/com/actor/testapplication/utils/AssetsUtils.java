@@ -13,8 +13,6 @@ import java.io.InputStream;
 
 /**
  * Description: 资产目录工具,可以在Application的时候就开始拷贝.把文件传到/data/data/包名/files/
- * Copyright  : Copyright (c) 2018
- * Author     : 李大发
  * Date       : 2018/1/8 on 18:08
  */
 

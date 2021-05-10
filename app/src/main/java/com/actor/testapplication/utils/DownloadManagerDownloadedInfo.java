@@ -2,7 +2,6 @@ package com.actor.testapplication.utils;
 
 /**
  * Description: DownloadManager下载文件信息
- * Author     : 李大发
  * Date       : 2020/2/13 on 14:13
  *
  * @version 1.0

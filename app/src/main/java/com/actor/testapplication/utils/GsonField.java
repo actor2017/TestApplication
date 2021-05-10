@@ -8,7 +8,6 @@ import java.lang.annotation.Target;
 /**
  * description: 类的描述
  *
- * @author : 李大发
  * date       : 2020/7/30 on 18:13
  * @version 1.0
  *

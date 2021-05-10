@@ -24,7 +24,6 @@ import java.util.List;
 
 /**
  * Description: 下载管理器
- * Author     : 李大发
  * Date       : 2020/1/31 on 17:26
  *
  * @version 1.0

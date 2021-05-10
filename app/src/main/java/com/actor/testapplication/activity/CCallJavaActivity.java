@@ -1,14 +1,8 @@
 package com.actor.testapplication.activity;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import android.view.Surface;
-import android.view.SurfaceView;
-import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
-import android.widget.VideoView;
 
 import com.actor.testapplication.R;
 import com.actor.testapplication.utils.CCallJava;
@@ -22,7 +16,6 @@ import butterknife.OnClick;
 
 /**
  * description: C & Java 互调
- * @author    : 李大发
  * date       : 2020/12/10 on 15:50
  */
 public class CCallJavaActivity extends BaseActivity {
@@ -37,6 +30,9 @@ public class CCallJavaActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_c_call_java);
         ButterKnife.bind(this);
+        setTitle("Java&C互调");
+
+        // TODO: 2021/5/10 有空看视频再学习.
 
         //Java调C
         btn.setText(JavaCallC.stringFromJNI());
@@ -47,14 +43,6 @@ public class CCallJavaActivity extends BaseActivity {
         //C调Java
         CCallJava.callVoid();
         CCallJava.staticMethodCalledVoid();//C调用Java的静态方法
-
-        Surface surface;//extends Object implements Parcelable
-        SurfaceView surfaceView = null;//extends View
-        GLSurfaceView glSurfaceView;//extends SurfaceView
-        VideoView videoView;//extends SurfaceView
-
-        SurfaceTexture surfaceTexture;//extends Object
-        TextureView textureView = null;//extends View
     }
 
     @OnClick({R.id.btn})

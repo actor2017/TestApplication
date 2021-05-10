@@ -2,7 +2,6 @@ package com.actor.testapplication;
 
 /**
  * description: 测试 final
- * author     : 李大发
  * date       : 2020/4/4 on 11:29
  *
  * @version 1.0

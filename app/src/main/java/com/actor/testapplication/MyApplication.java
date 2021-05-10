@@ -26,7 +26,6 @@ import okio.Buffer;
 
 /**
  * Description: 类的描述
- * Author     : 李大发
  * Date       : 2019-9-4 on 09:14
  *
  * @version 1.0

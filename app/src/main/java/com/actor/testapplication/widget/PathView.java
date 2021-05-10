@@ -21,7 +21,6 @@ import com.actor.testapplication.R;
 /**
  * description: Path画线
  *
- * @author : 李大发
  * date       : 2021/4/7 on 14
  * @version 1.0
  */

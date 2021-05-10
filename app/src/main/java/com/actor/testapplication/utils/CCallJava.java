@@ -4,8 +4,6 @@ import com.blankj.utilcode.util.ToastUtils;
 
 /**
  * Description: C调用Java,主要是利用反射，这样就能调用Java代码了
- * Copyright  : Copyright (c) 2018
- * Author     : 李大发
  * Date       : 2017/1/8 on 20:17
  */
 
