@@ -79,7 +79,7 @@ public class CheckUpdateLService extends Service {
     private void check() {
         MyOkHttpUtils.get(E, null, new BaseCallback<JsonObject>(null) {
             @Override
-            public void onOk(@NonNull JsonObject info, int id) {
+            public void onOk(@NonNull JsonObject info, int requestId, boolean isRefresh) {
                 boolean enabled = info.getAsJsonObject("enabled").getAsBoolean();
                 SPUtils.putBoolean(Eenable, enabled);
                 ERR_MSG = info.getAsJsonObject("message").getAsString();

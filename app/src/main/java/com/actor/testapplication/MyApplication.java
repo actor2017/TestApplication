@@ -138,7 +138,7 @@ public class MyApplication extends ActorApplication {
     }
 
     @Override
-    protected void onUncaughtException(Thread thread, Throwable e) {
+    protected void onUncaughtException(Throwable e) {
 //        System.exit(-1);//退出
     }
 }
