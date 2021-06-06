@@ -70,7 +70,9 @@ public class Global {
     public static final String JNI_IP = "IP";
     public static final String JNI_PORT = "PORT";
 
-    static {System.loadLibrary("native-lib");}
+    static {
+        System.loadLibrary("native-lib");
+    }
     public static native void jniInit(Context context, boolean isDebugMode);
     public static native String getString(String key);
 }

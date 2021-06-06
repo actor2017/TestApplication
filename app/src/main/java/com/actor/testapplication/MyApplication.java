@@ -13,6 +13,7 @@ import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor;
 import com.zhy.http.okhttp.https.HttpsUtils;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.security.cert.Certificate;
 
@@ -66,9 +67,14 @@ public class MyApplication extends ActorApplication {
          * 都不为null:               双向认证
          */
         InputStream certificate = new Buffer().writeUtf8(CER_SERVER).inputStream();//okio.Buffer
-        InputStream bksFile = AssetsUtils.openFile(this, "zhy_client.bks");//使用zhy_client.jks要报错?
-        InputStream[] certificates = {certificate};
-        HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(certificates, bksFile, "123456");
+        HttpsUtils.SSLParams sslParams = null;
+        //@Deprecated AssetsUtils 下一版本更新
+        try (InputStream bksFile = AssetsUtils.openFile(this, "zhy_client.bks")) {//使用zhy_client.jks要报错?
+            InputStream[] certificates = {certificate};
+            sslParams = HttpsUtils.getSslSocketFactory(certificates, bksFile, "123456");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return builder
                 //Log
