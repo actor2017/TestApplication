@@ -1,7 +1,5 @@
 package com.actor.testapplication.utils;
 
-import android.content.Context;
-
 import com.blankj.utilcode.util.AppUtils;
 
 /**
@@ -69,10 +67,4 @@ public class Global {
 
     public static final String JNI_IP = "IP";
     public static final String JNI_PORT = "PORT";
-
-    static {
-        System.loadLibrary("native-lib");
-    }
-    public static native void jniInit(Context context, boolean isDebugMode);
-    public static native String getString(String key);
 }

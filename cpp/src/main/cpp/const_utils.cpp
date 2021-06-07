@@ -47,18 +47,20 @@ const char* app_signature = "308201dd30820146020101300d06092a864886f70d010105050
                             "aca93e57dde257c84998dfa3e4321f4ed76ea46b303d116b84d"
                             "e63577ab8b7730117a9c63fb7f0832e846d5167f4617";
 
+extern "C"
 JNIEXPORT void JNICALL
-Java_com_actor_testapplication_utils_Global_jniInit(JNIEnv *env, jclass type, jobject contextObject, jboolean isDebug) {
-    isDebugMode = isDebug;
-    jclass native_class = env->GetObjectClass(contextObject);
+Java_com_actor_cpptest_ConstUtils_jniInit(JNIEnv *env, jclass clazz, jobject context,
+                                          jboolean is_debug_mode) {
+    isDebugMode = is_debug_mode;
+    jclass native_class = env->GetObjectClass(context);
     jmethodID pm_id = env->GetMethodID(native_class, "getPackageManager", "()Landroid/content/pm/PackageManager;");
-    jobject pm_obj = env->CallObjectMethod(contextObject, pm_id);
+    jobject pm_obj = env->CallObjectMethod(context, pm_id);
     jclass pm_clazz = env->GetObjectClass(pm_obj);
 // 得到 getPackageInfo 方法的 ID
     jmethodID package_info_id = env->GetMethodID(pm_clazz, "getPackageInfo","(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;");
-    jclass native_classs = env->GetObjectClass(contextObject);
+    jclass native_classs = env->GetObjectClass(context);
     jmethodID mId = env->GetMethodID(native_classs, "getPackageName", "()Ljava/lang/String;");
-    jstring pkg_str = static_cast<jstring>(env->CallObjectMethod(contextObject, mId));
+    jstring pkg_str = static_cast<jstring>(env->CallObjectMethod(context, mId));
 // 获得应用包的信息
     jobject pi_obj = env->CallObjectMethod(pm_obj, package_info_id, pkg_str, 64);
 // 获得 PackageInfo 类
@@ -85,12 +87,13 @@ Java_com_actor_testapplication_utils_Global_jniInit(JNIEnv *env, jclass type, jo
     }
 }
 
+extern "C"
 JNIEXPORT jstring JNICALL
-Java_com_actor_testapplication_utils_Global_getString(JNIEnv *env, jclass type, jstring key_) {
-    if (key_ == NULL) return NULL;
+Java_com_actor_cpptest_ConstUtils_getString(JNIEnv *env, jclass clazz, jstring key) {
+    if (key == NULL) return NULL;
     if (is_valid) {
         int i = 0;
-        const char *str = env->GetStringUTFChars(key_, 0);//jstring --> char*
+        const char *str = env->GetStringUTFChars(key, 0);//jstring --> char*
         while (vals_message_type[i].value != NULL && strcmp(vals_message_type[i].key, str) != 0) {
             i++;
         }

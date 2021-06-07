@@ -8,24 +8,27 @@ package com.actor.cpptest;
 public class CCallJava {
 
     static {
-        System.loadLibrary("native-lib");//★★★注意,这儿不能写:c-call-java★★★
+        //libname: 就是 CMakeLists.txt 中add_library() 第一个参数
+        System.loadLibrary("native-lib");
     }
 
     /**
-     * 这个方法调用C,然后C调用下面的方法{@link #calledByC(String)}
+     * 这个方法调用C函数, 然后C调用下面的方法{@link #calledByC(String)}
      */
     public static native void callVoid();
-
-    /**
-     * 这个方法调用C,然后C调用下面的静态方法{@link #StaticMethodCalledByC(int)}
-     */
-    public static native void staticMethodCalledVoid();
 
     //供C语言调用
     public void calledByC(String msg) {
         System.out.println("calledByC: msg=" + msg);
 //        ToastUtils.showShort("calledByC: msg=" + msg);
     }
+
+
+
+    /**
+     * 这个方法调用C函数, 然后C调用下面的静态方法{@link #StaticMethodCalledByC(int)}
+     */
+    public static native void staticMethodCalledVoid();
 
     /**
      * C调用静态方法

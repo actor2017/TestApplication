@@ -3,15 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.CCallJavaActivity">
 
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red_trans_CC99"
+        android:hint="这里显示结果"
+        android:padding="10dp"
+        android:textColor="@color/white" />
+
     <Button
-        android:id="@+id/btn"
+        android:id="@+id/btn_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="这是1,跳到2"
+        android:text="Java调C, 普通方法: stringFromJNI()"
         android:textAllCaps="false"
-        android:transitionName="btn"/>
+        android:transitionName="btn" />
+
+    <Button
+        android:id="@+id/btn_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Java调C, 静态方法带下划线: _add(1, 1)"
+        android:textAllCaps="false"
+        android:transitionName="btn" />
+
+    <Button
+        android:id="@+id/btn_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Java调C, 静态方法, 数组每位+10: arrayAdd10(arr)"
+        android:textAllCaps="false"
+        android:transitionName="btn" />
 </LinearLayout>

@@ -2,12 +2,10 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.3"
 
-    /**
-     *
-     */
-    ndkVersion '21.0.6113669'
+    //1.指定ndk版本, 因为我本地有多个ndk版本, 这儿指定为: D:\AndroidStudioSDK\ndk\21.0.6113669
+    //由于我在File -> Project Structure -> Android NDK location中指定了具体ndk版本, 所以这儿可以不再指定.
+//    ndkVersion '21.0.6113669'
 
     defaultConfig {
         minSdkVersion 21
@@ -18,8 +16,9 @@ android {
         consumerProguardFiles "consumer-rules.pro"
 
         /**
-         * 1. 两个字段的作用
-         * -frtti：如果您希望支持 RTTI，Gradle 会将其传递到 CMake。
+         * 2. 字段的作用
+         * -std=c++14 :这是C++ Standard编译链
+         * -frtti：如果您希望支持 RTTI[]动态转类型(dynamic casting) 、模块集成、以及对象I/O]，Gradle 会将其传递到 CMake。
          * -fexceptions：启用对 C++ 异常处理的支持，Gradle 会将其传递到 CMake。
          */
         externalNativeBuild {
@@ -27,11 +26,20 @@ android {
                 cppFlags "-frtti -fexceptions"
             }
         }
-        //2.不写也可以
+        //3.不写也可以
         ndk {
-//            moduleName 'native-lib'//moduleName要与CMakeLists.txt中add_library定义的libraryName一致
-//            //指定本机的ABI配置,类库应该与APK一起构建和打包。
-//            abiFilters 'armeabi', 'armeabi-v7a', 'x86', 'x86_64', 'arm64-v8a', 'mips', 'mips64'
+            //moduleName要与CMakeLists.txt中add_library定义的libraryName一致
+//            moduleName 'native-lib'
+
+//            //配置so库的目标CPU平台
+//            # ARMv5     armeabi     32位，从2010年
+//            # ARMv7     armeabi-v7a 32位，从2010年
+//            # x86       x86         32位，从2011年
+//            # MIPS      mips        32位，从2012年
+//            # ARMv8     arm64-v8a   64位，从2014年
+//            # MIPS64    mips64      64位，从2014年
+//            # x86_64    x86_64      64位，从2014年
+            abiFilters 'armeabi-v7a', 'x86'
 
 //            ldLibs "log"
             ldLibs "jnigraphics"//增加动态链接库 jnigraphics
@@ -39,14 +47,14 @@ android {
     }
 
 
-    //3.添加so库,与buildTypes { 同级
-    sourceSets{
-        main{
+    //4.添加so库,与buildTypes { 同级
+    sourceSets {
+        main {
             jniLibs.srcDirs = ['libs']
         }
     }
 
-    //4.编译成linux环境下可执行的.so文件
+    //5.编译成linux环境下可执行的.so文件
     externalNativeBuild {
         //CMake一款外部构建工具,可与Gradle搭配使用来构建原生库.如果您只计划使用ndk-build,则不需要此组件.
         cmake {
@@ -54,6 +62,7 @@ android {
         }
 
         //使用Eclipse, 编译时到这个文件下找到.c文件位置(一般用上面种cmake编译方式)
+        //使用NDK一定要先在build.gradle下要配置ndk-build的相关路径，这样在编写本地代码时才会有相关的提示功能，并且可以关联到相关的头文件
 //        ndkBuild {
 //            path "Android.mk"
 //        }
