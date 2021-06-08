@@ -28,5 +28,8 @@ public class JavaCallC {
     //这是生成的Activity, 可以随便写一个方法, 然后Alt+Enter
     public static native int _add(int x, int y);
 
-    public static native void arrayAdd10(int[] arr);//给数组每项加10
+    /**
+     * 给数组每项加 num
+     */
+    public static native void arrayAdd(int[] arr, int num);
 }

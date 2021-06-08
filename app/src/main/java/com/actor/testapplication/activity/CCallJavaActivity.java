@@ -2,6 +2,7 @@ package com.actor.testapplication.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.actor.cpptest.CCallJava;
@@ -51,13 +52,35 @@ import butterknife.OnClick;
  * 14.09_javah命令(用于生成.h头文件, 可将生产的方法copy到相应的.c文件)
  * 14.10_添加x86支持
  * 14.11_常见的错误
+ * 14.12_添加本地支持
+ * 14.13_传递int类型的数据
+ * 14.14_传递数组
+ * 14.15_学习美图秀秀
+ * 14.16_独孤秀秀
+ * 14.17_C代码中输出日志
+ *
+ * 15.03_C回调Java
+ * 15.04_锅炉压力原理
  */
 public class CCallJavaActivity extends BaseActivity {
 
     @BindView(R.id.tv_result)
     TextView tvResult;
+    @BindView(R.id.iv)
+    ImageView iv;
 
     private final int[] arr = {1, 2, 3, 4, 5};
+    private final int num = 10;
+//    private Bitmap bitmapLogo;
+//    private int[] pixels;
+//    private int width, height;
+
+//    private final JNI jni = new JNI();
+
+//    static {
+//        //孤独秀libmtimage-jni.so
+//        System.loadLibrary("mtimage-jni");
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,13 +89,13 @@ public class CCallJavaActivity extends BaseActivity {
         ButterKnife.bind(this);
         setTitle("Java&C互调");
 
-        //C调Java
-        CCallJava.callVoid();
-        //C调用Java的静态方法
-        CCallJava.staticMethodCalledVoid();
+//        bitmapLogo = BitmapFactory.decodeResource(getResources(), R.drawable.logo);
+//        width = bitmapLogo.getWidth();
+//        height = bitmapLogo.getHeight();
+//        pixels = new int[width * height];
     }
 
-    @OnClick({R.id.btn_1, R.id.btn_2, R.id.btn_3})
+    @OnClick({R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4, R.id.btn_5, R.id.btn_dgx})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_1://Java调C, 普通方法. ★★★静态方法参2是jclass, 非静态是jobject★★★
@@ -84,11 +107,53 @@ public class CCallJavaActivity extends BaseActivity {
             case R.id.btn_3://Java调C, 静态方法, 数组每位+10: arrayAdd10(arr)
                 int pos0 = arr[0];
                 int posl = arr[arr.length - 1];
-                JavaCallC.arrayAdd10(arr);//地址传递...
-                tvResult.setText(getStringFormat("%d-%d数组每项 + 10 = %s", pos0, posl, Arrays.toString(arr)));
+                JavaCallC.arrayAdd(arr, num);//地址传递...
+                tvResult.setText(getStringFormat("%d-%d数组每项 + %d = %s", pos0, posl, num, Arrays.toString(arr)));
+                break;
+            case R.id.btn_4://C回调Java, 普通方法
+                CCallJava.getInstance().callByC();
+                // FIXME: 2021/6/8 c调用java方法崩溃!!!
+//                CCallJava.getInstance().callByC(getClass(), "calledByC", "(Ljava/lang/String;)V");
+                toast("c回调java普通方法成功");
+                break;
+            case R.id.btn_5://C回调Java, 静态方法
+                CCallJava.staticMethodCalledVoid();
+                // FIXME: 2021/6/8 下方方法崩溃
+//                CCallJava.staticMethodCalledVoid(getClass(), "calledByC", "(Ljava/lang/String;)V");
+                toast("c回调java静态方法成功");
+                break;
+            case R.id.btn_dgx://独孤秀
+                /**
+                 * https://blog.csdn.net/xx326664162/article/details/52240795
+                 * getPixels()函数把一张图片，从指定的偏移位置（offset），
+                 * 指定的位置（x,y）截取指定的宽高（width,height ），
+                 * 把所得图像的每个像素颜色转为int值，存入pixels。
+                 *
+                 * 将Bitmap写入int[]中, 如果将写入结果图片记作: bmap
+                 *
+                 * @ColorInt int[] pixels 存放图片所有像素的颜色
+                 * int offset             写入像素的第一个索引, bmap[0,width*height]的第几个像素开始写入
+                 * int stride             指定在行之间跳过的像素的数目。图片是二维的，存入一个一维数组中，那么就需要这个参数来指定多少个像素换一行。
+                 *                        如果一行的像素个数不够，用0（透明）来填充到 stride个。可以为负。
+                 * int x                  x轴的起始点坐标
+                 * int y                  y轴的起始点坐标
+                 * int width              从每行读取的像素数
+                 * int height
+                 */
+                //  int[] pixels, offset, stride, x, y, width, height
+//                bitmapLogo.getPixels(pixels, 0, width, 0, 0, width, height);
+//                jni.StyleLomoHDR(pixels, width, height);
+//                Glide.with(this).load(pixels).into(iv);
+                toast("我的荣耀v30不适配这个图片处理.so文件...");
                 break;
             default:
                 break;
         }
+    }
+
+    //供C语言调用
+    public void calledByC(String msg) {
+        System.out.println("calledByC: msg=" + msg);
+//        ToastUtils.showShort("calledByC: msg=" + msg);
     }
 }

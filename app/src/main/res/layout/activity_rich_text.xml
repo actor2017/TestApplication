@@ -28,8 +28,7 @@
             android:id="@+id/url_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Url"
-            android:textAllCaps="false"/>
+            android:text="Url"/>
 
         <Button
             android:id="@+id/color_btn1"

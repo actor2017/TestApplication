@@ -10,6 +10,9 @@ LOCAL_PATH := $(call my-dir)
 # 下次重新生成动态库时，清理掉上次生成的变量
 include $(CLEAR_VARS)
 
+# 在C代码中使用Logcat 日志(放到include $(CLEAR_VARS)下面), 然后添加Log.c里面的代码. (固定写法)
+LOCAL_LDLIBS   += -llog
+
 # 编译之后生成动态库.so的名称, 会在这个名字前加lib, 后面加.so   => libhello.so
 LOCAL_MODULE    := hello
 

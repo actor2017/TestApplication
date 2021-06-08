@@ -21,7 +21,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Java调C, 普通方法: stringFromJNI()"
-        android:textAllCaps="false"
         android:transitionName="btn" />
 
     <Button
@@ -29,7 +28,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Java调C, 静态方法带下划线: _add(1, 1)"
-        android:textAllCaps="false"
         android:transitionName="btn" />
 
     <Button
@@ -37,6 +35,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Java调C, 静态方法, 数组每位+10: arrayAdd10(arr)"
-        android:textAllCaps="false"
         android:transitionName="btn" />
+
+    <Button
+        android:id="@+id/btn_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C回调Java, 普通方法"
+        android:transitionName="btn" />
+
+    <Button
+        android:id="@+id/btn_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="C回调Java, 静态方法"
+        android:transitionName="btn" />
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logo" />
+
+    <Button
+        android:id="@+id/btn_dgx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="独孤秀" />
 </LinearLayout>
