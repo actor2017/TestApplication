@@ -1,13 +1,19 @@
 package com.actor.testapplication.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.widget.ContentLoadingProgressBar;
+
 import com.actor.cpptest.CCallJava;
+import com.actor.cpptest.ConstUtils;
+import com.actor.cpptest.GuoLuPress;
 import com.actor.cpptest.JavaCallC;
 import com.actor.testapplication.R;
+import com.actor.testapplication.widget.VerticalProgressBar;
 
 import java.util.Arrays;
 
@@ -18,6 +24,8 @@ import butterknife.OnClick;
 /**
  * description: C & Java 互调
  * 谷歌示例: https://github.com/android/ndk-samples  Android NDK samples with Android Studio
+ *          https://gitee.com/gsdh/ndk-samples/blob/master/bitmap-plasma/app/build.gradle
+ *
  * date       : 2020/12/10 on 15:50
  *
  * 13.29_JNI规范(jni.h, 王超老师)
@@ -61,16 +69,53 @@ import butterknife.OnClick;
  *
  * 15.03_C回调Java
  * 15.04_锅炉压力原理
+ * 15.05_获取锅炉压力值
+ * 15.06_锅炉压力v1.0
+ * 15.07_锅炉压力v2.0
+ * 15.08_自定义控件
+ * 15.09_锅炉压力v3.0
+ * 15.10_锅炉压力v4.0需求
+ * 15.11_cpp, 见: com_actor_cpptest_ConstUtils.h
+ * 15.12_jni资料
+ *
+ *
+ * 获取方法签名: 在: \模块\build\intermediates\javac\debug\classes 目录下输入: javap -s 全类名
+ *              ()V                                     //括号内是参数类型, V: 返回类型是void
+ *              ()Landroid/content/pm/PackageManager;   //无参, 返回PackageManager
+ *              (I)V                                    //参数int
+ *              (Landroid/os/Bundle;)V                  //Activity的onCreate方法
+ *              (Ljava/lang/String;)V                   //参数String, 返回void
+ *              (Ljava/lang/String;)Ljava/lang/String;  //参数String, 返回String
+ *              (Landroid/content/Context;Z)V           //参数String, boolean, 返回String
+ *              (Landroid/content/Context;ZI)V          //参数String, boolean, int, 返回String
+ *              (Landroid/content/Context;ZILjava/lang/String;)V    //参数String, boolean, int, String, 返回String
  */
 public class CCallJavaActivity extends BaseActivity {
 
-    @BindView(R.id.tv_result)
-    TextView tvResult;
+    @BindView(R.id.tv_result)//计算结果
+    TextView                  tvResult;
+    @BindView(R.id.tv_press)//压力值
+    TextView                  tvPress;
+    @BindView(R.id.progress_bar)
+    ContentLoadingProgressBar progressBar;
+    @BindView(R.id.vertical_progress_bar)
+    VerticalProgressBar       verticalProgressBar;
     @BindView(R.id.iv)
-    ImageView iv;
+    ImageView                 iv;
 
     private final int[] arr = {1, 2, 3, 4, 5};
     private final int num = 10;
+    //锅炉压力监测回调
+    private GuoLuPress.OnPressListener listener = new GuoLuPress.OnPressListener() {
+        @Override
+        public void onPress(int progress) {
+//            int progress = randValue % 101;//0-100
+            tvPress.setText(getStringFormat("压力: %d", progress));
+            progressBar.setProgress(progress);
+            verticalProgressBar.setProgress(progress);
+        }
+    };
+
 //    private Bitmap bitmapLogo;
 //    private int[] pixels;
 //    private int width, height;
@@ -88,6 +133,10 @@ public class CCallJavaActivity extends BaseActivity {
         setContentView(R.layout.activity_c_call_java);
         ButterKnife.bind(this);
         setTitle("Java&C互调");
+        progressBar.setMax(100);
+        String ip = ConstUtils.getString(ConstUtils.IP);
+        String port = ConstUtils.getString(ConstUtils.PORT);
+        toast(getStringFormat("ip&port = %s:%s", ip, port));
 
 //        bitmapLogo = BitmapFactory.decodeResource(getResources(), R.drawable.logo);
 //        width = bitmapLogo.getWidth();
@@ -95,7 +144,8 @@ public class CCallJavaActivity extends BaseActivity {
 //        pixels = new int[width * height];
     }
 
-    @OnClick({R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4, R.id.btn_5, R.id.btn_dgx})
+    @OnClick({R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4, R.id.btn_5, R.id.btn_start_monitor,
+            R.id.btn_stop_monitor, R.id.btn_dgx, R.id.btn_plasma, R.id.btn_water_ripple})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_1://Java调C, 普通方法. ★★★静态方法参2是jclass, 非静态是jobject★★★
@@ -122,6 +172,12 @@ public class CCallJavaActivity extends BaseActivity {
 //                CCallJava.staticMethodCalledVoid(getClass(), "calledByC", "(Ljava/lang/String;)V");
                 toast("c回调java静态方法成功");
                 break;
+            case R.id.btn_start_monitor://开始监测锅炉压力
+                GuoLuPress.startMonitor(listener);
+                break;
+            case R.id.btn_stop_monitor://停止监测
+                GuoLuPress.stopMonitor();
+                break;
             case R.id.btn_dgx://独孤秀
                 /**
                  * https://blog.csdn.net/xx326664162/article/details/52240795
@@ -146,6 +202,12 @@ public class CCallJavaActivity extends BaseActivity {
 //                Glide.with(this).load(pixels).into(iv);
                 toast("我的荣耀v30不适配这个图片处理.so文件...");
                 break;
+            case R.id.btn_plasma://plasma等离子体示例
+                startActivity(new Intent(this, PlasmaActivity.class));
+                break;
+            case R.id.btn_water_ripple://plasma做水波纹
+                toast("未找到对应的.c文件, 所以驴子水波纹实现不了!");
+                break;
             default:
                 break;
         }
@@ -154,6 +216,20 @@ public class CCallJavaActivity extends BaseActivity {
     //供C语言调用
     public void calledByC(String msg) {
         System.out.println("calledByC: msg=" + msg);
-//        ToastUtils.showShort("calledByC: msg=" + msg);
+        toast("calledByC: msg=" + msg);
+    }
+
+    /**
+     * C调用静态方法
+     */
+    public void StaticMethodCalledByC(int randValue) {
+        System.out.println("StaticMethodCalledByC: Java中的<静态>方法被C调用了,randValue=" + randValue);
+//        ToastUtils.showShort("StaticMethodCalledByC: Java中的<静态>方法被C调用了,randValue=" + randValue);
+    }
+
+    @Override
+    protected void onDestroy() {
+        GuoLuPress.stopMonitor();
+        super.onDestroy();
     }
 }

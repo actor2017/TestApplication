@@ -15,7 +15,7 @@ Java_com_actor_cpptest_CCallJava_callByC(JNIEnv *env, jobject thiz) {
     jclass class = (*env)->FindClass(env, "com/actor/cpptest/CCallJava");
     //参数3:方法名称, 参4:该函数的签名:(String参数类型)V是返回类型
     jmethodID methodId = (*env)->GetMethodID(env, class, "calledByC", "(Ljava/lang/String;)V");
-    //使用AllocObject方法,实例化该class对应的实例
+    //实例化该class对应的实例
     jobject object = (*env)->AllocObject(env, class);
     jstring stringUTF = (*env)->NewStringUTF(env, "Java中的方法被C调用了");
     (*env)->CallVoidMethod(env, object, methodId, stringUTF);//调用方法

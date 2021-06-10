@@ -1,12 +1,16 @@
 package com.actor.testapplication;
 
+import android.content.pm.Signature;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.actor.cpptest.ConstUtils;
 import com.actor.myandroidframework.application.ActorApplication;
 import com.actor.myandroidframework.utils.LogUtils;
 import com.actor.testapplication.utils.AssetsUtils;
 import com.actor.testapplication.utils.Global;
+import com.blankj.utilcode.util.AppUtils;
 import com.franmontiel.persistentcookiejar.ClearableCookieJar;
 import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
@@ -52,6 +56,18 @@ public class MyApplication extends ActorApplication {
             "5pDfpw+Y5FBbzhCLAd4Ab8UKydr5BvzgPjk+MlKge7M/QKn3/HNCa1D6mVka8ht4MGKqfcgljSUO\n" +
             "9e1txbZlG4o=\n" +
             "-----END CERTIFICATE-----";
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        ConstUtils.jniInit(this, isAppDebug());
+        Signature[] appSignature = AppUtils.getAppSignature();
+        System.out.println("11111111111111111111111111111111111111111111");
+        for (Signature signature : appSignature) {
+            System.out.println(signature.toCharsString());
+        }
+        System.out.println("11111111111111111111111111111111111111111111");
+    }
 
     @Nullable
     @Override

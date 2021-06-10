@@ -4,9 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.actor.myandroidframework.widget.webview.BaseWebView;
+import com.actor.testapplication.activity.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,7 +28,7 @@ import butterknife.ButterKnife;
  *     </intent-filter>
  * </activity>
  */
-public class AppLinksActivity extends AppCompatActivity {
+public class AppLinksActivity extends BaseActivity {
 
     @BindView(R.id.web_view)
     BaseWebView webView;

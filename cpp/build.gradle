@@ -39,10 +39,11 @@ android {
 //            # ARMv8     arm64-v8a   64位，从2014年
 //            # MIPS64    mips64      64位，从2014年
 //            # x86_64    x86_64      64位，从2014年
-            abiFilters 'armeabi-v7a', 'x86'
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86'
 
+            //已经在 CMakeLists.txt 中添加
 //            ldLibs "log"
-            ldLibs "jnigraphics"//增加动态链接库 jnigraphics
+//            ldLibs "jnigraphics"//增加动态链接库 jnigraphics
         }
     }
 

@@ -20,11 +20,7 @@ public class CCallJava {
      * 这个方法调用C函数, 然后C回调 clazz.callbackMethodName(paramsSignature)
      * @param clazz 回调那个class里的方法
      * @param callbackMethodName 回调方法名称: {@link #calledByC(String)}
-     * @param paramsSignature 该函数的签名, 可通过 javap -s 全类名 获取签名
-     *                        ()V                       //括号内是参数类型, V: 返回类型是void
-     *                        (I)V                      //参数int
-     *                        (Landroid/os/Bundle;)V    //Activity的onCreate方法
-     *                        (Ljava/lang/String;)V     //参数String, 返回void
+     * @param paramsSignature 该函数的签名
      */
     public native void callByC();
     //下方方法崩溃

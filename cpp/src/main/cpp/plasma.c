@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-//#include "com_actor_testapplication_activity_TestActivity_PlasmaView.h"//TODO 报错, 被注释了!
+
 #include <jni.h>
 #include <time.h>
 #include <android/log.h>
@@ -23,9 +23,9 @@
 #include <stdlib.h>
 #include <math.h>
 
-//#define  LOG_TAG    "libplasma"
-//#define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
-//#define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
+#define  LOG_TAG    "libplasma"
+#define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
+#define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
 
 /* Set to 1 to enable debug log traces. */
 #define DEBUG 0
@@ -140,7 +140,7 @@ static uint16_t  palette[PALETTE_SIZE];
 static uint16_t  make565(int red, int green, int blue)
 {
     return (uint16_t)( ((red   << 8) & 0xf800) |
-                       ((green << 2) & 0x03e0) |
+                       ((green << 3) & 0x07e0) |
                        ((blue  >> 3) & 0x001f) );
 }
 
@@ -332,11 +332,10 @@ stats_endFrame( Stats*  s )
             avgRender /= s->numFrames;
             avgFrame  /= s->numFrames;
 
-            //TODO 报错, 被注释了!
-//            LOGI("frame/s (avg,min,max) = (%.1f,%.1f,%.1f) "
-//                         "render time ms (avg,min,max) = (%.1f,%.1f,%.1f)\n",
-//                 1000./avgFrame, 1000./maxFrame, 1000./minFrame,
-//                 avgRender, minRender, maxRender);
+            LOGI("frame/s (avg,min,max) = (%.1f,%.1f,%.1f) "
+                 "render time ms (avg,min,max) = (%.1f,%.1f,%.1f)\n",
+                 1000./avgFrame, 1000./maxFrame, 1000./minFrame,
+                 avgRender, minRender, maxRender);
         }
         s->numFrames  = 0;
         s->firstFrame = 0;
@@ -361,43 +360,43 @@ stats_endFrame( Stats*  s )
     s->lastTime = now;
 }
 
-JNIEXPORT void JNICALL Java_com_actor_testapplication_activity_TestActivity_PlasmaView_renderPlasma(JNIEnv * env, jobject  obj, jobject bitmap,  jlong  time_ms)
+//JNIEXPORT void JNICALL Java_com_example_plasma_PlasmaView_renderPlasma(JNIEnv * env, jobject  obj, jobject bitmap,  jlong  time_ms)
+//edited这儿修改成自己的方法
+JNIEXPORT void JNICALL
+Java_com_actor_cpptest_widget_PlasmaView_renderPlasma(JNIEnv * env, jobject  obj, jobject bitmap,  jlong  time_ms)
 {
-AndroidBitmapInfo  info;
-void*              pixels;
-int                ret;
-static Stats       stats;
-static int         init;
+    AndroidBitmapInfo  info;
+    void*              pixels;
+    int                ret;
+    static Stats       stats;
+    static int         init;
 
-if (!init) {
-init_tables();
-stats_init(&stats);
-init = 1;
-}
+    if (!init) {
+        init_tables();
+        stats_init(&stats);
+        init = 1;
+    }
 
-//TODO 报错, 被注释了!
-//if ((ret = AndroidBitmap_getInfo(env, bitmap, &info)) < 0) {
-//LOGE("AndroidBitmap_getInfo() failed ! error=%d", ret);
-//return;
-//}
+    if ((ret = AndroidBitmap_getInfo(env, bitmap, &info)) < 0) {
+        LOGE("AndroidBitmap_getInfo() failed ! error=%d", ret);
+        return;
+    }
 
-//TODO 报错, 被注释了!
-//if (info.format != ANDROID_BITMAP_FORMAT_RGB_565) {
-//LOGE("Bitmap format is not RGB_565 !");
-//return;
-//}
+    if (info.format != ANDROID_BITMAP_FORMAT_RGB_565) {
+        LOGE("Bitmap format is not RGB_565 !");
+        return;
+    }
 
-//TODO 报错, 被注释了!
-//if ((ret = AndroidBitmap_lockPixels(env, bitmap, &pixels)) < 0) {
-//LOGE("AndroidBitmap_lockPixels() failed ! error=%d", ret);
-//}
+    if ((ret = AndroidBitmap_lockPixels(env, bitmap, &pixels)) < 0) {
+        LOGE("AndroidBitmap_lockPixels() failed ! error=%d", ret);
+    }
 
-stats_startFrame(&stats);
+    stats_startFrame(&stats);
 
-/* Now fill the values with a nice little plasma */
-fill_plasma(&info, pixels, time_ms );
+    /* Now fill the values with a nice little plasma */
+    fill_plasma(&info, pixels, time_ms );
 
-//AndroidBitmap_unlockPixels(env, bitmap);//TODO 报错, 被注释了!
+    AndroidBitmap_unlockPixels(env, bitmap);
 
-stats_endFrame(&stats);
+    stats_endFrame(&stats);
 }

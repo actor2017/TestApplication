@@ -13,6 +13,8 @@ cmake_minimum_required(VERSION 3.4.1)
 #   生成的so库在和CMakeLists.txt同级目录下的 jniLibs 文件夹下
 #   ABI: 各种平台名称, 例: arm64-v8a, x86...
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/jniLibs/${ANDROID_ABI})
+#
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Werror -Wno-unused-function")
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -36,11 +38,14 @@ add_library( # Sets the name of the library.
         # Associated headers in the same location as their source
         # file are automatically included.
         # 2.生成的.so文件对应的.c/.cpp文件, src/main/cpp/native-lib.c
-        src/main/cpp/plasma.c
         src/main/cpp/Log.c
         src/main/cpp/native-lib.c
         src/main/cpp/const_utils.cpp
-        src/main/cpp/c-call-java.c)
+        src/main/cpp/c-call-java.c
+        src/main/cpp/guo_lu_press.c)
+
+add_library(plasma SHARED
+        src/main/cpp/plasma.c)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because system libraries are included in the search path by
@@ -68,3 +73,14 @@ target_link_libraries( # Specifies the target library.
                        # Links the target library to the log library
                        # included in the NDK.
                        ${log-lib} )
+
+target_link_libraries(
+        plasma
+
+        android
+        # 这是个很小的library，展示一个稳定的，基于C语言的，接口，使本机代码安全地访问Java对象的像素缓冲区的位图
+        # 增加动态链接库, plasma 需要
+        jnigraphics
+        ${log-lib}
+        m
+)
