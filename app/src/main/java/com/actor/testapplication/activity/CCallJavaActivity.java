@@ -54,7 +54,10 @@ import butterknife.OnClick;
  * 14.04_交叉编译工具链
  * 14.05_ndk目录结构
  * 14.06_C代码实现Java中的本地方法
- * 14.07_JNI编写步骤
+ * 14.07_JNI编写步骤, 例: https://www.jianshu.com/p/ca60886e0595
+ *  如果使用Android.mk文件这种编译.so
+ *      如果ndk-build.cmd设置了环境变量, 在Android.mk所在目录敲命令: ndk-build
+ *      如果没有设置环境变量, 要在Android.mk所在路径敲命令: ndk-build -C F:\AndroidProjects\jniProject\ndk\jni
  * 14.08_Android.mk文件介绍
  *      ★★★注意: 如果使用 CMakeLists.txt, 就不用再写 Android.mk 和 Application.mk
  * 14.09_javah命令(用于生成.h头文件, 可将生产的方法copy到相应的.c文件)
