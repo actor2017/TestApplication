@@ -16,7 +16,7 @@ import com.actor.testapplication.R;
 import com.blankj.utilcode.util.ToastUtils;
 
 /**
- * https://github.com/actor20170211030627/TestApplication/blob/master/app/src/main/java/com/actor/testapplication/widget/ItemAddMinusLayout.java
+ * https://gitee.com/actor20170211030627/TestApplication/blob/master/app/src/main/java/com/actor/testapplication/widget/ItemAddMinusLayout.java
  * Description: 加减
  * Date       : 2019-8-19 on 21:10
  *

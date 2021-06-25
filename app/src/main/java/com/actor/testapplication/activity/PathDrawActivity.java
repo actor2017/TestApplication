@@ -17,7 +17,7 @@ import butterknife.OnClick;
 /**
  * Path绘制测试
  *
- *  TODO: 2021/5/8 亲爱的自己, 下次再修改的时候是什么时候?
+ *  TODO: 2021/5/8 待完成
  * PathMeasure:
  * https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&tn=baidu&wd=PathMeasure&oq=PathMeasure
  * https://blog.csdn.net/weiwozhiyi/article/details/70149147

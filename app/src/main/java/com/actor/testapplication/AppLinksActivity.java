@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
  *         <category android:name="android.intent.category.DEFAULT" />
  *         <category android:name="android.intent.category.BROWSABLE" />
  *         <data
- *             android:host="api.github.com"
+ *             android:host="api.gitee.com"
  *             android:path="/TestApplication"
  *             android:scheme="https" />
  *     </intent-filter>

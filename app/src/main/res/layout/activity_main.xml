@@ -67,8 +67,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoLink="all"
-            android:text="View on Github:\n
-    https://github.com/actor20170211030627/TestApplication" />
+            android:text="View on Gitee:\n
+    https://gitee.com/actor20170211030627/TestApplication" />
 
         <TextView
             android:id="@+id/tv_version"

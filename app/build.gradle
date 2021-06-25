@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 android {
 
@@ -33,6 +34,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    greendao {
+        schemaVersion 1                 //指定数据库schema版本号，迁移等操作会用到
+        daoPackage 'com.greendao.gen'   //dao的包名，包名默认是entity所在的包
+        targetGenDir 'src/main/java'    //生成数据库文件的目录
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -58,6 +64,9 @@ dependencies {
     //https://github.com/JakeWharton/butterknife
     implementation 'com.jakewharton:butterknife:10.2.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+
+    //https://github.com/greenrobot/greenDAO
+    implementation 'org.greenrobot:greendao:3.3.0' // add library
 
     //https://gitee.com/actor20170211030627/MyAndroidFrameWork
     implementation 'com.gitee.actor20170211030627.MyAndroidFrameWork:myandroidframework:2.0.4.1'

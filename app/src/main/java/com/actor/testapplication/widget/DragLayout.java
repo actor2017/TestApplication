@@ -12,7 +12,6 @@ import com.actor.testapplication.R;
 
 /**
  * Description: 自定义可拖拽的自定义控件
- * Company    : 公司名称
  * Author     : 李小松
  * Date       : 2017/4/11 on 9:12.
  */

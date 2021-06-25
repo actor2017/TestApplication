@@ -1,16 +1,14 @@
 package com.actor.testapplication;
 
-import android.content.pm.Signature;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.actor.cpptest.ConstUtils;
 import com.actor.myandroidframework.application.ActorApplication;
 import com.actor.myandroidframework.utils.LogUtils;
-import com.actor.testapplication.utils.AssetsUtils;
+import com.actor.testapplication.utils.AssetsUtils12;
 import com.actor.testapplication.utils.Global;
-import com.blankj.utilcode.util.AppUtils;
+import com.actor.testapplication.utils.GreenDaoUtils12;
 import com.franmontiel.persistentcookiejar.ClearableCookieJar;
 import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
@@ -60,13 +58,13 @@ public class MyApplication extends ActorApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        ConstUtils.jniInit(this, isAppDebug());
-        Signature[] appSignature = AppUtils.getAppSignature();
-        System.out.println("11111111111111111111111111111111111111111111");
-        for (Signature signature : appSignature) {
-            System.out.println(signature.toCharsString());
+        boolean appDebug = isAppDebug();
+        ConstUtils.jniInit(this, appDebug);
+        //数据库
+        boolean success = AssetsUtils12.copyFile2DatabaseDir(true, Global.DBNAME);
+        if (success) {
+            GreenDaoUtils12.init(this, appDebug, Global.DBNAME);
         }
-        System.out.println("11111111111111111111111111111111111111111111");
     }
 
     @Nullable
@@ -85,7 +83,7 @@ public class MyApplication extends ActorApplication {
         InputStream certificate = new Buffer().writeUtf8(CER_SERVER).inputStream();//okio.Buffer
         HttpsUtils.SSLParams sslParams = null;
         //@Deprecated AssetsUtils 下一版本更新
-        try (InputStream bksFile = AssetsUtils.openFile(this, "zhy_client.bks")) {//使用zhy_client.jks要报错?
+        try (InputStream bksFile = AssetsUtils12.open("zhy_client.bks")) {//使用zhy_client.jks要报错?
             InputStream[] certificates = {certificate};
             sslParams = HttpsUtils.getSslSocketFactory(certificates, bksFile, "123456");
         } catch (IOException e) {
