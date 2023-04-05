@@ -6,9 +6,7 @@ import android.os.Bundle;
 
 import com.actor.myandroidframework.widget.webview.BaseWebView;
 import com.actor.testapplication.activity.BaseActivity;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import com.actor.testapplication.databinding.ActivityAppLinksBinding;
 
 /**
  * Tools -> App Links Assistant(App Links助手)
@@ -28,17 +26,15 @@ import butterknife.ButterKnife;
  *     </intent-filter>
  * </activity>
  */
-public class AppLinksActivity extends BaseActivity {
+public class AppLinksActivity extends BaseActivity<ActivityAppLinksBinding> {
 
-    @BindView(R.id.web_view)
-    BaseWebView webView;
+    private BaseWebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_app_links);
-        ButterKnife.bind(this);
         setTitle("App Links(比较麻烦,需后台配合)");
+        webView = viewBinding.webView;
 
         // ATTENTION: This was auto-generated to handle app links.
         Intent appLinkIntent = getIntent();

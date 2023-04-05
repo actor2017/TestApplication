@@ -7,59 +7,45 @@
     android:background="@color/white"
     tools:context=".activity.MainActivity">
 
-    <LinearLayout
+    <com.google.android.flexbox.FlexboxLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/btn_path"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Path绘制测试" />
+        app:flexWrap="wrap"
+        app:justifyContent="space_between">
 
         <Button
             android:id="@+id/btn_rich_text"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onViewClicked"
             android:text="富文本测试" />
 
         <Button
-            android:id="@+id/btn_c_call_java"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="C&amp;Java互调测试" />
-
-        <Button
             android:id="@+id/btn_custom_view"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onViewClicked"
             android:text="自定义View" />
 
         <Button
             android:id="@+id/btn_surface_view"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onViewClicked"
             android:text="SurfaceView" />
 
         <Button
             android:id="@+id/btn_nested_scroll_view"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onViewClicked"
             android:text="NestedScrollView" />
 
         <Button
-            android:id="@+id/btn_encrypt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="加密解密" />
-
-        <Button
             android:id="@+id/btn_go2_test"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onViewClicked"
             android:text="Test测试页面"
             android:transitionName="btnTest" />
 
@@ -68,7 +54,7 @@
             android:layout_height="wrap_content"
             android:autoLink="all"
             android:text="View on Gitee:\n
-    https://gitee.com/actor20170211030627/TestApplication" />
+https://gitee.com/actor20170211030627/TestApplication" />
 
         <TextView
             android:id="@+id/tv_version"
@@ -76,5 +62,5 @@
             android:layout_height="@dimen/action_bar_size"
             android:gravity="center"
             tools:text="VersionName: 1.0.0(VersionCode: 1)" />
-    </LinearLayout>
+    </com.google.android.flexbox.FlexboxLayout>
 </androidx.core.widget.NestedScrollView>

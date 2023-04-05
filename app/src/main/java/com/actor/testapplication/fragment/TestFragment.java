@@ -1,20 +1,17 @@
 package com.actor.testapplication.fragment;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.actor.testapplication.R;
+import com.actor.testapplication.databinding.FragmentTestBinding;
 
 import java.util.concurrent.Callable;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-import butterknife.Unbinder;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.core.Observable;
 import io.reactivex.rxjava3.core.ObservableEmitter;
@@ -22,25 +19,19 @@ import io.reactivex.rxjava3.core.ObservableOnSubscribe;
 import io.reactivex.rxjava3.functions.Consumer;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class TestFragment extends BaseFragment {
+public class TestFragment extends BaseFragment<FragmentTestBinding> {
 
     private static final String TAG = "TestFragment";
-    Unbinder unbinder;
 
     public static TestFragment newInstance() {
         return new TestFragment();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_test, container, false);
-        unbinder = ButterKnife.bind(this, view);
-        return view;
-    }
-
-    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        Button btn1 = viewBinding.btn1;
+
         //io.reactivex.rxjava3.core.Flowable: 0..N flows, supporting Reactive-Streams and backpressure
         //io.reactivex.rxjava3.core.Observable: 0..N flows, no backpressure,
         //io.reactivex.rxjava3.core.Single: a flow of exactly 1 item or an error,
@@ -108,19 +99,17 @@ public class TestFragment extends BaseFragment {
 //            }
 //        })
 //                .subscribe(System.out::println, Throwable::printStackTrace);
+
+        setOnClickListeners(R.id.btn_1);
     }
 
-    @OnClick({R.id.btn_1})
+    @Override
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_1:
                 break;
+            default:
+                break;
         }
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        unbinder.unbind();
     }
 }

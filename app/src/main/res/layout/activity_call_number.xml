@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.CallNumberActivity">
+
+    <com.actor.myandroidframework.widget.ItemTextInputLayout
+        android:id="@+id/itil_call"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:itilDigits="@string/digits_phone"
+        app:itilImeOptions="actionNext"
+        app:itilInputType="number"
+        app:itilItemName="呼叫方号码: "
+        app:itilMaxLength="11" />
+
+    <com.actor.myandroidframework.widget.ItemTextInputLayout
+        android:id="@+id/itil_be_call"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itilDigits="@string/digits_phone"
+        app:itilImeOptions="actionNext"
+        app:itilInputType="number"
+        app:itilItemName="被呼叫号码: "
+        app:itilMaxLength="11" />
+
+    <CheckBox
+        android:id="@+id/cb_call_forever"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="一直呼叫" />
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="开始" />
+
+    <Button
+        android:id="@+id/btn_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="停止" />
+</androidx.appcompat.widget.LinearLayoutCompat>

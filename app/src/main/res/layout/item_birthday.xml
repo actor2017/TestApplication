@@ -1,68 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
-    android:orientation="horizontal"
-    android:padding="5dp">
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp"
+    android:paddingBottom="5dp">
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_background"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/iv_head"
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/logo" />
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/iv_head"
+        app:layout_constraintTop_toBottomOf="@id/view1"
+        tools:text="李琦琳" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/iv_sex"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/selector_sex_boy_girl"
+        app:layout_constraintBottom_toBottomOf="@id/tv_name"
+        app:layout_constraintStart_toEndOf="@id/tv_name"
+        app:layout_constraintTop_toTopOf="@id/tv_name" />
 
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/black"
-                tools:text="李琦琳" />
+    <TextView
+        android:id="@+id/tv_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/tv_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_name"
+        tools:text="年龄: 23" />
 
-            <TextView
-                android:id="@+id/tv_age"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/black"
-                tools:text="23" />
+    <TextView
+        android:id="@+id/tv_chinese_zodiac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/tv_age"
+        app:layout_constraintTop_toTopOf="@id/tv_age"
+        tools:text="生肖: 马" />
 
-            <TextView
-                android:id="@+id/tv_chinese_zodiac"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/black"
-                tools:text="生肖: 马" />
+    <TextView
+        android:id="@+id/tv_zodiac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/tv_chinese_zodiac"
+        app:layout_constraintTop_toTopOf="@id/tv_age"
+        tools:text="星座: 射手座" />
 
-            <TextView
-                android:id="@+id/tv_zodiac"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:textColor="@color/black"
-                tools:text="星座: 射手座" />
-        </LinearLayout>
+    <TextView
+        android:id="@+id/tv_lunar_birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/tv_age"
+        app:layout_constraintTop_toBottomOf="@id/tv_age"
+        tools:text="1990-02-17(农历)" />
 
-        <TextView
-            android:id="@+id/tv_birthday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:textColor="@color/black"
-            tools:text="1990-03-13" />
-    </LinearLayout>
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/tv_zodiac"
+        app:layout_constraintTop_toTopOf="@id/tv_lunar_birthday"
+        tools:text="1990-03-13(新历)" />
+
+    <TextView
+        android:id="@+id/tv_next_bir_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@id/tv_lunar_birthday"
+        app:layout_constraintTop_toBottomOf="@id/tv_lunar_birthday"
+        tools:text="下次生日: 1990-03-13" />
+
+    <TextView
+        android:id="@+id/tv_count_down"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red_D90000"
+        app:layout_constraintStart_toStartOf="@id/tv_zodiac"
+        app:layout_constraintTop_toTopOf="@id/tv_name"
+        tools:text="5 天" />
+</androidx.constraintlayout.widget.ConstraintLayout>

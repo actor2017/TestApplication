@@ -1,7 +1,9 @@
 package com.actor.testapplication.bean;
 
 import androidx.annotation.Keep;
+import androidx.annotation.Nullable;
 
+import com.actor.testapplication.utils.BirthdayUtils;
 import com.actor.testapplication.utils.String2DateConverter;
 
 import org.greenrobot.greendao.annotation.Convert;
@@ -26,29 +28,37 @@ import java.util.Date;
         generateConstructors = false)
 public class BirthItem {
 
-    @Id
+    @Id(autoincrement = true)
     @Property(nameInDb = "id")
     public Long id;
 
     @Property(nameInDb = "name")
     public String name;
 
+    //true: 男, false: 女
     @Property(nameInDb = "gender")
     public boolean gender;
 
-    //阴历
+    /**
+     * 农历
+     * ∵农历的2月有30号, 而Date的2月没有30号, 甚至没有29号.
+     *   如果遇到这种情况, 会转换成3月x号, 造成错误.
+     * ∴用String类型
+     */
     @Property(nameInDb = "lunar_calendar")
-    @Convert(converter = String2DateConverter.class, columnType = String.class)
-    public Date lunarCalendar;
+    public String lunarCalendar;
+
+    /**
+     * 生日的这个月是不是闰月? 比如阳历 2001-05-04 和 2001-06-03 的农历都是 2001-04-12,
+     * 但第2个阳历是"闰四月十二"
+     */
+    @Property(nameInDb = "is_leap_month")
+    public boolean isLeapMonth;
 
     //当年阳历
-    @Property(nameInDb = "birthday_date")
+    @Property(nameInDb = "solar_calendar")
     @Convert(converter = String2DateConverter.class, columnType = String.class)
-    public Date birthdayDate;
-
-    //当年阳历
-    @Property(nameInDb = "birthday_str")
-    public String birthday;
+    public Date solarCalendar;
 
     //生肖
     @Property(nameInDb = "chinese_zodiac")
@@ -58,9 +68,37 @@ public class BirthItem {
     @Property(nameInDb = "zodiac")
     public String zodiac;
 
+    //备注
+    @Property(nameInDb = "remarks")
+    public String remarks;
+
+    //未知
+    @Transient
+    public static final int UN_KNOWN_I = -1;
+
+    //还未计算
+    @Transient
+    private static final int UN_CACULATE_I = -2;
+
+    //还未计算
+    @Transient
+    public static final Date UN_CACULATE_DATE = new Date();
+
+    //阳历岁数
+    @Transient
+    private int age = UN_CACULATE_I;
+
+    //农历年月日
+    @Transient
+    private int lunarYear = UN_CACULATE_I, lunarMonth, lunarDay;
+
+    //下一个未过的阳历生日
+    @Transient
+    private Date nextSolarBirthday = UN_CACULATE_DATE;
+
     //生日倒数天数
     @Transient
-    public int coundDownDay;
+    private long coundDownDay = UN_CACULATE_I;
 
     public BirthItem() {
     }
@@ -89,28 +127,28 @@ public class BirthItem {
         this.gender = gender;
     }
 
-    public Date getLunarCalendar() {
+    public String getLunarCalendar() {
         return this.lunarCalendar;
     }
 
-    public void setLunarCalendar(Date lunarCalendar) {
+    public void setLunarCalendar(String lunarCalendar) {
         this.lunarCalendar = lunarCalendar;
     }
 
-    public Date getBirthdayDate() {
-        return this.birthdayDate;
+    public boolean getIsLeapMonth() {
+        return this.isLeapMonth;
     }
 
-    public void setBirthdayDate(Date birthdayDate) {
-        this.birthdayDate = birthdayDate;
+    public void setIsLeapMonth(boolean isLeapMonth) {
+        this.isLeapMonth = isLeapMonth;
     }
 
-    public String getBirthday() {
-        return this.birthday;
+    public Date getSolarCalendar() {
+        return this.solarCalendar;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setSolarCalendar(Date solarCalendar) {
+        this.solarCalendar = solarCalendar;
     }
 
     public String getChineseZodiac() {
@@ -127,5 +165,78 @@ public class BirthItem {
 
     public void setZodiac(String zodiac) {
         this.zodiac = zodiac;
+    }
+
+    public String getRemarks() {
+        return this.remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
+    /**
+     * 阳历岁数
+     * @return -1表示无效
+     */
+    public int getAge() {
+        if (age == UN_CACULATE_I) {
+            if (lunarCalendar != null) {
+                String ymd = lunarCalendar.split(" ")[0];
+                String[] split = ymd.split("-");
+                int lunarYear = Integer.parseInt(split[0]);
+                int lunarMonth = Integer.parseInt(split[1]);
+                int lunarDay = Integer.parseInt(split[2]);
+                return age = BirthdayUtils.getAgeByLunar(lunarYear, lunarMonth, lunarDay, isLeapMonth);
+            } else if (solarCalendar != null) {
+                return age = BirthdayUtils.getAgeBySolar(solarCalendar);
+            } else {
+                return age = UN_KNOWN_I;
+            }
+        }
+        return age;
+    }
+
+    /**
+     * 下一个未过的阳历生日
+     * @return 下一个还未到的阳历生日
+     */
+    @Nullable
+    public Date getNextSolarBirthday() {
+        if (nextSolarBirthday == UN_CACULATE_DATE) {
+            //如果有农历生日
+            if (lunarCalendar != null) {
+                String ymd = lunarCalendar.split(" ")[0];
+                String[] lunar = ymd.split("-");
+                //农历 年 月 日
+                int lunarYear = Integer.parseInt(lunar[0]);
+                int lunarMonth = Integer.parseInt(lunar[1]);
+                int lunDay = Integer.parseInt(lunar[2]);
+                nextSolarBirthday = BirthdayUtils.getNextSolarBirthdayByLunar(lunarMonth, lunDay, isLeapMonth);
+            } else if (solarCalendar != null) {
+                //否则算阳历生日
+                nextSolarBirthday = BirthdayUtils.getNextSolarBirthdayBySolar(solarCalendar);
+            } else {
+                //如果2个都为空
+                nextSolarBirthday = null;
+            }
+        }
+        return nextSolarBirthday;
+    }
+
+    /**
+     * 获取生日倒数天数
+     * @return -1表示无效
+     */
+    public long getCoundDownDay() {
+        if (coundDownDay == UN_CACULATE_I) {
+            Date nextSolarBirthday = getNextSolarBirthday();
+            if (nextSolarBirthday != null) {
+                return coundDownDay = BirthdayUtils.getBirthSpanByNow(nextSolarBirthday);
+            } else {
+                coundDownDay = UN_KNOWN_I;
+            }
+        }
+        return coundDownDay;
     }
 }

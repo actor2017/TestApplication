@@ -12,12 +12,14 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 
 import com.actor.myandroidframework.dialog.BaseDialog;
-import com.actor.myandroidframework.utils.PermissionRequestUtils;
 import com.actor.myandroidframework.utils.audio.AudioUtils;
-import com.actor.myandroidframework.widget.VoiceRecorderView;
+import com.actor.myandroidframework.widget.chat.VoiceRecorderView;
 import com.actor.testapplication.R;
+import com.actor.testapplication.databinding.DialogAudioRecoderBinding;
 import com.blankj.utilcode.util.ToastUtils;
-import com.yanzhenjie.permission.runtime.Permission;
+import com.hjq.permissions.OnPermissionCallback;
+import com.hjq.permissions.Permission;
+import com.hjq.permissions.XXPermissions;
 
 import java.util.List;
 
@@ -45,18 +47,26 @@ public class AudioRecoderDialog extends BaseDialog implements View.OnClickListen
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.dialog_audio_recoder;
+//        return R.layout.dialog_audio_recoder;
+        DialogAudioRecoderBinding inflate = DialogAudioRecoderBinding.inflate(getLayoutInflater());
+        setContentView(inflate.getRoot());
+        voiceRecoder = inflate.voiceRecoder;
+        btnStart = inflate.btnStart;
+        inflate.btnCancel.setOnClickListener(this);
+        inflate.btnOk.setOnClickListener(this);
+        inflate.btnStart.setOnClickListener(this);
+        return 0;
     }
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        voiceRecoder = findViewById(R.id.voice_recoder);
-        btnStart = findViewById(R.id.btn_start);
-        findViewById(R.id.btn_cancel).setOnClickListener(this);
-        findViewById(R.id.btn_ok).setOnClickListener(this);
-        findViewById(R.id.btn_start).setOnClickListener(this);
+//        voiceRecoder = findViewById(R.id.voice_recoder);
+//        btnStart = findViewById(R.id.btn_start);
+//        findViewById(R.id.btn_cancel).setOnClickListener(this);
+//        findViewById(R.id.btn_ok).setOnClickListener(this);
+//        findViewById(R.id.btn_start).setOnClickListener(this);
         checkPermission();
         //语音按钮
         btnStart.setOnTouchListener(new View.OnTouchListener() {
@@ -166,19 +176,18 @@ public class AudioRecoderDialog extends BaseDialog implements View.OnClickListen
 
     private void checkPermission() {
         String recordAudio = Permission.RECORD_AUDIO;
-        boolean has = PermissionRequestUtils.hasPermission(getContext(), recordAudio);
+        boolean has = XXPermissions.isGranted(getContext(), recordAudio);
         if (!has) {
-            PermissionRequestUtils.requestPermission(getContext(), new PermissionRequestUtils.PermissionCallBack() {
+            XXPermissions.with(getContext()).permission(recordAudio).request(new OnPermissionCallback() {
                 @Override
-                public void onGranted(@NonNull List<String> deniedPermissions) {
+                public void onGranted(List<String> permissions, boolean all) {
                     hasPermission = true;
                 }
-
                 @Override
-                public void onDenied(@NonNull List<String> deniedPermissions) {
+                public void onDenied(List<String> permissions, boolean never) {
                     ToastUtils.showShort("未获取到录音权限!");
                 }
-            }, recordAudio);
+            });
         } else {
             hasPermission = true;
         }

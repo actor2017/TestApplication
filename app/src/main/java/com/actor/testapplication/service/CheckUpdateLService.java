@@ -34,13 +34,13 @@ import okhttp3.Call;
  * public void startActivity(Intent intent) {
  *     if (SPUtils.getBoolean(CheckUpdateLService.Eenable, true)) {
  *         super.startActivity(intent);
- *     } else toast(CheckUpdateLService.ERR_MSG);
+ *     } else showToast(CheckUpdateLService.ERR_MSG);
  * }
  * @Override
  * public void startActivityForResult(Intent intent, int requestCode) {
  *     if (SPUtils.getBoolean(CheckUpdateLService.Eenable, true)) {
  *         super.startActivityForResult(intent, requestCode);
- *     } else toast(CheckUpdateLService.ERR_MSG);
+ *     } else showToast(CheckUpdateLService.ERR_MSG);
  * }
  *
  * @version 1.0

@@ -23,7 +23,14 @@
         </item>
     </style>
 
-    <style name="FullScreen" parent="Theme.AppCompat.Light.NoActionBar">
+    <!--不要ActionBar, Theme.AppCompat.Light.NoActionBar-->
+    <style name="NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!--全屏-->
+    <style name="FullScreen" parent="NoActionBar">
         <item name="android:windowFullscreen">true</item>
     </style>
 

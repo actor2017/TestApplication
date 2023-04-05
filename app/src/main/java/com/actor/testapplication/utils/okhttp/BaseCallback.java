@@ -158,7 +158,7 @@ public abstract class BaseCallback<T> implements okhttp3.Callback {
      */
     @Override
     public void onFailure(@NonNull Call call, @NonNull IOException e) {
-        logFormat("onError: call=%s, e=%s, id=%d", call, e, id);
+        LogUtils.formatError("onError: call=%s, e=%s, id=%d", call, e, id);
         if (call == null || call.isCanceled() || e == null) return;
         ThreadUtils.runOnUiThread(new Runnable() {
             @Override
@@ -172,12 +172,12 @@ public abstract class BaseCallback<T> implements okhttp3.Callback {
     public void onError(int id, Call call, Exception e) {
         if (isStatusCodeError || isJsonParseException || isParseNetworkResponseIsNull) return;
         if (e instanceof SocketTimeoutException) {
-            toast("连接服务器超时!");
+            ToastUtils.showShort("连接服务器超时!");
         } else if (e instanceof ConnectException) {
-            toast("网络连接失败!");
+            ToastUtils.showShort("网络连接失败!");
         } else if (e != null) {
             String message = e.getMessage();
-            if (message != null) toast("错误信息: ".concat(message));
+            if (message != null) ToastUtils.showShort("错误信息: ".concat(message));
         }
     }
 
@@ -187,46 +187,30 @@ public abstract class BaseCallback<T> implements okhttp3.Callback {
      * @param errCode 错误码
      */
     public void onStatusCodeError(int errCode, Response response, int id) {
-        String s = getStringFormat("状态码错误: errCode=%d, response=%s, id=%d", errCode, response, id);
-        logError(s);
-        toast(getStringFormat("状态码错误: %d", errCode));
+        String s = TextUtils2.getStringFormat("状态码错误: errCode=%d, response=%s, id=%d", errCode, response, id);
+        LogUtils.error(s);
+        ToastUtils.showShort(TextUtils2.getStringFormat("状态码错误: %d", errCode));
     }
 
     /**
      * 数据解析错误, 默认会toast, 可重写此方法
      */
     public void onJsonParseException(Response response, int id, Exception e) {
-        String s = getStringFormat("数据解析错误: response=%s, id=%d, e=%s", response, id, e);
-        logError(s);
-        toast("数据解析错误");
+        String s = TextUtils2.getStringFormat("数据解析错误: response=%s, id=%d, e=%s", response, id, e);
+        LogUtils.error(s);
+        ToastUtils.showShort("数据解析错误");
     }
 
     /**
      * 数据解析为空, 默认会toast, 可重写此方法
      */
     public void onParseNetworkResponseIsNull(Response response, int id) {
-        logFormat("数据解析为空: tag=%s, response=%s, id=%d", tag, response, id);
-        toast("数据解析为空");
+        LogUtils.formatError("数据解析为空: tag=%s, response=%s, id=%d", tag, response, id);
+        ToastUtils.showShort("数据解析为空");
     }
 
     protected Type getGenericityType(Object object) {
         Type type = object.getClass().getGenericSuperclass();
         return ((ParameterizedType) type).getActualTypeArguments()[0];
-    }
-
-    protected void logError(String msg) {
-        LogUtils.error(msg, false);
-    }
-
-    protected void logFormat(String format, Object... args) {
-        LogUtils.formatError(format, false, args);
-    }
-
-    protected String getStringFormat(String format, Object... args) {
-        return TextUtils2.getStringFormat(format, args);
-    }
-
-    protected void toast(String msg) {
-        ToastUtils.showShort(msg);
     }
 }

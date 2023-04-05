@@ -14,19 +14,17 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.actor.testapplication.R;
+import com.actor.testapplication.databinding.ActivityMainBinding;
 import com.actor.testapplication.utils.CheckUpdateUtils;
 import com.actor.testapplication.widget.BasePopupWindow;
 import com.blankj.utilcode.util.AppUtils;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
+public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
-public class MainActivity extends BaseActivity {
+    //版本
+    private TextView  tvVersion;
 
-    @BindView(R.id.tv_version)//版本
-    TextView  tvVersion;
-
+    // TODO: 2021/8/6 Surface
     Surface       surface;//extends Object implements Parcelable
     SurfaceView   surfaceView = null;//extends View
     GLSurfaceView glSurfaceView;//extends SurfaceView
@@ -38,28 +36,18 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+        tvVersion = viewBinding.tvVersion;
 
-        setTitle("主页");
         AppUtils.AppInfo appInfo = AppUtils.getAppInfo();
         tvVersion.setText(getStringFormat("VersionName: %s(VersionCode: %d)", appInfo.getVersionName(), appInfo.getVersionCode()));//版本
         new CheckUpdateUtils().check(this);//检查更新
     }
 
-    @OnClick({R.id.btn_path, R.id.btn_rich_text,
-            R.id.btn_c_call_java, R.id.btn_custom_view, R.id.btn_surface_view,
-            R.id.btn_nested_scroll_view, R.id.btn_encrypt, R.id.btn_go2_test})
-    public void onClick(View view) {
+    @Override
+    public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.btn_path://Path绘制测试
-                startActivity(new Intent(this, PathDrawActivity.class));
-                break;
             case R.id.btn_rich_text://富文本测试
                 startActivity(new Intent(this, RichTextActivity.class));
-                break;
-            case R.id.btn_c_call_java://C&Java互调测试
-                startActivity(new Intent(this, CCallJavaActivity.class));
                 break;
             case R.id.btn_custom_view://自定义View
                 startActivity(new Intent(this, CustomViewActivity.class));
@@ -70,9 +58,6 @@ public class MainActivity extends BaseActivity {
             case R.id.btn_nested_scroll_view://NestedScrollView
                 startActivity(new Intent(this, NestedScrollViewActivity.class));
                 break;
-            case R.id.btn_encrypt://加密解密
-                startActivity(new Intent(this, EncryptActivity.class));
-                break;
             case R.id.btn_go2_test://Test测试页面
                 startActivity(new Intent(this, TestActivity.class), false, view);
 //                showPopupWindow(view);
@@ -82,6 +67,7 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    // TODO: 2021/8/6 PopupWindow
     private void showPopupWindow(View v) {
         BasePopupWindow popup = new BasePopupWindow(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         popup.setLayout(activity, R.layout.item_add_minus_layout);

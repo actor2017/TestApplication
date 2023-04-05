@@ -173,7 +173,7 @@ public class DownloadManagerUtils {
             if (DownloadManager.ACTION_DOWNLOAD_COMPLETE.equals(intent.getAction())){
                 //在广播中取出下载任务的id
                 long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
-                LogUtils.formatError("编号：%d的下载任务已经完成！", true, id);
+                LogUtils.formatError("编号：%d的下载任务已经完成！", id);
                 for (int i = 0; i < listeners.size(); i++) {
                     listeners.get(i).onDownloadCompleted(id);
                 }
@@ -182,11 +182,11 @@ public class DownloadManagerUtils {
                 //?
                 long[] ids = intent.getLongArrayExtra(DownloadManager.EXTRA_NOTIFICATION_CLICK_DOWNLOAD_IDS);
                 LogUtils.formatError("编号：%d的下载任务被点击了, notificationClickDownloadIds=%s！",
-                        true, id, Arrays.toString(ids));
+                        id, Arrays.toString(ids));
                 for (int i = 0; i < listeners.size(); i++) {
                     listeners.get(i).onNotificationClicked(id, ids);
                 }
-            } else LogUtils.error("intent.getAction():" + intent.getAction(), true);
+            } else LogUtils.error("intent.getAction():" + intent.getAction());
         }
     }
 

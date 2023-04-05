@@ -1,7 +1,2 @@
-/.cxx
-/.externalNativeBuild
-/build/generated/
-/build/intermediates/
-/build/tmp/
-/build/outputs/logs/
-/build/cache/
+/build
+/release

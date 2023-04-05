@@ -7,41 +7,42 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.actor.myandroidframework.widget.ItemTextInputLayout;
 import com.actor.myandroidframework.widget.QuickSearchBar;
 import com.actor.testapplication.R;
-import com.actor.testapplication.adapter.BirthdayAdapter;
-import com.actor.testapplication.bean.BirthItem;
-import com.actor.testapplication.utils.GreenDaoUtils12;
+import com.actor.testapplication.databinding.ActivityCustomViewBinding;
+import com.actor.testapplication.widget.ColorSelector;
 import com.actor.testapplication.widget.ItemAddMinusLayout;
-import com.greendao.gen.BirthItemDao;
+import com.blankj.utilcode.util.ClickUtils;
 
-import java.util.List;
+public class CustomViewActivity extends BaseActivity<ActivityCustomViewBinding> {
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
-public class CustomViewActivity extends BaseActivity {
-
-    @BindView(R.id.item_add_minus)
-    ItemAddMinusLayout itemAddMinus;
-    @BindView(R.id.recycler_view)
-    RecyclerView       recyclerView;
-    @BindView(R.id.quick_search_bar)
-    QuickSearchBar     quickSearchBar;
-    @BindView(R.id.tv_letter)
-    TextView           tvLetter;
-
-    private boolean hasShow = false;
+    private ItemAddMinusLayout  itemAddMinus;
+    private ColorSelector       colorSelector;
+    private ItemTextInputLayout itilResult;
+    private QuickSearchBar      quickSearchBar;
+    private TextView            tvLetter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_view);
-        ButterKnife.bind(this);
-
         setTitle("自定义View");
-        quickSearchBar.setOnLetterChangedListener(recyclerView, new QuickSearchBar.OnLetterChangedListener() {
+        itemAddMinus = viewBinding.itemAddMinus;
+        colorSelector = viewBinding.colorSelector;
+        itilResult = viewBinding.itilResult;
+        quickSearchBar = viewBinding.quickSearchBar;
+        tvLetter = viewBinding.tvLetter;
+
+        //颜色选中监听
+        colorSelector.setmListener(new ColorSelector.IColorSelectorListener() {
+            @Override
+            public void onGetColorListener(int red, int green, int blue, int color) {
+                itilResult.setText(getStringFormat("R:%d G:%d B:%d RGB:%s", red, green, blue, Integer.toHexString(color)));
+            }
+        });
+
+        //右侧字母选中监听
+        quickSearchBar.setOnLetterChangedListener((RecyclerView) null, new QuickSearchBar.OnLetterChangedListener() {
             @Override
             public void onLetterChanged(String letter) {
                 tvLetter.setVisibility(View.VISIBLE);
@@ -53,26 +54,31 @@ public class CustomViewActivity extends BaseActivity {
                 tvLetter.setVisibility(View.GONE);
             }
         });
-        //长按事件
-        itemAddMinus.getTextViewItem().setOnLongClickListener(v -> {
-            if (!hasShow) {
-                BirthItemDao dao = GreenDaoUtils12.getDaoSession().getBirthItemDao();
-                List<BirthItem> items = GreenDaoUtils12.queryAll(dao);
-                recyclerView.setAdapter(new BirthdayAdapter(items));
-                hasShow = true;
+
+        //点击事件
+//        ClickUtils2.setMultiClicksInSends()
+        itemAddMinus.getTextViewItem().setOnClickListener(new ClickUtils.OnMultiClickListener(5, 1000 / 5) {
+            @Override
+            public void onTriggerClick(View v) {
+                startActivity(new Intent(activity, BirthdayActivity.class));
             }
-            return false;
+
+            @Override
+            public void onBeforeTriggerClick(View v, int count) {
+            }
         });
+
+        setOnClickListeners(R.id.btn_drag_layout);
     }
 
-    @OnClick(R.id.btn_drag_layout)
+    @Override
     public void onViewClicked(View view) {
         switch (view.getId()) {
-        case R.id.btn_drag_layout:
-            startActivity(new Intent(this, DragLayoutActivity.class));
-            break;
-        default:
-            break;
+            case R.id.btn_drag_layout:
+                startActivity(new Intent(this, DragLayoutActivity.class));
+                break;
+            default:
+                break;
         }
     }
 }

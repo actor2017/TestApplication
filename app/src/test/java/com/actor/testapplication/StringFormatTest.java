@@ -40,6 +40,9 @@ public class StringFormatTest {
     private static final char       CHAR    = 65;//Character
     private static final byte       BYTE    = 15;
     private static final short      SHORT   = 15;
+    private static final float      FLOAT   = 0.23456789F;
+    private static final float      FLOAT1   = 1.23456789F;
+    private static final float      FLOAT2   = 1.234500000F;
     private static final Integer    INTEGER = 15;
     private static final BigInteger BIG_INTEGER = BigInteger.valueOf(15L);
 
@@ -62,7 +65,7 @@ public class StringFormatTest {
         println(null, "Integer: %d", INTEGER);   //15
         println(null, "BigInteger: %d", BIG_INTEGER);//15
         println(null, "int: %d", 15);            //15
-        println(null, "int: %+d", 15);           //+15
+        println(null, "int: %+d", 15);           //+15 (输出带符号, 正号&负号)
         println(null, "int: %-3d", 15);           //"15 "     //左对齐
         println(null, "int: %1$3d", 15);         // 15
         println(null, "int: %03d", 15);          //015        (03d: 如果整数没有3位,前面补0)
@@ -83,7 +86,17 @@ public class StringFormatTest {
 
         println(null, "15的十六进制浮点: %a", 15F);//0x1.ep3
         println(null, "15的指数: %e", 15F);       //1.500000e+01
-        println(null, "f和e类型中较短的: %g", 15F);//15.0000
+        /**
+         * %g: 如果整数部分=0, 小数点后默认显示6位, 后面的四舍五入
+         *     如果整数部分>0, 小数点后默认显示5位
+         */
+        println(null, "f和e类型中较短的: %g", FLOAT);//0.234568
+        println(null, "f和e类型中较短的: %g", FLOAT1);//1.23457
+        println(null, "f和e类型中较短的: %g", FLOAT2);//1.23450
+        println(null, "f和e类型中较短的: %.17g", FLOAT);//0.23456789553165436
+        println(null, "f和e类型中较短的: %.17g", FLOAT1);//1.2345678806304932
+        println(null, "f和e类型中较短的: %.17g", FLOAT2);//1.2345000505447388
+
         println(null, "'A'的散列码: %h", 'A');     //41       Integer.toHexString(arg.hashCode())
 
         println(null, "\n不同国家的千位分隔符");

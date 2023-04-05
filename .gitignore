@@ -1,5 +1,6 @@
-.gradle/
-.svn/
-*.iml
-local.properties
+﻿.gradle/
 .idea/
+/build
+/资料
+local.properties
+*.iml

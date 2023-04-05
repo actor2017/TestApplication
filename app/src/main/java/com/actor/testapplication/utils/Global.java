@@ -1,6 +1,7 @@
 package com.actor.testapplication.utils;
 
 import com.blankj.utilcode.util.AppUtils;
+import com.blankj.utilcode.util.SizeUtils;
 
 /**
  * Description: 全局变量
@@ -64,10 +65,22 @@ public class Global {
     //thanks www.baidu.com百度
     public static final String BAIDU_VIDEO = "http://tb-video.bdstatic.com/tieba-smallvideo-transcode/8_4871b1e9218ec13f03131176197ef53d_1.mp4";
 
-    //数据库名称(.db3)
-    public static final String DBNAME = "test_application.so";
+    public static final boolean IS_LIYONG_VERSION = false;
+
+    //数据库名称
+    public static final String DBNAME = IS_LIYONG_VERSION ? "test_application_ly.db3" : "test_application.db3";
+
 
 
     public static final String JNI_IP = "IP";
     public static final String JNI_PORT = "PORT";
+
+    public static final String CALL_NUMBER = "CALL_NUMBER";
+    public static final String BE_CALL_NUMBER = "BE_CALL_NUMBER";
+
+    public static final String id = "id";
+    public static final String isInsert = "isInsert";
+    public static final String isDelete = "isDelete";
+
+    public static final int DP1 = SizeUtils.dp2px(1);
 }

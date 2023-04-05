@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.BirthdayDetailActivity">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarSize"
+        android:background="@color/blue_titlebar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="@dimen/actionBarSize"
+        android:layout_height="@dimen/actionBarSize"
+        android:padding="17dp"
+        android:src="@drawable/picture_icon_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/actionBarSize"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="生日新增 &amp; 生日详情&amp;修改" />
+
+    <TextView
+        android:id="@+id/tv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/actionBarSize"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="删除"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.actor.myandroidframework.widget.ItemTextInputLayout
+        android:id="@+id/itil_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        app:itilImeOptions="actionNext"
+        app:itilInputType="text"
+        app:itilItemName="姓名: "
+        app:layout_constraintTop_toBottomOf="@id/iv_back" />
+
+    <com.actor.myandroidframework.widget.ItemRadioGroupLayout
+        android:id="@+id/irgl_sex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:irglBtns="男,女"
+        app:irglItemName="性别: "
+        app:layout_constraintTop_toBottomOf="@id/itil_name" />
+
+    <com.actor.myandroidframework.widget.ItemTextInputLayout
+        android:id="@+id/itil_lunar_birthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itilInputEnable="false"
+        app:itilItemName="农历生日: "
+        app:itilRedStarVisiable="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/irgl_sex" />
+
+    <com.actor.myandroidframework.widget.ItemRadioGroupLayout
+        android:id="@+id/irgl_is_leap_month"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:irglBtns="是,否"
+        app:irglCheckedPosition="1"
+        app:irglItemName="农历生日的月份是不是闰月: "
+        app:irglRedStarVisiable="invisible"
+        app:layout_constraintTop_toBottomOf="@id/itil_lunar_birthday" />
+
+    <com.actor.myandroidframework.widget.ItemTextInputLayout
+        android:id="@+id/itil_solar_birthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itilInputEnable="false"
+        app:itilItemName="新历生日: "
+        app:itilRedStarVisiable="invisible"
+        app:layout_constraintTop_toBottomOf="@id/irgl_is_leap_month" />
+
+    <com.actor.myandroidframework.widget.ItemTextInputLayout
+        android:id="@+id/itil_remarks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itilItemName="备注: "
+        app:itilMaxLength="999"
+        app:itilRedStarVisiable="invisible"
+        app:layout_constraintTop_toBottomOf="@id/itil_solar_birthday" />
+
+    <Button
+        android:id="@+id/btn_done"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@color/blue_titlebar"
+        android:text="完成"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itil_remarks" />
+</androidx.constraintlayout.widget.ConstraintLayout>

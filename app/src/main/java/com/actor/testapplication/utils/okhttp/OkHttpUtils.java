@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 import com.actor.myandroidframework.utils.ConfigUtils;
 import com.actor.myandroidframework.utils.TextUtils2;
 import com.actor.myandroidframework.utils.okhttputils.BaseCallback;
-import com.actor.myandroidframework.utils.okhttputils.NullCallback;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

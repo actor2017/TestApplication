@@ -8,15 +8,11 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.actor.testapplication.R;
+import com.actor.testapplication.adapter.TextViewAdapter;
+import com.actor.testapplication.databinding.ActivityNestedScrollViewBinding;
 import com.actor.testapplication.widget.BaseNestedScrollView;
 import com.blankj.utilcode.util.BarUtils;
 import com.blankj.utilcode.util.ScreenUtils;
-
-import java.util.ArrayList;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * description: 类的描述
@@ -24,24 +20,22 @@ import butterknife.ButterKnife;
  * date       : 2020/6/2 on 10:55
  * @version 1.0
  */
-public class NestedScrollViewActivity extends BaseActivity {
+public class NestedScrollViewActivity extends BaseActivity<ActivityNestedScrollViewBinding> {
 
-    @BindView(R.id.nested_scroll_view)
-    BaseNestedScrollView nestedScrollView;
-    @BindView(R.id.tv_top_1)
-    TextView tvTop1;
-    @BindView(R.id.tv_top_2)
-    TextView     tvTop2;
-    @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
+    private BaseNestedScrollView nestedScrollView;
+    private TextView tvTop1;
+    private TextView     tvTop2;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nested_scroll_view);
-        ButterKnife.bind(this);
+        nestedScrollView = viewBinding.nestedScrollView;
+        tvTop1 = viewBinding.tvTop1;
+        tvTop2 = viewBinding.tvTop2;
+        recyclerView = viewBinding.recyclerView;
 
-        recyclerView.setAdapter(new SimpleTestAdapter());
+        recyclerView.setAdapter(new TextViewAdapter());
 
         View rootView = findViewById(android.R.id.content);
 
@@ -66,41 +60,5 @@ public class NestedScrollViewActivity extends BaseActivity {
                 recyclerView.setLayoutParams(layoutParams);
             }
         });
-    }
-
-    public class SimpleTestAdapter extends RecyclerView.Adapter<TextViewHolder> {
-
-        ArrayList<String> data;
-
-        @Override
-        public TextViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            return new TextViewHolder(new TextView(parent.getContext()));
-        }
-
-        @Override
-        public void onBindViewHolder(TextViewHolder holder, int position) {
-            TextView tv = (TextView) holder.itemView;
-            tv.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,100));
-
-            String val = data == null? "TextView " + position : data.get(position);
-            tv.setText(val);
-        }
-
-
-        @Override
-        public int getItemCount() {
-            return data == null ? 30 : data.size();
-        }
-
-
-
-
-
-
-    }
-    static class TextViewHolder extends RecyclerView.ViewHolder{
-        public TextViewHolder(View itemView) {
-            super(itemView);
-        }
     }
 }

@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="@id/btn_cancel"
         tools:visibility="visible" />
 
-    <com.actor.myandroidframework.widget.VoiceRecorderView
+    <com.actor.myandroidframework.widget.chat.VoiceRecorderView
         android:id="@+id/voice_recoder"
         android:layout_width="0dp"
         android:layout_height="0dp"

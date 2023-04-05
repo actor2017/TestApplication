@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".activity.CustomViewActivity">
 
     <Button
         android:id="@+id/btn_drag_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DragLayout(未完)" />
+        android:text="DragLayout(未完)"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.actor.testapplication.widget.RippleButton
+        android:id="@+id/ripple_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/red"
         android:gravity="center"
         android:padding="10dp"
         android:text="RippleButton(波纹按钮)"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/btn_drag_layout" />
 
     <com.actor.testapplication.widget.ItemAddMinusLayout
         android:id="@+id/item_add_minus"
@@ -32,38 +34,49 @@
         app:iamlItemName="人数: "
         app:iamlMaxValue="5"
         app:iamlMinValue="1"
-        app:iamlRedStarVisiable="visible" />
+        app:iamlRedStarVisiable="visible"
+        app:layout_constraintTop_toBottomOf="@id/ripple_button"
+        tools:minHeight="40dp" />
 
-    <RelativeLayout
+    <com.actor.testapplication.widget.ColorSelector
+        android:id="@+id/color_selector"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/item_add_minus"
+        tools:minHeight="400dp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_birthday" />
+    <com.actor.myandroidframework.widget.ItemTextInputLayout
+        android:id="@+id/itil_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itilArrowRightVisiable="gone"
+        app:itilInputEnable="false"
+        app:itilItemName="颜色:"
+        app:itilRedStarVisiable="gone"
+        app:layout_constraintTop_toBottomOf="@id/color_selector" />
 
-        <com.actor.myandroidframework.widget.QuickSearchBar
-            android:id="@+id/quick_search_bar"
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true" />
+    <com.actor.myandroidframework.widget.QuickSearchBar
+        android:id="@+id/quick_search_bar"
+        android:layout_width="30dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_add_minus" />
 
-        <TextView
-            android:id="@+id/tv_letter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/take_photo_pressed"
-            android:gravity="center"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
-            android:textColor="@android:color/white"
-            android:textSize="40sp"
-            android:visibility="invisible"
-            tools:text="A" />
-    </RelativeLayout>
-</LinearLayout>
+    <TextView
+        android:id="@+id/tv_letter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/take_photo_pressed"
+        android:gravity="center"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_add_minus"
+        tools:text="A" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,10 +24,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.actor.myandroidframework.utils.FileUtils;
 import com.actor.testapplication.R;
+import com.actor.testapplication.databinding.ActivitySurfaceViewBinding;
 import com.actor.testapplication.utils.CameraParamUtil;
 import com.blankj.utilcode.util.ConvertUtils;
+import com.blankj.utilcode.util.PathUtils;
 import com.blankj.utilcode.util.ScreenUtils;
 
 import java.io.BufferedOutputStream;
@@ -36,38 +37,23 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 /**
  * SurfaceView, {@link com.yanzhenjie.album.app.camera.CameraActivity#onPermissionGranted(int)}
  * FIXME: 2020/2/14 SurfaceView待改进
  */
-public class SurfaceViewActivity extends BaseActivity {
+public class SurfaceViewActivity extends BaseActivity<ActivitySurfaceViewBinding> {
 
-    @BindView(R.id.surface_view)
-    SurfaceView surfaceView;
-    @BindView(R.id.tv_angle)
-    TextView       tvAngle;
-    @BindView(R.id.ll_angle)
-    LinearLayout   llAngle;
-    @BindView(R.id.tv_distance)
-    TextView       tvDistance;
-    @BindView(R.id.tv_direction)
-    TextView       tvDirection;
-    @BindView(R.id.iv_take_photo)
-    ImageView      ivTakePhoto;
-    @BindView(R.id.switch_camera)
-    ImageView      switchCamera;
-    @BindView(R.id.ll_take_photo)
-    RelativeLayout llTakePhoto;
-    @BindView(R.id.iv_true)
-    ImageView      ivTrue;
-    @BindView(R.id.iv_false)
-    ImageView      ivFalse;
-    @BindView(R.id.ll_confirm)
-    LinearLayout   llConfirm;
+    private SurfaceView surfaceView;
+    private TextView       tvAngle;
+    private LinearLayout   llAngle;
+    private TextView       tvDistance;
+    private TextView       tvDirection;
+    private ImageView      ivTakePhoto;
+    private ImageView      switchCamera;
+    private RelativeLayout llTakePhoto;
+    private ImageView      ivTrue;
+    private ImageView      ivFalse;
+    private LinearLayout   llConfirm;
 
     private SurfaceHolder holder;
     private Camera        camera;//相机
@@ -79,24 +65,7 @@ public class SurfaceViewActivity extends BaseActivity {
     private String        distance;
 
     private MediaRecorder mediaRecorder;
-
     public static final String RESULT_PATH = "";
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);//设置屏幕朝向,在setContentView之前
-        setContentView(R.layout.activity_surface_view);
-        ButterKnife.bind(this);
-
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
-        sensorManager.registerListener(sensorEventListener2, sensor, SensorManager.SENSOR_DELAY_UI);
-
-        mediaRecorder = new MediaRecorder();//实例化媒体录制器
-
-        holder = surfaceView.getHolder();
-    }
     private SensorEventListener2 sensorEventListener2 = new SensorEventListener2() {
         @Override
         public void onFlushCompleted(Sensor sensor) {
@@ -118,6 +87,7 @@ public class SurfaceViewActivity extends BaseActivity {
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
         }
     };
+
     private void setAngle(float val) {
         String text = null;
         if (val <= 10 || val >= 350) {
@@ -140,8 +110,36 @@ public class SurfaceViewActivity extends BaseActivity {
         tvDirection.setText(text);
     }
 
-    @OnClick({R.id.surface_view, R.id.iv_take_photo, R.id.switch_camera, R.id.iv_true,
-            R.id.iv_false, R.id.btn2, R.id.btn3})
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //设置屏幕朝向,在setContentView之前
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        surfaceView = viewBinding.surfaceView;
+        tvAngle = viewBinding.tvAngle;
+        llAngle = viewBinding.llAngle;
+        tvDistance = viewBinding.tvDistance;
+        tvDirection = viewBinding.tvDirection;
+        ivTakePhoto = viewBinding.ivTakePhoto;
+        switchCamera = viewBinding.switchCamera;
+        llTakePhoto = viewBinding.llTakePhoto;
+        ivTrue = viewBinding.ivTrue;
+        ivFalse = viewBinding.ivFalse;
+        llConfirm = viewBinding.llConfirm;
+
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        Sensor sensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION);
+        sensorManager.registerListener(sensorEventListener2, sensor, SensorManager.SENSOR_DELAY_UI);
+
+        mediaRecorder = new MediaRecorder();//实例化媒体录制器
+
+        holder = surfaceView.getHolder();
+
+        setOnClickListeners(R.id.surface_view, R.id.iv_take_photo, R.id.switch_camera, R.id.iv_true,
+                R.id.iv_false, R.id.btn2, R.id.btn3);
+    }
+
+    @Override
     public void onViewClicked(View view){
         switch (view.getId()) {
             case R.id.surface_view:
@@ -229,7 +227,7 @@ public class SurfaceViewActivity extends BaseActivity {
                         setResult(RESULT_OK, intent);
                         onBackPressed();
                     } catch (Exception e) {
-                        toast("拍照失败");
+                        showToast("拍照失败");
                         e.printStackTrace();
                     }
                 }
@@ -246,7 +244,7 @@ public class SurfaceViewActivity extends BaseActivity {
                 mediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
                 mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
                 //设置保存路径
-                String path = FileUtils.getExternalStoragePath(System.currentTimeMillis() + ".mp4");
+                String path = PathUtils.getExternalAppMoviesPath() + "/" + System.currentTimeMillis() + ".mp4";
                 mediaRecorder.setOutputFile(path);
                 mediaRecorder.setPreviewDisplay(surfaceView.getHolder().getSurface());
                 try {

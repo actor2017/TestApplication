@@ -107,8 +107,9 @@ import java.util.regex.Pattern;
  *         <li>TtsSpan?</li>
  *     </ol>
  * </ol>
+ * @deprecated 使用: {@link com.blankj.utilcode.util.SpanUtils}
  */
-
+@Deprecated
 public class RichUtils {
 
     protected static final Application APPLICATION = ConfigUtils.APPLICATION;

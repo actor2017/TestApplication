@@ -4,47 +4,4 @@
     <!--ItemAddMinusLayout.java-->
     <string name="default_hint_already_max_value">已经是最大了</string>
     <string name="default_hint_already_min_value">已经是最小了</string>
-
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <!--加密说明-->
-    <string name="encode_instruction">
-        说明: \n
-        \t 1.单向加密 \n
-        \t\t MD2 加密,32位 \n
-        \t\t MD5 加密,32位 \n
-        \t\t MD5 加密文件 \n
-        \t\t SHA1 加密,40位 \n
-        \t\t SHA224 加密 \n
-        \t\t SHA256 加密 \n
-        \t\t SHA384 加密 \n
-        \t\t SHA512 加密 \n
-        \t\t HmacMD5 加密 \n
-        \t\t HmacSHA1 加密,40位 \n
-        \t\t HmacSHA224 加密 \n
-        \t\t HmacSHA256 加密,64位 \n
-        \t\t HmacSHA384 加密,96位 \n
-        \t\t HmacSHA512 加密,128位 \n
-
-
-        \n\n
-        2.双向加密:对称&amp;非对称加密 \n
-
-        \t 2.1.对称加密:加密和解密使用同一秘钥 \n
-        \t\t DES 加密 80位\n
-        \t\t DES 解密 \n
-        \t\t 3DES 加密, DES的加强版 \n
-        \t\t 3DES 解密 \n
-        \t\t AES 加密 \n
-        \t\t AES 解密 \n
-
-        \t 2.2.非对称加密:公钥/私钥加密,私钥/公钥解密 \n
-        \t\t 通过公钥互换,实现双向验证:https协议(浏览器公钥),U盾(自己的私钥),支付宝数字证书(自己的私钥) \n
-
-        \t\t 1.APK打包数字签名 \n
-        \t\t 2.申请第三方公钥互换SDK（如微信支付）时填入的签名SAH1值:https://www.jianshu.com/p/286d2b372334 \n
-        \t\t\t RSA 加密 \n
-        \t\t\t RSA 解密 \n
-    </string>
 </resources>

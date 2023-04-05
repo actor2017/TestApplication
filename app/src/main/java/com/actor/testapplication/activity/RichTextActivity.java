@@ -9,31 +9,31 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.actor.testapplication.R;
+import com.actor.testapplication.databinding.ActivityRichTextBinding;
 import com.actor.testapplication.utils.RichUtils;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * description: 富文本测试
  * date       : 2020/12/10 on 15:46
  */
-public class RichTextActivity extends BaseActivity {
+public class RichTextActivity extends BaseActivity<ActivityRichTextBinding> {
 
-    @BindView(R.id.tv)
-    TextView tv;
+    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rich_text);
-        ButterKnife.bind(this);
+        tv = viewBinding.tv;
+        setOnClickListeners(R.id.image_btn, R.id.url_btn, R.id.color_btn1, R.id.color_btn2, R.id.font_btn,
+                R.id.style_btn, R.id.strike_btn, R.id.underline_btn, R.id.btn_relative_size,
+                R.id.btn_click);
     }
 
-    @OnClick({R.id.image_btn, R.id.url_btn, R.id.color_btn1, R.id.color_btn2, R.id.font_btn,
-            R.id.style_btn, R.id.strike_btn, R.id.underline_btn, R.id.btn_relative_size,
-            R.id.btn_click})
+    /**
+     * @see com.blankj.utilcode.util.SpanUtils
+     * @param view
+     */
+    @Override
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.image_btn:
@@ -71,7 +71,7 @@ public class RichTextActivity extends BaseActivity {
                 tv.append(RichUtils.getBuilder("点击").addClickableSpan(new ClickableSpan() {
                     @Override
                     public void onClick(View widget) {
-                        toast(widget.getClass().toString());
+                        showToast(widget.getClass().toString());
                     }
 
                     @Override
