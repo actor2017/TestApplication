@@ -16,7 +16,7 @@ import com.zhy.http.okhttp.https.HttpsUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.PublicKey;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
@@ -223,25 +223,21 @@ public class MyApplication extends ActorApplication {
                             //获取证书链中的所有证书
                             Certificate[] peerCertificates = session.getPeerCertificates();
                             for (Certificate c : peerCertificates) {//打印所有证书内容
-                                LogUtils.formatError("verify = %s\n\n", c.toString());
+                                LogUtils.errorFormat("verify = %s\n\n", c.toString());
                                 String type = c.getType();
                                 String str = null;
                                 try {
                                     byte[] encoded = c.getEncoded();
-                                    str = new String(encoded, "UTF-8");
+                                    str = new String(encoded, StandardCharsets.UTF_8);
                                     System.out.println(str);
-                                } catch (CertificateEncodingException | UnsupportedEncodingException e) {
+                                } catch (CertificateEncodingException e) {
                                     e.printStackTrace();
                                 }
                                 PublicKey publicKey = c.getPublicKey();
                                 String format = publicKey.getFormat();
                                 byte[] encoded1 = publicKey.getEncoded();
                                 String str1 = null;
-                                try {
-                                    str1 = new String(encoded1, "UTF-8");
-                                } catch (UnsupportedEncodingException e) {
-                                    e.printStackTrace();
-                                }
+                                str1 = new String(encoded1, StandardCharsets.UTF_8);
                                 System.out.println(str1);
                                 String algorithm = publicKey.getAlgorithm();
                                 System.out.println(111);

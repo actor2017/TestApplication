@@ -12,7 +12,7 @@ import com.actor.testapplication.R;
 
 /**
  * Description: 自定义可拖拽的自定义控件
- * Author     : 李小松
+ * Author     : ldf
  * Date       : 2017/4/11 on 9:12.
  */
 

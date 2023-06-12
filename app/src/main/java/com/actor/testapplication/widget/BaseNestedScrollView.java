@@ -54,13 +54,13 @@ public class BaseNestedScrollView extends NestedScrollView {
             consumed[1] = dy;
             scrollBy(0, dy);
         }
-        LogUtils.formatError("target=%s, dx=%d, dy=%d, consumed=%s", target, dx, dy, Arrays.toString(consumed));
+        LogUtils.errorFormat("target=%s, dx=%d, dy=%d, consumed=%s", target, dx, dy, Arrays.toString(consumed));
     }
 
     @Override
     protected void onScrollChanged(int l, int t, int oldl, int oldt) {
         super.onScrollChanged(l, t, oldl, oldt);
-        LogUtils.formatError("l=%d, t=%d, oldl=%d, oldt=%d", l, t, oldl, oldt);
+        LogUtils.errorFormat("l=%d, t=%d, oldl=%d, oldt=%d", l, t, oldl, oldt);
         mScrollY = t;
     }
 }

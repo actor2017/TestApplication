@@ -4,31 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.TestActivity">
+    tools:context=".activity.MathViewActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_result"
+        <com.actor.myandroidframework.widget.webview.BaseWebView
+            android:id="@+id/web_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Result" />
+            android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/edit_text"
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:layout_height="5dp"
+            android:background="@color/red_trans_CC99" />
 
-        <Button
-            android:id="@+id/btn"
+        <io.github.kexanie.library.MathView
+            android:id="@+id/math_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="onViewClicked"
-            android:text="btn"
-            android:transitionName="btnTest" />
+            app:engine="MathJax"
+            tools:text="When \\(a \\ne 0\\), there are two solutions to \\(ax^2 + bx + c = 0\\)
+        and they are $$x = {-b \\pm \\sqrt{b^2-4ac} \\over 2a}.$$" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

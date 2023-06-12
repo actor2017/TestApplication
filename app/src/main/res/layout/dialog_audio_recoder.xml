@@ -11,7 +11,7 @@
         android:id="@+id/view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/shape_cor5dp_white_stroke1dp"
+        android:background="@drawable/shape_rec_cor5dp_white_stroke1dp"
         android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="@id/btn_start"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="@id/btn_cancel"
         tools:visibility="visible" />
 
-    <com.actor.myandroidframework.widget.chat.VoiceRecorderView
+    <com.actor.chat_layout.VoiceRecorderView
         android:id="@+id/voice_recoder"
         android:layout_width="0dp"
         android:layout_height="0dp"

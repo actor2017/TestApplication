@@ -8,6 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.actor.myandroidframework.utils.LogUtils;
 import com.actor.testapplication.adapter.TextViewAdapter;
 import com.actor.testapplication.databinding.ActivityNestedScrollViewBinding;
 import com.actor.testapplication.widget.BaseNestedScrollView;
@@ -45,12 +46,12 @@ public class NestedScrollViewActivity extends BaseActivity<ActivityNestedScrollV
                 int actionBarHeight = BarUtils.getActionBarHeight();
                 int statusBarHeight = BarUtils.getStatusBarHeight();
                 int screenHeight = ScreenUtils.getScreenHeight();
-                logFormat("statusbarH=%d, actionbarH=%d, screenH=%d", statusBarHeight, actionBarHeight, screenHeight);
+                LogUtils.errorFormat("statusbarH=%d, actionbarH=%d, screenH=%d", statusBarHeight, actionBarHeight, screenHeight);
 
                 int height1 = tvTop1.getHeight();
                 int heightRoot = rootView.getHeight();
                 int height2 = tvTop2.getHeight();
-                logFormat("rootH=%d, tv1H=%d, tv2H=%d", heightRoot, height1, height2);
+                LogUtils.errorFormat("rootH=%d, tv1H=%d, tv2H=%d", heightRoot, height1, height2);
 
                 nestedScrollView.setMyScrollHeight(height1);
                 int rvNewHeight = heightRoot - height2;

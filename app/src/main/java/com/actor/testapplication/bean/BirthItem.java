@@ -3,7 +3,7 @@ package com.actor.testapplication.bean;
 import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
 
-import com.actor.testapplication.utils.BirthdayUtils;
+import com.actor.myandroidframework.utils.BirthdayUtils;
 import com.actor.testapplication.utils.String2DateConverter;
 
 import org.greenrobot.greendao.annotation.Convert;

@@ -3,10 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.actor.testapplication">
 
-    <uses-permission android:name="android.permission.INTERNET" /> <!-- 振动 -->
-    <uses-permission android:name="android.permission.VIBRATE" /> <!-- 安装包 -->
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> <!-- 打电话 -->
-    <uses-permission android:name="android.permission.CALL_PHONE" /> <!-- OpenGL ES支持, arcgis-runtime-samples-android -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 振动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 安装包 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- 打电话 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <!-- OpenGL ES支持, arcgis-runtime-samples-android -->
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
@@ -63,8 +68,14 @@
                     android:scheme="https" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activity.ReferenceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MathViewActivity"
+            android:exported="false" />
+
 
         <service android:name=".service.CheckUpdateLService" />
     </application>
-
 </manifest>

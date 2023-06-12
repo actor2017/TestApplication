@@ -16,8 +16,8 @@
         android:id="@+id/iv_back"
         android:layout_width="@dimen/actionBarSize"
         android:layout_height="@dimen/actionBarSize"
-        android:padding="17dp"
-        android:src="@drawable/picture_icon_back"
+        android:padding="5dp"
+        android:src="@drawable/ps_ic_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

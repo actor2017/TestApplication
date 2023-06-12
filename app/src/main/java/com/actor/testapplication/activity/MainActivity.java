@@ -58,9 +58,17 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             case R.id.btn_nested_scroll_view://NestedScrollView
                 startActivity(new Intent(this, NestedScrollViewActivity.class));
                 break;
+            case R.id.btn_reference:
+                startActivity(new Intent(this, ReferenceActivity.class));
+                break;
             case R.id.btn_go2_test://Test测试页面
-                startActivity(new Intent(this, TestActivity.class), false, view);
-//                showPopupWindow(view);
+                startActivity(new Intent(this, TestActivity.class));
+                break;
+            case R.id.btn_go2_math_view://MathView测试
+                startActivity(new Intent(this, MathViewActivity.class), false, null, null, view);
+                break;
+            case R.id.btn_popup_window://PopupWindow测试
+                showPopupWindow(view);
                 break;
             default:
                 break;

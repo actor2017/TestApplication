@@ -11,9 +11,9 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 
+import com.actor.chat_layout.VoiceRecorderView;
 import com.actor.myandroidframework.dialog.BaseDialog;
 import com.actor.myandroidframework.utils.audio.AudioUtils;
-import com.actor.myandroidframework.widget.chat.VoiceRecorderView;
 import com.actor.testapplication.R;
 import com.actor.testapplication.databinding.DialogAudioRecoderBinding;
 import com.blankj.utilcode.util.ToastUtils;

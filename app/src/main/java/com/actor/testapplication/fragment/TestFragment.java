@@ -7,6 +7,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.actor.myandroidframework.utils.LogUtils;
 import com.actor.testapplication.R;
 import com.actor.testapplication.databinding.FragmentTestBinding;
 
@@ -40,7 +41,7 @@ public class TestFragment extends BaseFragment<FragmentTestBinding> {
         Flowable.just("hello workd!").subscribe(new Consumer<String>() {
             @Override
             public void accept(String s) throws Throwable {
-                logError("accept: " + s);
+                LogUtils.errorFormat("accept: " + s);
             }
         });
 
@@ -56,7 +57,7 @@ public class TestFragment extends BaseFragment<FragmentTestBinding> {
                 .subscribe(new Consumer<Object>() {
                     @Override
                     public void accept(Object o) throws Throwable {
-                        logError("accept:" + o);
+                        LogUtils.errorFormat("accept: %s\n", o);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
@@ -80,7 +81,7 @@ public class TestFragment extends BaseFragment<FragmentTestBinding> {
         }).subscribe(new Consumer<Object>() {
             @Override
             public void accept(Object o) throws Throwable {
-                logError("accept: " + o);
+                LogUtils.errorFormat("accept: %s\n", o);
             }
         }, new Consumer<Throwable>() {
             @Override

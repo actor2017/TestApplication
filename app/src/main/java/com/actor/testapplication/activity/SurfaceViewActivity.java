@@ -24,6 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.actor.myandroidframework.utils.LogUtils;
 import com.actor.testapplication.R;
 import com.actor.testapplication.databinding.ActivitySurfaceViewBinding;
 import com.actor.testapplication.utils.CameraParamUtil;
@@ -367,7 +368,7 @@ public class SurfaceViewActivity extends BaseActivity<ActivitySurfaceViewBinding
         @Override
         public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
             //SurfaceView 渲染宽高
-            logFormat("surfaceChanged: format=%d, width=%d, height=%d", format, width, height);
+            LogUtils.errorFormat("surfaceChanged: format=%d, width=%d, height=%d", format, width, height);
         }
 
         @Override

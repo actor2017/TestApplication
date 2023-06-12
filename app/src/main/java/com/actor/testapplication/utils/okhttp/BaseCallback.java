@@ -158,7 +158,7 @@ public abstract class BaseCallback<T> implements okhttp3.Callback {
      */
     @Override
     public void onFailure(@NonNull Call call, @NonNull IOException e) {
-        LogUtils.formatError("onError: call=%s, e=%s, id=%d", call, e, id);
+        LogUtils.errorFormat("onError: call=%s, e=%s, id=%d", call, e, id);
         if (call == null || call.isCanceled() || e == null) return;
         ThreadUtils.runOnUiThread(new Runnable() {
             @Override
@@ -205,7 +205,7 @@ public abstract class BaseCallback<T> implements okhttp3.Callback {
      * 数据解析为空, 默认会toast, 可重写此方法
      */
     public void onParseNetworkResponseIsNull(Response response, int id) {
-        LogUtils.formatError("数据解析为空: tag=%s, response=%s, id=%d", tag, response, id);
+        LogUtils.errorFormat("数据解析为空: tag=%s, response=%s, id=%d", tag, response, id);
         ToastUtils.showShort("数据解析为空");
     }
 
