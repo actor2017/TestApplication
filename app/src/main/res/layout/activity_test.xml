@@ -41,8 +41,7 @@
     <com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/pdf_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:minHeight="500dp" />
+        android:layout_height="match_parent" />
 
     <com.actor.myandroidframework.widget.webview.BaseWebView
         android:id="@+id/web_view"
