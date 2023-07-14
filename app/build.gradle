@@ -98,6 +98,13 @@ dependencies {
     //https://github.com/JakeWharton/butterknife
     compileOnly 'com.jakewharton:butterknife:10.2.3'
 //    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+
+
+    //https://github.com/barteksc/AndroidPdfViewer
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+
+    //https://github.com/RDSunhy/android-word2html
+    implementation 'com.github.RDSunhy:android-word2html:1.2.0'
 }
 
 //Gradle学习: 创建一个任务
