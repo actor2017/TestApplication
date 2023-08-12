@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import com.actor.myandroidframework.utils.LogUtils;
 import com.actor.myandroidframework.utils.ThreadUtils;
 import com.actor.testapplication.databinding.ActivityTestBinding;
-import com.github.barteksc.pdfviewer.PDFView;
 
 /**
  * Description: Test测试页面
@@ -24,12 +23,7 @@ public class TestActivity extends BaseActivity<ActivityTestBinding> {
 
     private TextView    tvResult;//显示结果
     private EditText    editText;
-    private PDFView pdfView;
     private Button      btn;
-
-    private static final String PDF_URL = "http://qxdxz.mtwlkj.net:8021/20211223/3fdaf3d05f7a6a416dd35e672588f40c.pdf";
-    private static final String DOC_URL = "http://qxdxz.mtwlkj.net:8021/real_topic/20230628/0f8fd59e4603d4bd268da4eede5332fb.doc";
-    private static final String DOCX_URL = "http://qxdxz.mtwlkj.net:8021/real_topic/20230628/dace1521f18acca8d5b617b9528833f4.docx";
 
     private final Handler mainHandler = new Handler(Looper.getMainLooper()/*, @Nullable Callback callback*/) {
         @Override
@@ -44,7 +38,6 @@ public class TestActivity extends BaseActivity<ActivityTestBinding> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tvResult = viewBinding.tvResult;
-        pdfView = viewBinding.pdfView;
         btn = viewBinding.btn;
         setTitle("Test测试页面");
 
@@ -73,28 +66,6 @@ public class TestActivity extends BaseActivity<ActivityTestBinding> {
                 }
             }
         });
-
-        //
-//        MyOkHttpUtils.getFile(DOC_URL, null, null, new GetFileCallback(this, GetFileCallback.getFileNameFromUrl(DOC_URL)) {
-//            @Override
-//            public void onOk(@NonNull File info, int requestId, boolean isRefresh) {
-//                LogUtils.error(info.getAbsolutePath());
-//                dismissNetWorkLoadingDialog();
-//                BasicSet basicSet = new BasicSet(activity,
-//                        info.getAbsolutePath(),//word file path
-//                        PathUtils.getFilesPathExternalFirst(),//after conver html file storage path
-//                        info.getName().concat(".html"));//html fileName
-//
-//                //Some configuration can be added...
-//                //The concrete in BasicSet.class
-//                //basicSet.setHtmlBegin(htmlBegin);
-//                String htmlSavePath = WordUtils.getInstance(basicSet).word2html();
-//
-//                //...
-//                //Render in a webview
-//                webView.loadUrl("file://" + htmlSavePath);
-//            }
-//        });
     }
 
     @Override

@@ -90,6 +90,9 @@ dependencies {
     //https://github.com/jianzhongli/MathView
     implementation "io.github.kexanie.library:MathView:0.0.6"
 
+    //https://github.com/RDSunhy/android-word2html
+    implementation 'com.github.RDSunhy:android-word2html:1.2.0'
+
 
 
     //https://github.com/Esri/arcgis-runtime-samples-android 地图
@@ -99,12 +102,6 @@ dependencies {
     compileOnly 'com.jakewharton:butterknife:10.2.3'
 //    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
 
-
-    //https://github.com/barteksc/AndroidPdfViewer
-    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
-
-    //https://github.com/RDSunhy/android-word2html
-    implementation 'com.github.RDSunhy:android-word2html:1.2.0'
 }
 
 //Gradle学习: 创建一个任务
