@@ -60,6 +60,10 @@ public class BirthItem {
     @Convert(converter = String2DateConverter.class, columnType = String.class)
     public Date solarCalendar;
 
+    //生日是否过农历. 0否, 1是, 2都过, 3未知
+    @Property(nameInDb = "is_birth_celebrate_lunar")
+    public int isBirthCelebrateLunar;
+
     //生肖
     @Property(nameInDb = "chinese_zodiac")
     public String chineseZodiac;
@@ -78,27 +82,27 @@ public class BirthItem {
 
     //还未计算
     @Transient
-    private static final int UN_CACULATE_I = -2;
+    private static final int UN_CALCULATE_I = -2;
 
     //还未计算
     @Transient
-    public static final Date UN_CACULATE_DATE = new Date();
+    public static final Date UN_CALCULATE_DATE = new Date();
 
     //阳历岁数
     @Transient
-    private int age = UN_CACULATE_I;
+    private int age = UN_CALCULATE_I;
 
     //农历年月日
     @Transient
-    private int lunarYear = UN_CACULATE_I, lunarMonth, lunarDay;
+    private int lunarYear = UN_CALCULATE_I, lunarMonth, lunarDay;
 
     //下一个未过的阳历生日
     @Transient
-    private Date nextSolarBirthday = UN_CACULATE_DATE;
+    private Date nextSolarBirthday = UN_CALCULATE_DATE;
 
     //生日倒数天数
     @Transient
-    private long coundDownDay = UN_CACULATE_I;
+    private long coundDownDay = UN_CALCULATE_I;
 
     public BirthItem() {
     }
@@ -151,6 +155,14 @@ public class BirthItem {
         this.solarCalendar = solarCalendar;
     }
 
+    public int getIsBirthCelebrateLunar() {
+        return this.isBirthCelebrateLunar;
+    }
+
+    public void setIsBirthCelebrateLunar(int isBirthCelebrateLunar) {
+        this.isBirthCelebrateLunar = isBirthCelebrateLunar;
+    }
+
     public String getChineseZodiac() {
         return this.chineseZodiac;
     }
@@ -180,7 +192,7 @@ public class BirthItem {
      * @return -1表示无效
      */
     public int getAge() {
-        if (age == UN_CACULATE_I) {
+        if (age == UN_CALCULATE_I) {
             if (lunarCalendar != null) {
                 String ymd = lunarCalendar.split(" ")[0];
                 String[] split = ymd.split("-");
@@ -203,7 +215,13 @@ public class BirthItem {
      */
     @Nullable
     public Date getNextSolarBirthday() {
-        if (nextSolarBirthday == UN_CACULATE_DATE) {
+        if (nextSolarBirthday == UN_CALCULATE_DATE) {
+            //if过农历生日
+            if (isBirthCelebrateLunar == 1) {
+
+            } else {
+                //过阳历 or 未知
+            }
             //如果有农历生日
             if (lunarCalendar != null) {
                 String ymd = lunarCalendar.split(" ")[0];
@@ -229,7 +247,7 @@ public class BirthItem {
      * @return -1表示无效
      */
     public long getCoundDownDay() {
-        if (coundDownDay == UN_CACULATE_I) {
+        if (coundDownDay == UN_CALCULATE_I) {
             Date nextSolarBirthday = getNextSolarBirthday();
             if (nextSolarBirthday != null) {
                 return coundDownDay = BirthdayUtils.getBirthSpanByNow(nextSolarBirthday);

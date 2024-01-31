@@ -32,9 +32,10 @@ public class BirthItemDao extends AbstractDao<BirthItem, Long> {
         public final static Property LunarCalendar = new Property(3, String.class, "lunarCalendar", false, "lunar_calendar");
         public final static Property IsLeapMonth = new Property(4, boolean.class, "isLeapMonth", false, "is_leap_month");
         public final static Property SolarCalendar = new Property(5, String.class, "solarCalendar", false, "solar_calendar");
-        public final static Property ChineseZodiac = new Property(6, String.class, "chineseZodiac", false, "chinese_zodiac");
-        public final static Property Zodiac = new Property(7, String.class, "zodiac", false, "zodiac");
-        public final static Property Remarks = new Property(8, String.class, "remarks", false, "remarks");
+        public final static Property IsBirthCelebrateLunar = new Property(6, int.class, "isBirthCelebrateLunar", false, "is_birth_celebrate_lunar");
+        public final static Property ChineseZodiac = new Property(7, String.class, "chineseZodiac", false, "chinese_zodiac");
+        public final static Property Zodiac = new Property(8, String.class, "zodiac", false, "zodiac");
+        public final static Property Remarks = new Property(9, String.class, "remarks", false, "remarks");
     }
 
     private final String2DateConverter solarCalendarConverter = new String2DateConverter();
@@ -72,20 +73,21 @@ public class BirthItemDao extends AbstractDao<BirthItem, Long> {
         if (solarCalendar != null) {
             stmt.bindString(6, solarCalendarConverter.convertToDatabaseValue(solarCalendar));
         }
+        stmt.bindLong(7, entity.getIsBirthCelebrateLunar());
  
         String chineseZodiac = entity.getChineseZodiac();
         if (chineseZodiac != null) {
-            stmt.bindString(7, chineseZodiac);
+            stmt.bindString(8, chineseZodiac);
         }
  
         String zodiac = entity.getZodiac();
         if (zodiac != null) {
-            stmt.bindString(8, zodiac);
+            stmt.bindString(9, zodiac);
         }
  
         String remarks = entity.getRemarks();
         if (remarks != null) {
-            stmt.bindString(9, remarks);
+            stmt.bindString(10, remarks);
         }
     }
 
@@ -114,20 +116,21 @@ public class BirthItemDao extends AbstractDao<BirthItem, Long> {
         if (solarCalendar != null) {
             stmt.bindString(6, solarCalendarConverter.convertToDatabaseValue(solarCalendar));
         }
+        stmt.bindLong(7, entity.getIsBirthCelebrateLunar());
  
         String chineseZodiac = entity.getChineseZodiac();
         if (chineseZodiac != null) {
-            stmt.bindString(7, chineseZodiac);
+            stmt.bindString(8, chineseZodiac);
         }
  
         String zodiac = entity.getZodiac();
         if (zodiac != null) {
-            stmt.bindString(8, zodiac);
+            stmt.bindString(9, zodiac);
         }
  
         String remarks = entity.getRemarks();
         if (remarks != null) {
-            stmt.bindString(9, remarks);
+            stmt.bindString(10, remarks);
         }
     }
 
@@ -151,9 +154,10 @@ public class BirthItemDao extends AbstractDao<BirthItem, Long> {
         entity.setLunarCalendar(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
         entity.setIsLeapMonth(cursor.getShort(offset + 4) != 0);
         entity.setSolarCalendar(cursor.isNull(offset + 5) ? null : solarCalendarConverter.convertToEntityProperty(cursor.getString(offset + 5)));
-        entity.setChineseZodiac(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
-        entity.setZodiac(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
-        entity.setRemarks(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
+        entity.setIsBirthCelebrateLunar(cursor.getInt(offset + 6));
+        entity.setChineseZodiac(cursor.isNull(offset + 7) ? null : cursor.getString(offset + 7));
+        entity.setZodiac(cursor.isNull(offset + 8) ? null : cursor.getString(offset + 8));
+        entity.setRemarks(cursor.isNull(offset + 9) ? null : cursor.getString(offset + 9));
      }
     
     @Override

@@ -75,7 +75,7 @@
             android:name=".activity.MathViewActivity"
             android:exported="false" />
 
-
         <service android:name=".service.CheckUpdateLService" />
     </application>
+
 </manifest>

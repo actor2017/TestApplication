@@ -4,26 +4,28 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.actor.myandroidframework.utils.LogUtils;
 import com.actor.myandroidframework.utils.ThreadUtils;
+import com.actor.testapplication.R;
 import com.actor.testapplication.databinding.ActivityTestBinding;
+import com.blankj.utilcode.util.ClipboardUtils;
+import com.blankj.utilcode.util.FileIOUtils;
+import com.blankj.utilcode.util.PathUtils;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Description: Test测试页面
  * Date       : 2019/12/30 on 11:38
  */
 public class TestActivity extends BaseActivity<ActivityTestBinding> {
-
-    private TextView    tvResult;//显示结果
-    private EditText    editText;
-    private Button      btn;
 
     private final Handler mainHandler = new Handler(Looper.getMainLooper()/*, @Nullable Callback callback*/) {
         @Override
@@ -37,8 +39,6 @@ public class TestActivity extends BaseActivity<ActivityTestBinding> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tvResult = viewBinding.tvResult;
-        btn = viewBinding.btn;
         setTitle("Test测试页面");
 
         ThreadUtils.runOnSubThread(new Runnable() {

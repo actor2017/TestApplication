@@ -2,8 +2,10 @@ package com.actor.testapplication.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.text.TextUtils;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 
 import com.actor.myandroidframework.utils.TextUtils2;
@@ -84,11 +86,37 @@ public class BirthdayAdapter extends BaseQuickAdapter<BirthItem, BaseViewHolder>
                 .setText(R.id.tv_lunar_birthday, lunarCalendar)
                 //新历
                 .setText(R.id.tv_birthday, birthday)
+                //过生日类型
+                .setText(R.id.tv_birty_type, getBirthType(item.isBirthCelebrateLunar))
+                .setTextColor(R.id.tv_birty_type, setBirthTypeColor(item.isBirthCelebrateLunar))
                 //下次生日
                 .setText(R.id.tv_next_bir_date, nextSolarBirthdayStr)
                 //倒计时/天
                 .setText(R.id.tv_count_down, countDownDay)
                 .getView(R.id.iv_sex).setSelected(item.gender);
+    }
+
+    private String getBirthType(int isBirthCelebrateLunar) {
+        if (isBirthCelebrateLunar == 0) {
+            return "过: 阳历";
+        } else if (isBirthCelebrateLunar == 1) {
+            return "过: 农历";
+        } else if (isBirthCelebrateLunar == 2) {
+            return "都过";
+        }
+        return "未知";
+    }
+
+    @ColorInt
+    private int setBirthTypeColor(int isBirthCelebrateLunar) {
+        if (isBirthCelebrateLunar == 0) {
+            return Color.RED;
+        } else if (isBirthCelebrateLunar == 1) {
+            return Color.CYAN;
+        } else if (isBirthCelebrateLunar == 2) {
+            return Color.GREEN;
+        }
+        return Color.LTGRAY;
     }
 
     private void showRemars(int position) {

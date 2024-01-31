@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:paddingStart="5dp"
     android:paddingEnd="5dp"
-    android:paddingBottom="5dp">
+    android:paddingBottom="5dp"
+    tools:context=".adapter.BirthdayAdapter">
 
     <View
         android:id="@+id/view1"
@@ -94,11 +95,19 @@
         tools:text="1990-03-13(新历)" />
 
     <TextView
+        android:id="@+id/tv_birty_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tv_lunar_birthday"
+        app:layout_constraintTop_toBottomOf="@id/tv_lunar_birthday"
+        tools:text="过: 农历" />
+
+    <TextView
         android:id="@+id/tv_next_bir_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@id/tv_lunar_birthday"
+        app:layout_constraintStart_toStartOf="@id/tv_birthday"
         app:layout_constraintTop_toBottomOf="@id/tv_lunar_birthday"
         tools:text="下次生日: 1990-03-13" />
 
