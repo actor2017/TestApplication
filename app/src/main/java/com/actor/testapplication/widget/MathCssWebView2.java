@@ -45,9 +45,9 @@ public class MathCssWebView2 extends BaseWebView {
     protected void init(Context context, AttributeSet attrs) {
         super.init(context, attrs);
         init(new BaseWebViewClient(), new BaseWebChromeClient());
-        loadUrl("file:///android_asset/demo.html");
+//        loadUrl("file:///android_asset/demo.html");
 //        loadUrl("https://picture.halzwl.cn/demo.html");
-//        loadUrl("https://picture.halzwl.cn/picture/error/1fe006c467814ab3bc70c69f2c316d25demo.html");
+        loadUrl("https://picture.halzwl.cn/picture/error/6c2b1a25cd9647a6b66da92fa62715efdemo.html");
 
 //        loadUrl("https://picture.halzwl.cn/picture/error/2ac3e65bb3884116a2f00de51a45fb59test2.html");
 

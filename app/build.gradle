@@ -70,6 +70,9 @@ dependencies {
     implementation "net.zetetic:android-database-sqlcipher:4.4.3@aar"
     implementation "androidx.sqlite:sqlite:2.1.0"
 
+    // Shape 框架：https://github.com/getActivity/ShapeView
+    implementation 'com.github.getActivity:ShapeView:9.0'
+
     //https://github.com/actor20170211030627/MyAndroidFrameWork
     implementation 'com.github.actor20170211030627.MyAndroidFrameWork:library:2.1.1.2'
     implementation 'com.github.actor20170211030627.MyAndroidFrameWork:picture_selector:2.1.1.2'
@@ -91,7 +94,29 @@ dependencies {
     implementation "io.github.kexanie.library:MathView:0.0.6"
 
     //https://github.com/RDSunhy/android-word2html
-    implementation 'com.github.RDSunhy:android-word2html:1.2.0'
+//    implementation 'com.github.RDSunhy:android-word2html:1.2.0'
+
+    //https://github.com/dromara/hutool/
+//    implementation 'cn.hutool:hutool-all:5.8.24'
+////    implementation ('cn.hutool:hutool-all:5.8.24') {
+////        exclude group: 'org.apache.poi', module: 'poi-ooxml'
+////    }
+//    implementation 'org.apache.poi:poi-ooxml:4.1.2'
+//    //Didn't find class "javax.xml.stream.XMLStreamReader"
+//    implementation 'javax.xml.stream:stax-api:1.0'
+
+    //https://github.com/SargerasWang/ExcelUtil
+//    implementation 'com.sargeraswang.util:excel-util:1.2.4'
+
+    //https://github.com/wenzewoo/ExcelKit
+//    implementation ('com.wuwenze:ExcelKit:2.0.72') {
+//        exclude group: 'org.apache.xmlbeans', module: 'xmlbeans'
+//    }
+
+    //https://github.com/Crab2died/Excel4J
+    implementation ('com.github.crab2died:Excel4J:3.1.0') {
+//        exclude group: 'org.apache.xmlbeans', module: 'xmlbeans'
+    }
 
 
 

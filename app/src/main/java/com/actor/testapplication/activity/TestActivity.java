@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.text.TextUtils;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,13 @@ import com.actor.myandroidframework.utils.LogUtils;
 import com.actor.myandroidframework.utils.ThreadUtils;
 import com.actor.testapplication.R;
 import com.actor.testapplication.databinding.ActivityTestBinding;
+import com.blankj.utilcode.util.ClipboardUtils;
+import com.blankj.utilcode.util.FileIOUtils;
+import com.blankj.utilcode.util.PathUtils;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Description: Test测试页面
@@ -58,6 +66,33 @@ public class TestActivity extends BaseActivity<ActivityTestBinding> {
                 }
             }
         });
+
+
+        // /storage/emulated/0/Android/data/com.actor.testapplication/files
+        String externalAppFilesPath = PathUtils.getExternalAppFilesPath();
+        File file2 = new File("/storage/emulated/0/Android/data/com.actor.testapplication/files/phonetic_ruler.txt");
+        //1.读取音标
+        phonticRules.clear();
+        redPhonetics(file2);
+    }
+
+    private final List<String> phonticRules = new ArrayList<>();
+    private void redPhonetics(File file) {
+        List<String> strings = FileIOUtils.readFile2List(file);
+        for (String string : strings) {
+            if (!TextUtils.isEmpty(string)) phonticRules.add(string);
+        }
+    }
+
+    //输入的音标
+    private final List<InputEntity> inputPhonetics = new ArrayList<>();
+    private class InputEntity {
+        public String word;
+        public String phonetic;
+        public InputEntity(String word, String phonetic) {
+            this.word = word;
+            this.phonetic = phonetic;
+        }
     }
 
     //换行
@@ -86,9 +121,40 @@ public class TestActivity extends BaseActivity<ActivityTestBinding> {
                 subHandler.sendMessage(message);
                 break;
             case R.id.btn1:
-                viewBinding.webView.setContent(str2);
+                //2.读取et输入内容, 匹配音标规则内容
+                inputPhonetics.clear();
+//                String[] split = viewBinding.editText.getText().toString().trim().split("\n");
+                String[] split = ClipboardUtils.getText().toString().trim().split("\n");
+                for (String s : split) {
+                    if (!TextUtils.isEmpty(s)) {
+                        String[] split1 = s.split("[+\\s]");
+                        if (split1.length >= 2) {
+                            inputPhonetics.add(new InputEntity(split1[0], split1[1]));
+                        } else {
+                            LogUtils.errorFormat("%s 分割失败!", s);
+                        }
+                    }
+                }
+                for (InputEntity inputPhonetic : inputPhonetics) {
+                    LogUtils.errorFormat("%s    %s", inputPhonetic.word, inputPhonetic.phonetic);
+                    for (String phoneticRule : phonticRules) {
+                        if (phoneticRule.contains(inputPhonetic.word)
+                                && phoneticRule.contains(inputPhonetic.phonetic)
+                        ) {
+                            LogUtils.errorFormat("    %s", phoneticRule);
+                        }
+                    }
+                    LogUtils.error("\n\n");
+                }
+                viewBinding.editText.setText("");
                 break;
             case R.id.btn2:
+                viewBinding.webView.setContent(str1);
+                break;
+            case R.id.btn3:
+                viewBinding.webView.setContent(str2);
+                break;
+            case R.id.btn4:
                 viewBinding.webView.setContent(str3);
                 break;
             default:
