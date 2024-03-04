@@ -1,12 +1,13 @@
 package com.actor.testapplication;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.actor.myandroidframework.application.ActorApplication;
 import com.actor.myandroidframework.utils.AssetsUtils;
+import com.actor.myandroidframework.utils.ConfigUtils;
 import com.actor.myandroidframework.utils.LogUtils;
 import com.actor.myandroidframework.utils.database.GreenDaoUtils;
+import com.actor.myandroidframework.utils.okhttputils.MyOkHttpUtils;
 import com.actor.testapplication.utils.Global;
 import com.franmontiel.persistentcookiejar.ClearableCookieJar;
 import com.franmontiel.persistentcookiejar.PersistentCookieJar;
@@ -118,6 +119,9 @@ public class MyApplication extends ActorApplication {
             //                                               这是填写你的密码(请自己重新创建数据库,自己设置密码自己玩!)
             GreenDaoUtils.init(this, appDebug, Global.DBNAME, 密码);
         }
+
+        MyOkHttpUtils.setBaseUrl(Global.BASE_URL);
+        MyOkHttpUtils.setOkHttpClient(ConfigUtils.okHttpClient);
     }
 
     @Nullable
@@ -281,12 +285,6 @@ public class MyApplication extends ActorApplication {
                 .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)//设置具体的证书
 //                .writeTimeout(10_000L, TimeUnit.MILLISECONDS)//写超时,默认10秒
                 ;
-    }
-
-    @NonNull
-    @Override
-    protected String getBaseUrl(boolean isDebugMode) {
-        return Global.BASE_URL;
     }
 
     @Override

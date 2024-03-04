@@ -15,7 +15,7 @@ import androidx.annotation.LayoutRes;
  *
  * date       : 2020/5/31 on 12:13
  * @version 1.0
- * @deprecated Android7.0中PopupWindow 有点问题, api懒得适配, 还是用其它框架吧
+ * @deprecated TODO: Android7.0中PopupWindow 有点问题, api懒得适配, 还是用其它框架吧, 也可参考轮子哥
  */
 @Deprecated
 public class BasePopupWindow extends PopupWindow {

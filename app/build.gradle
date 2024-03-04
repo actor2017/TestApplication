@@ -70,13 +70,21 @@ dependencies {
     implementation "net.zetetic:android-database-sqlcipher:4.4.3@aar"
     implementation "androidx.sqlite:sqlite:2.1.0"
 
-    // Shape 框架：https://github.com/getActivity/ShapeView
-    implementation 'com.github.getActivity:ShapeView:9.0'
-
     //https://github.com/actor20170211030627/MyAndroidFrameWork
-    implementation 'com.github.actor20170211030627.MyAndroidFrameWork:library:2.1.1.2'
-    implementation 'com.github.actor20170211030627.MyAndroidFrameWork:picture_selector:2.1.1.2'
-    implementation 'com.github.actor20170211030627.MyAndroidFrameWork:chat_layout:2.1.1.2'
+    implementation 'com.github.actor20170211030627.MyAndroidFrameWork:library:2.1.3.1'
+    implementation 'com.github.actor20170211030627.MyAndroidFrameWork:picture_selector:2.1.3.1'
+    //VoiceRecorderView
+    implementation 'com.github.actor20170211030627.MyAndroidFrameWork:chat_layout:2.1.3.1'
+    //BirthdayUtils, ItemRadioGroupLayout, ItemTextInputLayout, QuickSearchBar
+    implementation 'com.github.actor20170211030627.MyAndroidFrameWork:other_utils:2.1.3.1'
+
+    //https://github.com/hongyangAndroid/okhttputils 张鸿洋的okhttp
+    implementation 'com.zhy:okhttputils:2.6.2'
+
+    //https://github.com/Bigkoo/Android-PickerView 时间选择器等等等
+    implementation 'com.contrarywind:Android-PickerView:4.1.9'
+
+
 
     //https://github.com/franmontiel/PersistentCookieJar Okhttp3的Cookie
     implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'

@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.actor.myandroidframework.utils.database.GreenDaoUtils;
-import com.actor.myandroidframework.widget.ItemRadioGroupLayout;
-import com.actor.myandroidframework.widget.ItemTextInputLayout;
+import com.actor.other_utils.widget.ItemRadioGroupLayout;
+import com.actor.other_utils.widget.ItemTextInputLayout;
 import com.actor.testapplication.R;
 import com.actor.testapplication.bean.BirthItem;
 import com.actor.testapplication.databinding.ActivityBirthdayDetailBinding;

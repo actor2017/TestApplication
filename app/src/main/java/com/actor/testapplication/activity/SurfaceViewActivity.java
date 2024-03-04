@@ -25,6 +25,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.actor.myandroidframework.utils.LogUtils;
+import com.actor.myandroidframework.utils.toaster.ToasterUtils;
 import com.actor.testapplication.R;
 import com.actor.testapplication.databinding.ActivitySurfaceViewBinding;
 import com.actor.testapplication.utils.CameraParamUtil;
@@ -228,7 +229,7 @@ public class SurfaceViewActivity extends BaseActivity<ActivitySurfaceViewBinding
                         setResult(RESULT_OK, intent);
                         onBackPressed();
                     } catch (Exception e) {
-                        showToast("拍照失败");
+                        ToasterUtils.error("拍照失败");
                         e.printStackTrace();
                     }
                 }

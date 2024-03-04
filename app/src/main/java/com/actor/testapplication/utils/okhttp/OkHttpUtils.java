@@ -5,9 +5,9 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.actor.myandroidframework.utils.ConfigUtils;
 import com.actor.myandroidframework.utils.TextUtils2;
 import com.actor.myandroidframework.utils.okhttputils.BaseCallback;
+import com.actor.testapplication.utils.Global;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -28,7 +28,8 @@ public class OkHttpUtils {
     protected static transient OkHttpClient okHttpClient;
 
     //Base Url
-    protected static final String BASE_URL = ConfigUtils.baseUrl;
+//    protected static final String BASE_URL = ConfigUtils.baseUrl;
+    protected static final String BASE_URL = Global.BASE_URL;
 
     /**
      * 初始化

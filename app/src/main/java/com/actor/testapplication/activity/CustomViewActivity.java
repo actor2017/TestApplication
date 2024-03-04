@@ -7,8 +7,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.actor.myandroidframework.widget.ItemTextInputLayout;
-import com.actor.myandroidframework.widget.QuickSearchBar;
+import com.actor.other_utils.widget.ItemTextInputLayout;
+import com.actor.other_utils.widget.QuickSearchBar;
 import com.actor.testapplication.R;
 import com.actor.testapplication.databinding.ActivityCustomViewBinding;
 import com.actor.testapplication.widget.ColorSelector;
@@ -20,7 +20,7 @@ public class CustomViewActivity extends BaseActivity<ActivityCustomViewBinding> 
     private ItemAddMinusLayout  itemAddMinus;
     private ColorSelector       colorSelector;
     private ItemTextInputLayout itilResult;
-    private QuickSearchBar      quickSearchBar;
+    private QuickSearchBar quickSearchBar;
     private TextView            tvLetter;
 
     @Override
@@ -60,7 +60,7 @@ public class CustomViewActivity extends BaseActivity<ActivityCustomViewBinding> 
         itemAddMinus.getTextViewItem().setOnClickListener(new ClickUtils.OnMultiClickListener(5, 1000 / 5) {
             @Override
             public void onTriggerClick(View v) {
-                startActivity(new Intent(activity, BirthdayActivity.class));
+                startActivity(new Intent(mActivity, BirthdayActivity.class));
             }
 
             @Override

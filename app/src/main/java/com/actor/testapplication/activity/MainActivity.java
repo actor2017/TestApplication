@@ -10,7 +10,6 @@ import android.view.SurfaceView;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.VideoView;
 
 import com.actor.testapplication.R;
@@ -20,9 +19,6 @@ import com.actor.testapplication.widget.BasePopupWindow;
 import com.blankj.utilcode.util.AppUtils;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
-
-    //版本
-    private TextView  tvVersion;
 
     // TODO: 2021/8/6 Surface
     Surface       surface;//extends Object implements Parcelable
@@ -36,10 +32,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tvVersion = viewBinding.tvVersion;
-
         AppUtils.AppInfo appInfo = AppUtils.getAppInfo();
-        tvVersion.setText(getStringFormat("VersionName: %s(VersionCode: %d)", appInfo.getVersionName(), appInfo.getVersionCode()));//版本
+        viewBinding.tvVersion.setText(getStringFormat("VersionName: %s(VersionCode: %d)", appInfo.getVersionName(), appInfo.getVersionCode()));//版本
         new CheckUpdateUtils().check(this);//检查更新
     }
 
@@ -78,7 +72,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     // TODO: 2021/8/6 PopupWindow
     private void showPopupWindow(View v) {
         BasePopupWindow popup = new BasePopupWindow(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        popup.setLayout(activity, R.layout.item_add_minus_layout);
+        popup.setLayout(mActivity, R.layout.item_add_minus_layout);
 
         //显示在某个位置
 //        popup.showAtLocation(v, Gravity.BOTTOM, 0, 0);

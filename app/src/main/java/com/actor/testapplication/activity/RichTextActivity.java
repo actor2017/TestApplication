@@ -8,6 +8,7 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.TextView;
 
+import com.actor.myandroidframework.utils.toaster.ToasterUtils;
 import com.actor.testapplication.R;
 import com.actor.testapplication.databinding.ActivityRichTextBinding;
 import com.actor.testapplication.utils.RichUtils;
@@ -71,7 +72,7 @@ public class RichTextActivity extends BaseActivity<ActivityRichTextBinding> {
                 tv.append(RichUtils.getBuilder("点击").addClickableSpan(new ClickableSpan() {
                     @Override
                     public void onClick(View widget) {
-                        showToast(widget.getClass().toString());
+                        ToasterUtils.success(widget.getClass().toString());
                     }
 
                     @Override

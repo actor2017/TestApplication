@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 
 import com.actor.chat_layout.VoiceRecorderView;
-import com.actor.myandroidframework.dialog.BaseDialog;
+import com.actor.myandroidframework.dialog.ViewBindingDialog;
 import com.actor.myandroidframework.utils.audio.AudioUtils;
+import com.actor.myandroidframework.utils.audio.MediaRecorderCallback;
 import com.actor.testapplication.R;
 import com.actor.testapplication.databinding.DialogAudioRecoderBinding;
 import com.blankj.utilcode.util.ToastUtils;
@@ -29,15 +29,14 @@ import java.util.List;
  *
  * @version 1.0
  */
-public class AudioRecoderDialog extends BaseDialog implements View.OnClickListener {
+public class AudioRecoderDialog extends ViewBindingDialog<DialogAudioRecoderBinding> implements View.OnClickListener {
 
-    private VoiceRecorderView voiceRecoder;
-    private Button            btnStart;
+    private VoiceRecorderView voiceRecorder;
 
     private boolean               hasPermission;//是否有录音权限
     private boolean                 audioRecordIsCancel;//语音录制是否已取消
     private float                   startRecordY;//按下时的y坐标
-    private OnListener onListener;
+    private final OnListener onListener;
 
     public AudioRecoderDialog(@NonNull Context context, OnListener listener) {
         super(context);
@@ -45,31 +44,18 @@ public class AudioRecoderDialog extends BaseDialog implements View.OnClickListen
         setCancelAble(true);
     }
 
-    @Override
-    protected int getLayoutResId() {
-//        return R.layout.dialog_audio_recoder;
-        DialogAudioRecoderBinding inflate = DialogAudioRecoderBinding.inflate(getLayoutInflater());
-        setContentView(inflate.getRoot());
-        voiceRecoder = inflate.voiceRecoder;
-        btnStart = inflate.btnStart;
-        inflate.btnCancel.setOnClickListener(this);
-        inflate.btnOk.setOnClickListener(this);
-        inflate.btnStart.setOnClickListener(this);
-        return 0;
-    }
-
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        voiceRecoder = findViewById(R.id.voice_recoder);
-//        btnStart = findViewById(R.id.btn_start);
-//        findViewById(R.id.btn_cancel).setOnClickListener(this);
-//        findViewById(R.id.btn_ok).setOnClickListener(this);
-//        findViewById(R.id.btn_start).setOnClickListener(this);
+        voiceRecorder = viewBinding.voiceRecorder;
+        viewBinding.btnCancel.setOnClickListener(this);
+        viewBinding.btnOk.setOnClickListener(this);
+        viewBinding.btnStart.setOnClickListener(this);
+
         checkPermission();
         //语音按钮
-        btnStart.setOnTouchListener(new View.OnTouchListener() {
+        viewBinding.btnStart.setOnTouchListener(new View.OnTouchListener() {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -83,20 +69,20 @@ public class AudioRecoderDialog extends BaseDialog implements View.OnClickListen
                     case MotionEvent.ACTION_DOWN:
                         audioRecordIsCancel = false;
                         startRecordY = event.getY();
-                        voiceRecoder.startRecording();
-                        AudioUtils.getInstance().startRecord(new AudioUtils.AudioRecordCallback() {
+                        voiceRecorder.startRecording();
+                        AudioUtils.getInstance().startRecordAmr(new MediaRecorderCallback() {
 
                             @Override
                             public void recordComplete(String audioPath, long durationMs) {
                                 if (audioRecordIsCancel) {
-                                    voiceRecoder.stopRecording(View.VISIBLE);
+                                    voiceRecorder.stopRecording(View.VISIBLE);
                                     return;
                                 }
                                 if (durationMs < 500) {
-                                    voiceRecoder.tooShortRecording();
+                                    voiceRecorder.tooShortRecording();
                                     return;
                                 }
-                                voiceRecoder.stopRecording(View.VISIBLE);
+                                voiceRecorder.stopRecording(View.VISIBLE);
                                 //语音路径
                                 String recordAudioPath = AudioUtils.getInstance().getRecordAudioPath();
                                 if (!TextUtils.isEmpty(recordAudioPath)) {
@@ -107,16 +93,16 @@ public class AudioRecoderDialog extends BaseDialog implements View.OnClickListen
 
                             @Override
                             public void recordCancel(String audioPath, long durationMs) {
-                                voiceRecoder.stopRecording(View.VISIBLE);
+                                voiceRecorder.stopRecording(View.VISIBLE);
                             }
 
                             @Override
                             public void recordError(Exception e) {//子线程
-                                voiceRecoder.post(new Runnable() {
+                                voiceRecorder.post(new Runnable() {
                                     @Override
                                     public void run() {
-                                        if (voiceRecoder != null) {
-                                            voiceRecoder.stopRecording(View.VISIBLE);
+                                        if (voiceRecorder != null) {
+                                            voiceRecorder.stopRecording(View.VISIBLE);
                                             onListener.onVoiceRecordError(e);
                                         }
                                     }
@@ -127,12 +113,12 @@ public class AudioRecoderDialog extends BaseDialog implements View.OnClickListen
                     case MotionEvent.ACTION_MOVE:
                         if (event.getY() - startRecordY < -100) {
                             audioRecordIsCancel = true;
-                            voiceRecoder.release2CancelRecording();//松开手指取消发送
+                            voiceRecorder.release2CancelRecording();//松开手指取消发送
                         } else {
                             //如果release2CancelRecording(), 再重新startRecording(), 否则会一直调startRecording().
                             if (audioRecordIsCancel) {
                                 audioRecordIsCancel = false;
-                                voiceRecoder.startRecording();//开始录音
+                                voiceRecorder.startRecording();//开始录音
                             }
                         }
                         break;
@@ -155,7 +141,7 @@ public class AudioRecoderDialog extends BaseDialog implements View.OnClickListen
         setOnDismissListener(new OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
-                voiceRecoder.stopRecording(View.VISIBLE);
+                voiceRecorder.stopRecording(View.VISIBLE);
             }
         });
     }

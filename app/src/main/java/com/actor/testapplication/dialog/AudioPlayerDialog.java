@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
-import com.actor.myandroidframework.dialog.BaseAlertDialogV7;
+import com.actor.myandroidframework.dialog.BaseAlertDialog;
 import com.actor.testapplication.widget.AudioPlayerLaout;
 
 /**
@@ -13,7 +13,7 @@ import com.actor.testapplication.widget.AudioPlayerLaout;
  * date       : 2020/6/19 on 11:15
  * @version 1.0
  */
-public class AudioPlayerDialog extends BaseAlertDialogV7 {
+public class AudioPlayerDialog extends BaseAlertDialog {
 
     private String playUrl;
 

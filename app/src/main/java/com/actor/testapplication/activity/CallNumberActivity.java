@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.CheckBox;
 
 import com.actor.myandroidframework.utils.SPUtils;
-import com.actor.myandroidframework.widget.ItemTextInputLayout;
+import com.actor.other_utils.widget.ItemTextInputLayout;
 import com.actor.testapplication.R;
 import com.actor.testapplication.databinding.ActivityCallNumberBinding;
 import com.actor.testapplication.utils.Global;

@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.actor.myandroidframework.widget.ItemTextInputLayout
+    <com.actor.other_utils.widget.ItemTextInputLayout
         android:id="@+id/itil_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
         app:itilItemName="姓名: "
         app:layout_constraintTop_toBottomOf="@id/iv_back" />
 
-    <com.actor.myandroidframework.widget.ItemRadioGroupLayout
+    <com.actor.other_utils.widget.ItemRadioGroupLayout
         android:id="@+id/irgl_sex"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
         app:irglItemName="性别: "
         app:layout_constraintTop_toBottomOf="@id/itil_name" />
 
-    <com.actor.myandroidframework.widget.ItemTextInputLayout
+    <com.actor.other_utils.widget.ItemTextInputLayout
         android:id="@+id/itil_lunar_birthday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/irgl_sex" />
 
-    <com.actor.myandroidframework.widget.ItemRadioGroupLayout
+    <com.actor.other_utils.widget.ItemRadioGroupLayout
         android:id="@+id/irgl_is_leap_month"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
         app:irglRedStarVisiable="invisible"
         app:layout_constraintTop_toBottomOf="@id/itil_lunar_birthday" />
 
-    <com.actor.myandroidframework.widget.ItemTextInputLayout
+    <com.actor.other_utils.widget.ItemTextInputLayout
         android:id="@+id/itil_solar_birthday"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
         app:itilRedStarVisiable="invisible"
         app:layout_constraintTop_toBottomOf="@id/irgl_is_leap_month" />
 
-    <com.actor.myandroidframework.widget.ItemTextInputLayout
+    <com.actor.other_utils.widget.ItemTextInputLayout
         android:id="@+id/itil_remarks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

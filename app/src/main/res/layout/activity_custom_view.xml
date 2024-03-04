@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@id/item_add_minus"
         tools:minHeight="400dp" />
 
-    <com.actor.myandroidframework.widget.ItemTextInputLayout
+    <com.actor.other_utils.widget.ItemTextInputLayout
         android:id="@+id/itil_result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
         app:itilRedStarVisiable="gone"
         app:layout_constraintTop_toBottomOf="@id/color_selector" />
 
-    <com.actor.myandroidframework.widget.QuickSearchBar
+    <com.actor.other_utils.widget.QuickSearchBar
         android:id="@+id/quick_search_bar"
         android:layout_width="30dp"
         android:layout_height="0dp"

@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".activity.CallNumberActivity">
 
-    <com.actor.myandroidframework.widget.ItemTextInputLayout
+    <com.actor.other_utils.widget.ItemTextInputLayout
         android:id="@+id/itil_call"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,7 +18,7 @@
         app:itilItemName="呼叫方号码: "
         app:itilMaxLength="11" />
 
-    <com.actor.myandroidframework.widget.ItemTextInputLayout
+    <com.actor.other_utils.widget.ItemTextInputLayout
         android:id="@+id/itil_be_call"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
