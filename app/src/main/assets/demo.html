@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+        body {
+            font-size: 14px;
+            line-height: 24px;
+            word-wrap: break-word;
+            word-break: break-word;
+        }
+
+        img {
+            vertical-align: middle;
+            max-width: 100%;
+        }
+
+        table {
+            max-width: 100%;
+        }
+        /* #myDiv {
+            border: 1px solid red;
+        } */
+        /* #myDiv:focus {
+            outline: none;
+        } */
+    </style>
+<!--    <link rel="stylesheet" href="https://m.91chengguo.com/utils/katex/katex.min.css">-->
+<!--    <script type="text/javascript" src="https://m.91chengguo.com/utils/katex/katex.min.js"></script>-->
+<!--    <link rel="stylesheet" href="katex.min.css">-->
+<!--    <script type="text/javascript" src="katex.min.js"></script>-->
+
+    <!-- MathJax数学公式 -->
+    <!-- <script src="mathjax/load-mathjax.js" async></script> -->
+    <!-- <script src="https://picture.halzwl.cn/mathjax/text-mml-chtml.js" async></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        (function () {
+            var currClientWidth,
+                fontValue,
+                originWidth;
+
+            originWidth = 375;
+            // originWidth = 225;
+            __resize();
+            window.addEventListener('resize', __resize, false);
+            function __resize() {
+                currClientWidth = document.documentElement.clientWidth;
+                if (currClientWidth > 768) {
+                    currClientWidth = 600;
+                }
+                if (currClientWidth < 320) {
+                }
+                fontValue = ((625 * currClientWidth) / originWidth).toFixed(2);
+                document.documentElement.style.fontSize = fontValue + '%';
+            }
+
+        })();
+    </script>
+
+    <!--
+        max-height: 50vh;       vh指视口高度，100vh就是整个屏幕这么高
+        white-space: pre-wrap;  \n换行
+        color: red;             设置字体颜色
+        border-color: 2px-solid-red; 没效果
+     -->
+    <div id="myDiv"
+         style="white-space: pre-wrap; overflow-y: auto; min-height: 50px;"
+         contenteditable="true"
+         ></div>
+
+    <button type="submit" id="confirmBtn" style="display: none;">设置内容1</button>
+    <button type="submit" id="confirmBtn2" style="display: none;">设置内容2</button>
+    <button type="submit" id="confirmBtn3" style="display: none;">设置内容3</button>
+</body>
+
+<script>
+     window.onload = function () {
+        // 等待 MathJax 加载和初始化完成后再解析表达式
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)'],['\(', '\)']]
+                },
+                "HTML-CSS": { availableFonts: ["TeX"] }
+        });
+
+    }
+    
+    // window.onload = function () {
+    //     var mathC = document.getElementsByClassName("mathquill-embedded-latex");
+    //     if (mathC && mathC.length) {
+    //         for (var i = 0; i < mathC.length; i++) {
+    //             var latex = mathC[i].innerHTML;
+    //             katex.render(latex, mathC[i], {
+    //                 throwOnError: false
+    //             });
+    //         }
+    //     }
+    // }
+    const confirmBtn = document.getElementById("confirmBtn")
+    const editBtn = document.getElementById("confirmBtn2")
+    const colorBtn = document.getElementById("confirmBtn3")
+    const answerRegion = document.getElementById("myDiv")
+    let isEdit = true
+    let curColor = '#367FFF'    //red
+    let num = 0
+    let colors = ['red', 'green', 'blue']
+    const content1 = '然后通过面积公式 $S_{△ABD}=\\frac{1}{2}\\cdot|AD|\\cdot|BD|$ 求得面积。'   // \会转义
+    const content2 = '这是一张显示了数学问题及其答案的图片。由于我无法直接查看或解析图像中的文本，因此不能提供对具体答案的评估。'
+        + '不过我可以告诉你如何解决这类几何证明和计算的问题：'
+        + '对于(1)，你需要根据题目中给定的角度（∠B=45°, ∠C=60°）来确定角AC\'D与角度关系，并利用折叠后三角形相似性或者全等性的性质求出∠C\'DB。'
+        + '对于(2) ，你可以使用已知条件CD = AB + BD 和 AD 平分∠BAC 来构建直角三角形ADC 或者ADB 的边长比例关系，然后通过面积公式 $S_{△ABD}=\\frac{1}{2}\\cdot|AD|\\cdot|BD|$ 求得面积。'
+        + '对于(3)，你可能需要先找出所有未知量之间的关系，例如 CD、BC 等长度的关系式，然后再结合所给信息如∠C=24°进行推理得出结果。'
+        + '如果你有具体的步骤或疑问，请详细描述以便我能更准确地帮助你检查答案或提供建议。'
+        + '然后利用勾股定理求出BD的长度：$\\sqrt{A{C^2} - C{D^2}} = \\sqrt{{4^2}-{2^2}}$ '
+    const content3 = '然后利用勾股定理求出BD的长度：$\\sqrt{A{C^2} - C{D^2}} = \\sqrt{{4^2}-{2^2}}$ '
+
+    // 初始化myDiv盒子的可编辑样式
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, answerRegion]);
+    answerRegion.contentEditable = isEdit
+    changeBorder(2, curColor, 3)
+    /**
+     * 设置显示内容
+     */
+    function setContent(content) {
+        console.log("设置显示内容: ", content)
+
+        //将对象, 转换成json字符串
+        let text1 = JSON.stringify(content);
+        console.log("JSON.stringify: ", text1)
+        console.log("JSON.stringify: content.value = ", content.value)
+
+        //let text2 = JSON.parse(content);
+        //console.log("JSON.parse: ", text2)
+
+        //text.replace(/\\/g, "\\\\")
+        //answerRegion.innerHTML = text.substring(1, text.length - 1)
+        answerRegion.innerHTML = content.value
+
+        
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, answerRegion]);
+    }
+
+    /**
+     * 获取answerRegion的innerHtml
+     */
+    function getInnerHtml() {
+        const value = answerRegion.innerHTML
+        return value
+    }
+    
+    /**
+     * 修改边框样式
+     * @param size 边框宽度, 单位px, 例: 2
+     * @param color 边框颜色, 例: red, #367FFF
+     * @param conorRadius 边框圆角半径, 单位px 例: 3
+    */
+    function changeBorder(size, color, conorRadius) {
+        curColor = color
+        // 将传入的颜色值赋给 border-color CSS属性
+        //answerRegion.style.borderColor = color;
+        answerRegion.style.border = `${size}px solid ${curColor}`;
+        answerRegion.style.borderRadius = conorRadius + 'px';
+    }
+    
+    /**
+     * 修改myDiv是否可编辑状态
+     * @param state 传入的状态
+    */
+    function changeEditAble(state) {
+        isEdit = !!state
+        console.log(isEdit)
+        answerRegion.contentEditable = isEdit
+    }
+
+
+
+    confirmBtn.addEventListener("click", () => {
+        setContent(content1)
+    })
+    
+    //当编辑框获取焦点
+    answerRegion.addEventListener('focus', function () {
+            //changeBorder(2, curColor, 3);
+            answerRegion.style.outline = 'none'
+        });
+
+    // // 当编辑框失去焦点时
+    // answerRegion.addEventListener('blur', function () {
+    //     // 恢复默认样式
+    //     //answerRegion.style.border =  `none`;
+    // });
+    //设置是否能编辑
+    editBtn.addEventListener('click', () => {
+        setContent(content2)
+    })
+    
+    //改变颜色
+    colorBtn.addEventListener('click', () => {
+        setContent(content3)
+    })
+    
+
+</script>
+
+</html>

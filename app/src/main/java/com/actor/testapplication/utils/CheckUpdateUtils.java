@@ -9,10 +9,10 @@ import androidx.annotation.RequiresPermission;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.actor.myandroidframework.utils.LogUtils;
-import com.actor.myandroidframework.utils.okhttputils.BaseCallback;
-import com.actor.myandroidframework.utils.okhttputils.GetFileCallback;
-import com.actor.myandroidframework.utils.okhttputils.MyOkHttpUtils;
 import com.actor.testapplication.info.CheckUpdateInfo;
+import com.actor.testapplication.utils.okhttputils.BaseCallback;
+import com.actor.testapplication.utils.okhttputils.GetFileCallback;
+import com.actor.testapplication.utils.okhttputils.MyOkHttpUtils;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.ToastUtils;
 

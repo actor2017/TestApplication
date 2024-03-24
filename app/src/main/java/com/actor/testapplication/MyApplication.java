@@ -1,14 +1,14 @@
 package com.actor.testapplication;
 
-import androidx.annotation.Nullable;
-
 import com.actor.myandroidframework.application.ActorApplication;
 import com.actor.myandroidframework.utils.AssetsUtils;
-import com.actor.myandroidframework.utils.ConfigUtils;
 import com.actor.myandroidframework.utils.LogUtils;
 import com.actor.myandroidframework.utils.database.GreenDaoUtils;
-import com.actor.myandroidframework.utils.okhttputils.MyOkHttpUtils;
+import com.actor.myandroidframework.utils.okhttputils.OkHttpConfigUtils;
+import com.actor.testapplication.utils.ConfigUtils2;
 import com.actor.testapplication.utils.Global;
+import com.actor.testapplication.utils.okhttputils.MyOkHttpUtils;
+import com.actor.testapplication.utils.retrofit.RetrofitNetwork;
 import com.franmontiel.persistentcookiejar.ClearableCookieJar;
 import com.franmontiel.persistentcookiejar.PersistentCookieJar;
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache;
@@ -117,16 +117,26 @@ public class MyApplication extends ActorApplication {
         boolean success = AssetsUtils.copyFile2InternalDbsDir(true, Global.DBNAME);
         if (success) {
             //                                               这是填写你的密码(请自己重新创建数据库,自己设置密码自己玩!)
-            GreenDaoUtils.init(this, appDebug, Global.DBNAME, 密码);
+            GreenDaoUtils.init(this, appDebug, Global.DBNAME, ConfigUtils2.DB_PASSWORD);
         }
 
+
+        //配置张鸿洋的OkHttpUtils
         MyOkHttpUtils.setBaseUrl(Global.BASE_URL);
-        MyOkHttpUtils.setOkHttpClient(ConfigUtils.okHttpClient);
+        OkHttpClient.Builder builder = MyOkHttpUtils.initOkHttp(isAppDebug());
+        //然后可以在 builder 中自定义设置, 添加拦截器等
+        builder = configOkHttpClientBuilder(builder);
+        //OkHttp配置完后, 再增加1个日志拦截器, 用于打印非常标准的请求日志
+        OkHttpClient okHttpClient = OkHttpConfigUtils.addLogInterceptor(builder, isAppDebug());
+        //最后将okHttpClient设置进去
+        MyOkHttpUtils.setOkHttpClient(okHttpClient);
+
+        //配置Retrofit
+        RetrofitNetwork.setBaseUrl(Global.BASE_URL);
+        RetrofitNetwork.setOkHttpClient(okHttpClient);
     }
 
-    @Nullable
-    @Override
-    protected OkHttpClient.Builder configOkHttpClientBuilder(OkHttpClient.Builder builder) {
+    private OkHttpClient.Builder configOkHttpClientBuilder(OkHttpClient.Builder builder) {
         //持久化Cookie & Session框架:PersistentCookieJar
         ClearableCookieJar cookieJar = new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(this));
 
@@ -289,6 +299,6 @@ public class MyApplication extends ActorApplication {
 
     @Override
     protected void onUncaughtException(Throwable e) {
-//        System.exit(-1);//退出
+        super.onUncaughtException(e);
     }
 }

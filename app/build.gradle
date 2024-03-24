@@ -71,15 +71,25 @@ dependencies {
     implementation "androidx.sqlite:sqlite:2.1.0"
 
     //https://github.com/actor20170211030627/MyAndroidFrameWork
-    implementation 'com.github.actor20170211030627.MyAndroidFrameWork:library:2.1.3.1'
-    implementation 'com.github.actor20170211030627.MyAndroidFrameWork:picture_selector:2.1.3.1'
+    implementation 'com.github.actor20170211030627.MyAndroidFrameWork:library:2.1.6'
+    implementation 'com.github.actor20170211030627.MyAndroidFrameWork:picture_selector:2.1.6'
     //VoiceRecorderView
-    implementation 'com.github.actor20170211030627.MyAndroidFrameWork:chat_layout:2.1.3.1'
+    implementation 'com.github.actor20170211030627.MyAndroidFrameWork:chat_layout:2.1.6'
     //BirthdayUtils, ItemRadioGroupLayout, ItemTextInputLayout, QuickSearchBar
-    implementation 'com.github.actor20170211030627.MyAndroidFrameWork:other_utils:2.1.3.1'
+    implementation 'com.github.actor20170211030627.MyAndroidFrameWork:other_utils:2.1.6'
 
-    //https://github.com/hongyangAndroid/okhttputils 张鸿洋的okhttp
-    implementation 'com.zhy:okhttputils:2.6.2'
+    //https://github.com/hongyangAndroid/okhttputils 张鸿洋的okhttp, 55.9KB
+    implementation ('com.zhy:okhttputils:2.6.2') {
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'//3.3.1
+    }
+
+    //https://github.com/square/retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+    //https://github.com/square/retrofit/tree/master/retrofit-converters/gson (已经依赖了Gson2.8.5)
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+
 
     //https://github.com/Bigkoo/Android-PickerView 时间选择器等等等
     implementation 'com.contrarywind:Android-PickerView:4.1.9'
@@ -127,6 +137,9 @@ dependencies {
     }
 
 
+
+    //https://github.com/JessYanCoding/ProgressManager Okhttp/Retofit/Glide下载进度监听
+    compileOnly 'me.jessyan:progressmanager:1.5.0'
 
     //https://github.com/Esri/arcgis-runtime-samples-android 地图
     compileOnly 'com.esri.arcgisruntime:arcgis-android:100.4.0'

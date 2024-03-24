@@ -11,8 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.actor.myandroidframework.utils.SPUtils;
-import com.actor.myandroidframework.utils.okhttputils.BaseCallback;
-import com.actor.myandroidframework.utils.okhttputils.MyOkHttpUtils;
+import com.actor.testapplication.utils.okhttputils.BaseCallback;
+import com.actor.testapplication.utils.okhttputils.MyOkHttpUtils;
 import com.google.gson.JsonObject;
 
 import okhttp3.Call;
