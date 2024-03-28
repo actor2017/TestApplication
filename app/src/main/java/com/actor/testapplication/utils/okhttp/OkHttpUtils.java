@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.actor.myandroidframework.utils.TextUtils2;
-import com.actor.myandroidframework.utils.okhttputils.BaseCallback;
 import com.actor.testapplication.utils.Global;
 
 import java.util.LinkedHashMap;
@@ -85,7 +84,7 @@ public class OkHttpUtils {
                 //.newBuilder().connectTimeout()...
                 .newCall(builder.build())
                 .enqueue(callback == null ? new NullCallback() : callback);//不能为空
-        if (callback != null) callback.onBefore(null, callback.getRequestId());//okhttp3.Callback需要手动调一下...
+        if (callback != null) callback.onBefore(callback.getRequestId());//okhttp3.Callback需要手动调一下...
 
         /**
          * 不能使用{@link com.zhy.http.okhttp.OkHttpUtils#get()}, 因为↓ 这个方法组合成的url不对

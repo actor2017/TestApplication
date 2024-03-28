@@ -39,7 +39,7 @@ public abstract class BaseCallback<T> implements okhttp3.Callback {
     protected boolean           isParseNetworkResponseIsNull = false;//解析成的实体entity=null
     protected boolean           isJsonParseException         = false;//Json解析异常
     public    Object            tag;
-    public    int               id;
+    protected int               id;
     public    boolean           thisRequestIsRefresh         = false;//这次请求是否是(下拉)刷新
 
     public BaseCallback(@Nullable Object tag) {
@@ -212,5 +212,9 @@ public abstract class BaseCallback<T> implements okhttp3.Callback {
     protected Type getGenericityType(Object object) {
         Type type = object.getClass().getGenericSuperclass();
         return ((ParameterizedType) type).getActualTypeArguments()[0];
+    }
+
+    public int getRequestId() {
+        return id;
     }
 }

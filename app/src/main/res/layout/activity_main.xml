@@ -57,14 +57,6 @@
             android:transitionName="btnTest" />
 
         <Button
-            android:id="@+id/btn_popup_window"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onViewClicked"
-            android:text="PopupWindow测试"
-            android:transitionName="btnTest" />
-
-        <Button
             android:id="@+id/btn_go2_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

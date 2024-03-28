@@ -4,18 +4,15 @@ import android.content.Intent;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.Surface;
 import android.view.SurfaceView;
 import android.view.TextureView;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.VideoView;
 
 import com.actor.testapplication.R;
 import com.actor.testapplication.databinding.ActivityMainBinding;
 import com.actor.testapplication.utils.CheckUpdateUtils;
-import com.actor.testapplication.widget.BasePopupWindow;
 import com.blankj.utilcode.util.AppUtils;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
@@ -61,23 +58,8 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             case R.id.btn_go2_math_view://MathView测试
                 startActivity(new Intent(this, MathViewActivity.class), false, null, null, view);
                 break;
-            case R.id.btn_popup_window://PopupWindow测试
-                showPopupWindow(view);
-                break;
             default:
                 break;
         }
-    }
-
-    // TODO: 2021/8/6 PopupWindow
-    private void showPopupWindow(View v) {
-        BasePopupWindow popup = new BasePopupWindow(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        popup.setLayout(mActivity, R.layout.item_add_minus_layout);
-
-        //显示在某个位置
-//        popup.showAtLocation(v, Gravity.BOTTOM, 0, 0);
-
-        //显示在某个控件正下方
-        popup.showAsDropDown(v, 0, 0, Gravity.TOP | Gravity.END);
     }
 }
