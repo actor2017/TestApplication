@@ -57,6 +57,13 @@
             android:transitionName="btnTest" />
 
         <Button
+            android:id="@+id/btn_novel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onViewClicked"
+            android:text="小说" />
+
+        <Button
             android:id="@+id/btn_go2_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

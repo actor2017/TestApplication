@@ -76,6 +76,12 @@
             android:name=".activity.MathViewActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".activity.NovelActivity"
+            android:exported="false" />
+
+        <activity android:name=".activity.NovelSpiderActivity" />
+
         <service android:name=".service.CheckUpdateLService" />
     </application>
 

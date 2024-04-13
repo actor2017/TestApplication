@@ -77,6 +77,7 @@ public class Global {
 
     public static final String CALL_NUMBER = "CALL_NUMBER";
     public static final String BE_CALL_NUMBER = "BE_CALL_NUMBER";
+    public static final String NOVEL_NAME = "NOVEL_NAME";
 
     public static final String id = "id";
     public static final String isInsert = "isInsert";

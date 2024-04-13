@@ -58,6 +58,9 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
             case R.id.btn_go2_math_view://MathView测试
                 startActivity(new Intent(this, MathViewActivity.class), false, null, null, view);
                 break;
+            case R.id.btn_novel://小说
+                startActivity(new Intent(this, NovelActivity.class));
+                break;
             default:
                 break;
         }

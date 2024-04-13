@@ -13,6 +13,7 @@ import org.greenrobot.greendao.annotation.Property;
 import org.greenrobot.greendao.annotation.Transient;
 
 import java.util.Date;
+import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * description: 生日Item

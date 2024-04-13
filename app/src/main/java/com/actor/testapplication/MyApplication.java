@@ -118,6 +118,9 @@ public class MyApplication extends ActorApplication {
         if (success) {
             //                                               这是填写你的密码(请自己重新创建数据库,自己设置密码自己玩!)
             GreenDaoUtils.init(this, appDebug, Global.DBNAME, ConfigUtils2.DB_PASSWORD);
+
+            //初始化小说
+//            GreenDaoUtils.init(this, appDebug, "ban_url.db3", null, NovelBeanDao.class);
         }
 
 
